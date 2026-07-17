@@ -1,0 +1,8 @@
+# Tampa remodeling competitor list.
+# Edit before running scripts/dataforseo_competitors.py.
+# Pick 5–8 — each domain costs ~$0.075 in DataForSEO ranked_keywords credit.
+
+competitors: []
+  # - domain: example-tampa-remodeling.com
+  #   why: showed up in SERP for "kitchen remodeling tampa"
+  #   notes: ""

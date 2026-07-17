@@ -1,0 +1,23 @@
+.env
+.venv/
+__pycache__/
+*.zip
+.DS_Store
+*.log
+
+# SEO research artifacts (raw API dumps, big and credit-derived)
+seo/data/
+seo/.cache/
+seo/audits/*/raw/
+
+# Internal working docs (not for public repo)
+seo/client-questionnaire.md
+
+# Temporary marker files
+site/masonhomes77.html
+
+# Vercel CLI (when added)
+.vercel/
+
+# Netlify CLI
+.netlify/

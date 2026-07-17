@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Showroom — Finishes Library | Mason Homes Tampa</title>
+<meta name="description" content="Browse the full Mason Homes materials library — countertops, backsplash, cabinetry, flooring, and hardware. Curated finishes with specs, pricing, and lead times for Tampa Bay remodeling projects."/>
+<link rel="canonical" href="https://masonhomesconstruction.com/showroom/"/>
+<meta property="og:title" content="Showroom — Finishes Library | Mason Homes Tampa"/>
+<meta property="og:description" content="Browse the full Mason Homes materials library — countertops, backsplash, cabinetry, flooring, and hardware. Curated finishes with specs, pricing, and lead times."/>
+<meta property="og:url" content="https://masonhomesconstruction.com/showroom/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-02.jpg"/>
+<meta property="og:site_name" content="Mason Homes"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Showroom — Finishes Library | Mason Homes Tampa"/>
+<meta name="twitter:description" content="Browse the full Mason Homes materials library. Countertops, backsplash, cabinetry, flooring, hardware."/>
+<meta name="twitter:image" content="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-02.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+ --ivory:#f7f2e8;--cream:#efe7d4;--bone:#e6dcc6;--warm-white:#faf6ed;
+ --charcoal:#1a1814;--graphite:#3a3732;--muted:#8a8276;
+ --bronze:#c8623c;--bronze-dk:#a44e2d;--bronze-lt:#d88a62;
+ --line:rgba(31,29,26,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;font-weight:300;color:var(--charcoal);background:var(--ivory);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--bronze-dk);text-decoration:none;transition:color .2s}
+a:hover{color:var(--bronze)}
+
+/* NAV */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease;border-bottom:1px solid transparent}
+header.nav.scrolled{background:rgba(247,242,232,.97);backdrop-filter:blur(10px);padding:14px 40px;border-bottom-color:var(--line)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;letter-spacing:.18em;color:var(--ivory);white-space:nowrap;transition:color .3s}
+header.nav.scrolled .logo{color:var(--charcoal)}
+.logo.amp{color:var(--bronze-lt);font-style:italic}
+header.nav.scrolled .logo.amp{color:var(--bronze)}
+nav.main{display:flex;align-items:center;gap:2px}
+nav.main > .nav-item{position:relative}
+nav.main > .nav-item > a,nav.main > .nav-item > button{background:none;border:0;cursor:pointer;color:var(--ivory);font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;transition:color .3s}
+header.nav.scrolled nav.main > .nav-item > a,header.nav.scrolled nav.main > .nav-item > button{color:var(--charcoal)}
+nav.main > .nav-item > a:hover,nav.main > .nav-item > button:hover{color:var(--bronze-lt)}
+header.nav.scrolled nav.main > .nav-item > a:hover,header.nav.scrolled nav.main > .nav-item > button:hover{color:var(--bronze)}
+.cta-nav{padding:11px 22px !important;border:1px solid currentColor;margin-left:12px;border-radius:2px}
+.cta-nav:hover{background:var(--bronze);color:var(--ivory) !important;border-color:var(--bronze)}
+.dropdown{position:absolute;top:100%;left:0;min-width:260px;background:var(--ivory);border:1px solid var(--line);box-shadow:0 18px 40px -20px rgba(0,0,0,.18);padding:10px 0;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .25s}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:block;padding:9px 22px;font-size:13px;letter-spacing:.02em;color:var(--charcoal) !important;text-transform:none;font-weight:300;border-left:2px solid transparent}
+.dropdown a:hover{background:var(--cream);color:var(--bronze-dk) !important;border-left-color:var(--bronze)}
+.mobile-toggle{display:none;background:none;border:0;color:inherit;font-size:22px;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:60vh;overflow:hidden;display:flex;align-items:flex-end;padding:160px 40px 70px}
+.hero-bg{position:absolute;inset:0;background-image:url('/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-01.jpg');background-size:cover;background-position:center;transform:scale(1.04);animation:kenburns 20s ease-out forwards}
+@keyframes kenburns{to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,17,13,.82) 0%,rgba(20,17,13,.5) 50%,rgba(20,17,13,.2) 100%),linear-gradient(to bottom,rgba(20,17,13,.3) 0%,rgba(20,17,13,0) 40%,rgba(20,17,13,.4) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;color:var(--ivory)}
+.hero-eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze-lt);font-weight:500;margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--bronze)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(40px,5.5vw,78px);line-height:1.03;letter-spacing:-.01em;max-width:920px;margin-bottom:22px}
+.hero h1 em{font-style:italic;color:#e8cb9a;font-weight:300}
+.hero-sub{max-width:620px;font-size:17px;color:rgba(247,242,232,.88);line-height:1.7;margin-top:14px}
+
+/* BREADCRUMBS */
+.breadcrumbs{background:var(--cream);padding:18px 40px;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.breadcrumbs .container{max-width:1280px;margin:0 auto}
+.breadcrumbs a{color:var(--graphite)}
+.breadcrumbs a:hover{color:var(--bronze)}
+.breadcrumbs .sep{margin:0 10px;color:var(--muted)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;transition:all .3s ease;cursor:pointer;border:1px solid transparent;font-family:'Inter',sans-serif;text-decoration:none !important;white-space:nowrap;border-radius:2px}
+.btn-primary{background:var(--bronze);color:var(--ivory) !important}
+.btn-primary:hover{background:var(--bronze-dk);transform:translateY(-2px);box-shadow:0 18px 40px -16px rgba(200,98,60,.6)}
+.btn-outline{border-color:var(--charcoal);color:var(--charcoal) !important}
+.btn-outline:hover{background:var(--charcoal);color:var(--ivory) !important}
+.btn .arrow{font-size:14px;transition:transform .3s}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* CONTAINER */
+.container{max-width:1280px;margin:0 auto}
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);font-weight:500;margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--bronze)}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,4vw,52px);line-height:1.1;letter-spacing:-.008em;margin-bottom:24px;color:var(--charcoal);max-width:820px}
+.section-title em{font-style:italic;color:var(--bronze)}
+
+/* INTRO STRIP */
+.intro-strip{padding:70px 40px 40px;background:var(--ivory);text-align:center}
+.intro-strip.eyebrow{justify-content:center}
+.intro-strip.eyebrow::before{display:none}
+.intro-strip.eyebrow::after{content:'';width:32px;height:1px;background:var(--bronze)}
+.intro-strip.section-title{margin:0 auto}
+.intro-strip.section-lead{max-width:640px;margin:22px auto 0;font-size:17px;color:var(--graphite);line-height:1.75}
+
+/* TOOLBAR */
+.toolbar{background:var(--cream);padding:22px 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:sticky;top:70px;z-index:50;backdrop-filter:blur(10px)}
+.toolbar.wrap{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cats{display:flex;gap:6px;flex-wrap:wrap}
+.cat-btn{background:transparent;border:1px solid var(--line);padding:10px 18px;font-family:inherit;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite);cursor:pointer;transition:all .2s;font-weight:400}
+.cat-btn:hover{border-color:var(--bronze);color:var(--bronze)}
+.cat-btn.active{background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory)}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--warm-white);border:1px solid var(--line);padding:10px 16px;min-width:260px;color:var(--muted)}
+.search-box input{background:none;border:0;outline:none;font-family:inherit;font-size:13px;color:var(--charcoal);width:100%;font-weight:300}
+.search-box input::placeholder{color:var(--muted)}
+
+/* GRID */
+.grid-section{padding:40px 40px 90px;background:var(--ivory)}
+.grid-head{max-width:1280px;margin:0 auto 24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.grid-head.sort strong{color:var(--bronze-dk);font-weight:500;font-style:italic;font-family:'Cormorant Garamond',serif;letter-spacing:0;font-size:14px;text-transform:none}
+.tiles{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tile{background:var(--warm-white);border:1px solid var(--line);cursor:pointer;transition:all .25s;display:flex;flex-direction:column;overflow:hidden}
+.tile:hover{transform:translateY(-3px);border-color:var(--bronze);box-shadow:0 18px 40px -20px rgba(0,0,0,.18)}
+.swatch{aspect-ratio:4/3;background-color:var(--cream);background-size:cover;background-position:center;position:relative;overflow:hidden}
+.swatch.tier{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.96);padding:5px 10px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze-dk);font-weight:500}
+.swatch.cat-tag{position:absolute;bottom:12px;left:12px;background:rgba(26,24,20,.82);color:var(--ivory);padding:5px 11px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:400}
+.tile-body{padding:18px 18px 20px}
+.tile-body h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;color:var(--charcoal);margin-bottom:4px;line-height:1.2}
+.tile-body.brand{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.tile-body.price-row{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--bronze);margin-top:10px;border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;align-items:center}
+.tile-body.lead{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-style:normal;font-family:'Inter',sans-serif;font-weight:400}
+
+/* DETAIL PANEL */
+.detail{display:none;padding:70px 40px;background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+.detail.open{display:block}
+.detail-inner{max-width:1080px;margin:0 auto;position:relative}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.detail-img{aspect-ratio:4/3;background-size:cover;background-position:center;border:1px solid var(--line)}
+.detail-eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze);font-weight:500;margin-bottom:14px}
+.detail h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:38px;margin-bottom:8px;line-height:1.1;color:var(--charcoal)}
+.detail h2 em{font-style:italic;color:var(--bronze)}
+.detail.d-brand{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.detail p.desc{font-size:16px;color:var(--graphite);line-height:1.75;margin-bottom:26px}
+.specs{display:grid;gap:12px;margin-bottom:28px;border-top:1px solid var(--line);padding-top:22px}
+.specs.row{display:flex;justify-content:space-between;align-items:center;padding:4px 0}
+.specs.k{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:10px;font-weight:500}
+.specs.v{color:var(--charcoal);font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500}
+.detail-actions{display:flex;gap:12px;flex-wrap:wrap}
+.close-btn{background:none;border:0;color:var(--muted);font-size:28px;cursor:pointer;line-height:1;position:absolute;top:-24px;right:0;font-family:inherit;font-weight:300;padding:4px}
+.close-btn:hover{color:var(--charcoal)}
+
+/* CONSULTATION BAND */
+.consult{padding:90px 40px;background:var(--ivory);text-align:center;border-bottom:1px solid var(--line)}
+.consult.eyebrow{justify-content:center}
+.consult.eyebrow::before{display:none}
+.consult.eyebrow::after{content:'';width:32px;height:1px;background:var(--bronze)}
+.consult h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,3.4vw,44px);margin:0 auto 18px;max-width:720px;line-height:1.12;color:var(--charcoal)}
+.consult h2 em{font-style:italic;color:var(--bronze)}
+.consult p{max-width:620px;margin:0 auto 32px;font-size:16px;color:var(--graphite);line-height:1.7}
+
+/* CTA BAND */
+.cta-band{background:var(--charcoal);color:var(--ivory);padding:90px 40px;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border:1px solid rgba(200,98,60,.18);border-radius:50%;pointer-events:none}
+.cta-band.container{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.1;margin-bottom:18px;color:var(--ivory)}
+.cta-band h2 em{font-style:italic;color:var(--bronze-lt)}
+.cta-band p{color:rgba(247,242,232,.75);font-size:16px;margin-bottom:28px;max-width:520px}
+.cta-band.eyebrow{color:var(--bronze-lt)}
+.cta-info-band{border-left:1px solid rgba(247,242,232,.15);padding-left:40px}
+.cta-info-band dt{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:4px;font-weight:500}
+.cta-info-band dd{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ivory);margin-bottom:20px;font-weight:400}
+.cta-info-band dd a{color:var(--ivory)}
+
+/* FOOTER */
+footer{background:#15130f;color:rgba(247,242,232,.6);padding:80px 40px 28px}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;padding-bottom:50px;border-bottom:1px solid rgba(247,242,232,.1)}
+.footer-brand.logo{color:var(--ivory)}
+.footer-brand.logo.amp{color:var(--bronze)}
+.footer-brand p{margin-top:18px;font-size:14px;max-width:320px;line-height:1.7}
+footer h5{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17px;color:var(--ivory);margin-bottom:20px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:10px;font-size:14px}
+footer a{color:rgba(247,242,232,.6)}
+footer a:hover{color:var(--bronze-lt)}
+.footer-bottom{max-width:1280px;margin:26px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.08em;flex-wrap:wrap;gap:12px;color:rgba(247,242,232,.5)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.tiles{grid-template-columns:repeat(3,1fr)}
+.detail-grid{grid-template-columns:1fr;gap:30px}
+.cta-band.container{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:860px){
+.tiles{grid-template-columns:repeat(2,1fr)}
+.toolbar.wrap{flex-direction:column;align-items:stretch}
+.search-box{min-width:0}
+}
+@media(max-width:960px){
+ header.nav{padding:16px 20px}
+ header.nav.scrolled{padding:12px 20px}
+ nav.main{display:none;position:fixed;top:60px;left:0;right:0;background:var(--ivory);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);align-items:stretch;gap:0}
+ nav.main.open{display:flex}
+ nav.main > .nav-item > a,nav.main > .nav-item > button{color:var(--charcoal) !important;padding:14px 0;border-bottom:1px solid var(--line);width:100%;justify-content:space-between}
+.cta-nav{margin:12px 0 0;justify-content:center;background:var(--bronze);color:var(--ivory) !important;border:0}
+.dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;background:var(--cream);margin:0 -20px;padding:6px 20px;display:none}
+.nav-item.open .dropdown{display:block}
+.mobile-toggle{display:block;color:var(--ivory)}
+ header.nav.scrolled .mobile-toggle{color:var(--charcoal)}
+.hero{padding:130px 20px 60px;min-height:50vh}
+.breadcrumbs{padding:14px 20px}
+.intro-strip,.grid-section,.consult,.detail{padding-left:20px;padding-right:20px}
+.toolbar{padding:16px 20px;position:static}
+.cta-band{padding:60px 20px}
+.cta-info-band{border-left:0;border-top:1px solid rgba(247,242,232,.15);padding:24px 0 0}
+.footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+ footer{padding:60px 20px 24px}
+.hero h1{font-size:40px}
+.detail h2{font-size:30px}
+}
+@media(max-width:640px){
+.tiles{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+}
+</style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Mason Homes Showroom","description":"Materials library of countertops, backsplash, cabinetry, flooring, and hardware offered by Mason Homes for Tampa Bay remodeling projects.","url":"https://masonhomesconstruction.com/showroom/","publisher":{"@type":"HomeAndConstructionBusiness","name":"Mason Homes","url":"https://masonhomesconstruction.com/"}}
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+ <a href="/" class="logo">MASON <span class="amp">&amp;</span> HOMES</a>
+ <nav class="main" id="main-nav">
+ <div class="nav-item">
+ <button>Services <span style="font-size:10px;opacity: .7">▾</span></button>
+ <div class="dropdown">
+ <a href="/services/">All Services</a>
+ <a href="/services/kitchen-remodeling/">Kitchen Remodeling</a>
+ <a href="/services/bathroom-remodeling/">Bathroom Remodeling</a>
+ <a href="/services/whole-home-renovation/">Whole Home Renovation</a>
+ <a href="/services/home-additions/">Home Additions</a>
+ <a href="/services/custom-home-building/">Custom Home Building</a>
+ <a href="/services/adu-accessory-dwelling-units/">ADU Construction</a>
+ <a href="/services/flooring-installation/">Flooring Installation</a>
+ <a href="/services/countertop-installation/">Countertop Installation</a>
+ </div>
+ </div>
+ <div class="nav-item">
+ <button>Locations <span style="font-size:10px;opacity: .7">▾</span></button>
+ <div class="dropdown">
+ <a href="/locations/">All Service Areas</a>
+ <a href="/locations/tampa/">Tampa</a>
+ <a href="/locations/south-tampa/">South Tampa</a>
+ <a href="/locations/counties/hillsborough/">Hillsborough County →</a>
+ <a href="/locations/counties/pinellas/">Pinellas County →</a>
+ <a href="/locations/counties/pasco/">Pasco County →</a>
+ <a href="/locations/counties/manatee/">Manatee County →</a>
+ <a href="/locations/counties/sarasota/">Sarasota County →</a>
+ </div>
+ </div>
+ <div class="nav-item"><a href="/showroom/">Showroom</a></div>
+ <div class="nav-item"><a href="/cost-guides/">Cost Guides</a></div>
+ <div class="nav-item"><a href="/blog/">Journal</a></div>
+ <div class="nav-item"><a href="/free-estimate/" class="cta-nav">Free Estimate</a></div>
+ </nav>
+ <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">☰</button>
+</header>
+
+<section class="hero">
+ <div class="hero-bg"></div>
+ <div class="hero-overlay"></div>
+ <div class="hero-content">
+ <div class="hero-eyebrow">The Showroom</div>
+ <h1>Finishes, curated and <em>catalogued</em>.</h1>
+ <p class="hero-sub">The full Mason Homes materials library — countertops, backsplash, cabinetry, flooring, hardware, and trim. Every sample with specs, pricing, and lead time.</p>
+ </div>
+</section>
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container"><a href="/">Home</a> <span class="sep">/</span> <span>Showroom</span></div>
+</nav>
+
+<section class="intro-strip">
+ <span class="eyebrow">Materials Library</span>
+ <h2 class="section-title">A working showroom, <em>online</em>.</h2>
+ <p class="section-lead">Browse 24 finishes across six categories. Click any sample for full specs, pricing by square foot or linear foot, and current lead times. Save favorites to your project or request a physical sample.</p>
+</section>
+
+<div class="toolbar">
+ <div class="wrap">
+ <div class="cats" id="cats">
+ <button class="cat-btn active" data-cat="all">All <span id="all-count">(24)</span></button>
+ <button class="cat-btn" data-cat="countertops">Countertops</button>
+ <button class="cat-btn" data-cat="backsplash">Backsplash &amp; Tile</button>
+ <button class="cat-btn" data-cat="cabinetry">Cabinetry</button>
+ <button class="cat-btn" data-cat="flooring">Flooring</button>
+ <button class="cat-btn" data-cat="hardware">Hardware &amp; Trim</button>
+ </div>
+ <div class="search-box">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+ <input id="search" placeholder="Search by name, brand, or color..." type="search"/>
+ </div>
+ </div>
+</div>
+
+<section class="grid-section">
+ <div class="grid-head">
+ <span id="count-txt">Showing 24 materials</span>
+ <span class="sort">Sort · <strong>Newest first</strong></span>
+ </div>
+ <div class="tiles" id="tiles"></div>
+</section>
+
+<section class="detail" id="detail">
+ <div class="detail-inner">
+ <button class="close-btn" id="close-detail" aria-label="Close">×</button>
+ <div class="detail-grid" id="detail-content"></div>
+ </div>
+</section>
+
+<section class="consult">
+ <span class="eyebrow">Need a Hand Choosing?</span>
+ <h2>A designer's eye, on <em>your</em> home.</h2>
+ <p>Book a consultation and we'll walk through the library together — in person, in context, with your measurements and light in front of us. No guesswork, no surprises when the materials arrive.</p>
+ <a href="/free-estimate/" class="btn btn-outline">Request Consultation <span class="arrow">→</span></a>
+</section>
+
+<section class="cta-band">
+ <div class="container">
+ <div>
+ <span class="eyebrow">Start Your Project</span>
+ <h2>Let's build something <em>extraordinary</em>.</h2>
+ <p>Tell us about your home and your vision. We'll be in touch within one business day to arrange your complimentary on-site consultation.</p>
+ <a href="/free-estimate/" class="btn btn-primary">Request Free Estimate <span class="arrow">→</span></a>
+ </div>
+ <dl class="cta-info-band">
+ <dt>Direct Line</dt><dd><a href="tel:+18139995910">(813) 999-5910</a></dd>
+ <dt>Studio</dt><dd>5816 Little River Dr, Tampa, FL</dd>
+ <dt>Hours</dt><dd>Mon – Sat · 8a – 6p</dd>
+ </dl>
+ </div>
+</section>
+
+<footer>
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="/" class="logo">MASON <span class="amp">&amp;</span> HOMES</a>
+ <p>Licensed general contractor serving Tampa, St. Petersburg, Clearwater, and Florida's Gulf Coast. High-end residential remodeling and custom home construction.</p>
+ </div>
+ <div><h5>Services</h5><ul>
+ <li><a href="/services/kitchen-remodeling/">Kitchen Remodeling</a></li>
+ <li><a href="/services/bathroom-remodeling/">Bathroom Remodeling</a></li>
+ <li><a href="/services/whole-home-renovation/">Whole Home Renovation</a></li>
+ <li><a href="/services/home-additions/">Home Additions</a></li>
+ <li><a href="/services/custom-home-building/">Custom Home Building</a></li>
+ <li><a href="/services/adu-accessory-dwelling-units/">ADU Construction</a></li>
+ </ul></div>
+ <div><h5>Locations</h5><ul>
+ <li><a href="/locations/tampa/">Tampa</a></li>
+ <li><a href="/locations/south-tampa/">South Tampa</a></li>
+ <li><a href="/locations/st-petersburg/">St. Petersburg</a></li>
+ <li><a href="/locations/clearwater/">Clearwater</a></li>
+ <li><a href="/locations/brandon/">Brandon</a></li>
+ <li><a href="/locations/carrollwood/">Carrollwood</a></li>
+ <li><a href="/locations/wesley-chapel/">Wesley Chapel</a></li>
+ <li><a href="/locations/riverview/">Riverview</a></li>
+ </ul></div>
+ <div><h5>Contact</h5><ul>
+ <li><a href="tel:+18139995910">(813) 999-5910</a></li>
+ <li>5816 Little River Dr, Tampa, FL</li>
+ <li><a href="/showroom/">Showroom</a></li>
+ <li><a href="/free-estimate/">Free Estimate</a></li>
+ <li><a href="/contact/">Contact Us</a></li>
+ <li><a href="/privacy-policy/">Privacy Policy</a></li>
+ <li><a href="/terms-of-service/">Terms of Service</a></li>
+ </ul></div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 Mason Homes Construction · Licensed General Contractor in Florida</span>
+ <span>Tampa · St. Petersburg · Clearwater</span>
+ </div>
+</footer>
+
+<script>
+// Nav scroll behavior
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>60);
+document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// Mobile nav
+const tog=document.getElementById('mobile-toggle');
+const mn=document.getElementById('main-nav');
+if(tog&&mn){
+ tog.addEventListener('click',()=>mn.classList.toggle('open'));
+ mn.querySelectorAll('.nav-item > button').forEach(b=>{
+ b.addEventListener('click',e=>{if(window.innerWidth<=960){e.preventDefault();b.parentElement.classList.toggle('open')}});
+ });
+}
+
+// ============ SHOWROOM DATA & LOGIC ============
+const materials = [
+ {id:1,cat:'countertops',name:'Calacatta Laza Quartz',brand:'Caesarstone',color:'#ece4d5',tier:'Premium',price:'$68/sq ft',format:'3cm polished',lead:'2 weeks',use:'Kitchen · Bath',desc:'Soft warm veining on an ivory base. The flagship Caesarstone quartz for Tampa kitchens — nonporous, stain-resistant, zero sealing required.'},
+ {id:2,cat:'countertops',name:'Taj Mahal Quartzite',brand:'Stone Source',color:'#ddd2bd',tier:'Luxury',price:'$95/sq ft',format:'3cm honed',lead:'3 weeks',use:'Kitchen island',desc:'Natural quartzite slab with cream base and subtle gold veining. Harder than marble, elegant as stone gets.'},
+ {id:3,cat:'countertops',name:'Absolute Black Granite',brand:'Tampa Stone Co.',color:'#1a1814',tier:'Standard',price:'$42/sq ft',format:'3cm polished',lead:'1 week',use:'Kitchen · Vanity',desc:'True black granite from India. High-contrast, timeless. Our most-requested dark countertop for luxury Tampa kitchens.'},
+ {id:4,cat:'countertops',name:'Carrara White Marble',brand:'AGS Stone',color:'#e8e3da',tier:'Premium',price:'$72/sq ft',format:'2cm polished',lead:'2 weeks',use:'Vanity · Island',desc:'Italian Carrara with soft gray veining. Requires sealing but unmatched for a classic aesthetic.'},
+ {id:23,cat:'countertops',name:'Leathered Granite — Volga Blue',brand:'Tampa Stone Co.',color:'#3c4557',tier:'Premium',price:'$58/sq ft',format:'3cm leathered',lead:'2 weeks',use:'Kitchen · Outdoor',desc:'Deep blue granite with leathered finish — matte, tactile, hides fingerprints. Popular for outdoor kitchens.'},
+
+ {id:5,cat:'backsplash',name:'Fluted Zellige Tile',brand:'Clé Tile',color:'#f0e6d3',tier:'Premium',price:'$28/sq ft',format:'4"×4" handmade',lead:'4 weeks',use:'Kitchen backsplash',desc:'Hand-glazed Moroccan zellige with natural variation. Each tile unique. Lead time reflects hand-production.'},
+ {id:6,cat:'backsplash',name:'Subway Tile, Ceramic White',brand:'Daltile',color:'#f5f0e5',tier:'Standard',price:'$4/sq ft',format:'3"×6"',lead:'In stock',use:'Backsplash · Shower',desc:'The classic. Glossy ceramic subway tile. Timeless, budget-friendly, works in nearly every style.'},
+ {id:7,cat:'backsplash',name:'Marble Herringbone Mosaic',brand:'Artistic Tile',color:'#d9cfbe',tier:'Luxury',price:'$32/sq ft',format:'12"×12" sheet',lead:'3 weeks',use:'Backsplash · Feature',desc:'Carrara marble in herringbone on mesh backing. Statement backsplash for high-end kitchens.'},
+ {id:8,cat:'backsplash',name:'Matte Black Hex',brand:'Daltile',color:'#2a2521',tier:'Premium',price:'$16/sq ft',format:'2" hexagon',lead:'1 week',use:'Bathroom floor',desc:'Matte porcelain hex in black. Slip-resistant, contemporary, excellent for bathroom floors.'},
+ {id:22,cat:'backsplash',name:'Large Format Slab Porcelain',brand:'Neolith',color:'#ede5d4',tier:'Luxury',price:'$38/sq ft',format:'6mm slab',lead:'4 weeks',use:'Backsplash · Shower',desc:'Full-slab porcelain — no grout lines. Modern minimalist look for backsplash runs or seamless shower walls.'},
+
+ {id:9,cat:'cabinetry',name:'Shaker — Oyster White',brand:'KraftMaid',color:'#ede4d0',tier:'Standard',price:'$240/lf',format:'Semi-custom',lead:'5 weeks',use:'Kitchen · Bath',desc:'Painted shaker door in warm off-white. The most popular cabinet style in Tampa. Soft-close hinges standard.'},
+ {id:10,cat:'cabinetry',name:'Flat Panel — Walnut',brand:'Custom Mill',color:'#6b4a2e',tier:'Luxury',price:'$540/lf',format:'Full custom',lead:'8 weeks',use:'Kitchen · Island',desc:'Solid walnut slab doors with integrated finger pulls. Modern, warm, built to last generations.'},
+ {id:11,cat:'cabinetry',name:'Inset Shaker — Deep Green',brand:'Waypoint',color:'#3a4a3c',tier:'Premium',price:'$360/lf',format:'Semi-custom',lead:'6 weeks',use:'Kitchen · Butler',desc:'Inset shaker painted in forest green. The cabinet color of the year for Tampa remodels — especially island contrasts.'},
+ {id:12,cat:'cabinetry',name:'Flat Panel — Rift White Oak',brand:'Custom Mill',color:'#c9b58a',tier:'Luxury',price:'$480/lf',format:'Full custom',lead:'8 weeks',use:'Full kitchen',desc:'Rift-sawn white oak with clear natural finish. Straight grain, premium cabinet makers only.'},
+
+ {id:13,cat:'flooring',name:'LVP — Coastal Oak',brand:'Coretec Plus',color:'#c2a981',tier:'Standard',price:'$4.20/sq ft',format:'7mm · waterproof',lead:'In stock',use:'Whole home',desc:'Waterproof luxury vinyl plank. Best seller in Tampa for its humidity resistance and durability. Installs in 1-2 days.'},
+ {id:14,cat:'flooring',name:'Engineered White Oak',brand:'Shaw Floors',color:'#d4b68c',tier:'Premium',price:'$8.50/sq ft',format:'5/8" engineered',lead:'2 weeks',use:'Living spaces',desc:'Wide-plank white oak, wire-brushed. Engineered core handles Florida humidity better than solid hardwood.'},
+ {id:15,cat:'flooring',name:'Porcelain Wood-Look Plank',brand:'Daltile',color:'#b89770',tier:'Standard',price:'$5.80/sq ft',format:'7"×48" plank',lead:'1 week',use:'Kitchen · Bath',desc:'Porcelain that looks like wood without any of the water concerns. Perfect for kitchens, baths, and pool-area rooms.'},
+ {id:16,cat:'flooring',name:'Marble Hexagon 12"',brand:'Ann Sacks',color:'#e6dccb',tier:'Luxury',price:'$22/sq ft',format:'12" hex, polished',lead:'3 weeks',use:'Foyer · Master bath',desc:'Large-format marble hex. Dramatic floor statement for entryways and master bathrooms.'},
+ {id:24,cat:'flooring',name:'Travertine — Honed Tumbled',brand:'MSI',color:'#d9c9a7',tier:'Premium',price:'$9.80/sq ft',format:'18"×18" stone',lead:'2 weeks',use:'Patio · Pool area',desc:'Natural travertine with honed-tumbled finish. Standard for Tampa pool decks — stays cool, ages beautifully.'},
+
+ {id:17,cat:'hardware',name:'Cup Pull — Unlacquered Brass',brand:'Rejuvenation',color:'#b08c4f',tier:'Premium',price:'$28 each',format:'3" center',lead:'1 week',use:'Cabinet drawers',desc:'Solid brass cup pull, unlacquered — develops a natural patina over years of use. Our most-recommended cabinet hardware.'},
+ {id:18,cat:'hardware',name:'Bar Pull — Matte Black',brand:'Top Knobs',color:'#1e1a16',tier:'Standard',price:'$14 each',format:'5" center',lead:'In stock',use:'Modern kitchens',desc:'Matte black solid-steel bar pull. Classic contemporary choice — never dates.'},
+ {id:19,cat:'hardware',name:'Knob — Antique Bronze',brand:'Emtek',color:'#a44e2d',tier:'Premium',price:'$22 each',format:'1.25" round',lead:'2 weeks',use:'Cabinet doors',desc:'Cast bronze with antique finish. Weight and heft you can feel — worth the upgrade from stamped knobs.'},
+ {id:20,cat:'hardware',name:'Edge Pull — Champagne Bronze',brand:'Emtek',color:'#d88a62',tier:'Premium',price:'$34 each',format:'4" edge pull',lead:'2 weeks',use:'Modern flat-panel',desc:'Finger-pull style for flat-panel cabinetry. Minimal silhouette, warm bronze tone.'},
+ {id:21,cat:'hardware',name:'Crown Molding, 5" Profile',brand:'Custom Mill',color:'#f3ecdd',tier:'Standard',price:'$8.50/lf',format:'Primed MDF',lead:'1 week',use:'Kitchen · Dining',desc:'Classic crown profile milled to order. Paint-ready. The detail that separates $60K kitchens from $35K kitchens.'},
+];
+
+const catLabels = {countertops:'Countertops',backsplash:'Backsplash',cabinetry:'Cabinetry',flooring:'Flooring',hardware:'Hardware'};
+const tiles = document.getElementById('tiles');
+const countTxt = document.getElementById('count-txt');
+const detail = document.getElementById('detail');
+const detailContent = document.getElementById('detail-content');
+const searchInput = document.getElementById('search');
+let activeCat = 'all';
+let activeQ = '';
+
+function italicize(name){
+ // italicize second word or the word after em-dash
+ const parts = name.split(' ');
+ if(parts.length < 2) return name;
+ // find word after em-dash
+ const dashIdx = parts.findIndex(p => p === '—');
+ if(dashIdx >= 0 && dashIdx+1 < parts.length){
+ parts[dashIdx+1] = '<em>'+parts[dashIdx+1]+'</em>';
+ return parts.join(' ');
+ }
+ // else italicize second word
+ parts[1] = '<em>'+parts[1]+'</em>';
+ return parts.join(' ');
+}
+
+function render(){
+ const filtered = materials.filter(m=>{
+ if(activeCat !== 'all' && m.cat !== activeCat) return false;
+ if(activeQ){
+ const q = activeQ.toLowerCase();
+ return m.name.toLowerCase().includes(q) || m.brand.toLowerCase().includes(q);
+ }
+ return true;
+ });
+ countTxt.textContent = 'Showing '+filtered.length+' '+(filtered.length===1?'material':'materials')+(activeCat !== 'all' ? ' · '+catLabels[activeCat] : '');
+ tiles.innerHTML = filtered.map(m => `
+ <div class="tile" data-id="${m.id}">
+ <div class="swatch" style="background-color:${m.color}">
+ <span class="tier">${m.tier}</span>
+ <span class="cat-tag">${catLabels[m.cat]}</span>
+ </div>
+ <div class="tile-body">
+ <h3>${m.name}</h3>
+ <div class="brand">${m.brand}</div>
+ <div class="price-row">${m.price} <span class="lead">${m.lead}</span></div>
+ </div>
+ </div>
+ `).join('');
+ tiles.querySelectorAll('.tile').forEach(t => {
+ t.addEventListener('click', () => openDetail(parseInt(t.dataset.id, 10)));
+ });
+}
+
+function openDetail(id){
+ const m = materials.find(x => x.id === id);
+ if(!m) return;
+ detailContent.innerHTML = `
+ <div class="detail-img" style="background-color:${m.color}"></div>
+ <div>
+ <div class="detail-eyebrow">${catLabels[m.cat]} · ${m.tier} Tier</div>
+ <h2>${italicize(m.name)}</h2>
+ <div class="d-brand">By ${m.brand}</div>
+ <p class="desc">${m.desc}</p>
+ <div class="specs">
+ <div class="row"><span class="k">Price</span><span class="v">${m.price}</span></div>
+ <div class="row"><span class="k">Format</span><span class="v">${m.format}</span></div>
+ <div class="row"><span class="k">Lead time</span><span class="v">${m.lead}</span></div>
+ <div class="row"><span class="k">Best for</span><span class="v">${m.use}</span></div>
+ </div>
+ <div class="detail-actions">
+ <a href="/free-estimate/?material=${encodeURIComponent(m.name)}" class="btn btn-primary">Request Sample <span class="arrow">→</span></a>
+ <a href="/free-estimate/" class="btn btn-outline">Start a Project</a>
+ </div>
+ </div>
+ `;
+ detail.classList.add('open');
+ setTimeout(() => {
+ detail.scrollIntoView({behavior:'smooth', block:'start'});
+ }, 50);
+}
+
+document.getElementById('close-detail').addEventListener('click', () => {
+ detail.classList.remove('open');
+});
+
+document.querySelectorAll('.cat-btn').forEach(btn => {
+ btn.addEventListener('click', () => {
+ document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+ btn.classList.add('active');
+ activeCat = btn.dataset.cat;
+ render();
+ });
+});
+
+searchInput.addEventListener('input', e => {
+ activeQ = e.target.value;
+ render();
+});
+
+render();
+</script>
+
+</body>
+</html>

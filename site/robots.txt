@@ -1,0 +1,57 @@
+# Mason Homes — masonhomesconstruction.com
+# Updated: April 17, 2026
+
+# Default: allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /api/
+Disallow: /_next/
+
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+# Bing Search
+User-agent: Bingbot
+Allow: /
+
+# AI Crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Sitemap
+Sitemap: https://masonhomesconstruction.com/sitemap.xml
