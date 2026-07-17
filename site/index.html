@@ -10,236 +10,344 @@
 <meta property="og:description" content="Licensed Tampa general contractor. Kitchen, bathroom & whole-home remodeling, additions, ADUs & custom homes."/>
 <meta property="og:url" content="https://masonhomesconstruction.com/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:image" content="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg"/>
+<meta property="og:image" content="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg"/>
 <meta property="og:site_name" content="Mason Homes"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Home Remodeling Tampa FL | Mason Homes Contractor"/>
 <meta name="twitter:description" content="Licensed Tampa general contractor. Kitchen, bathroom & whole-home remodeling, additions, ADUs & custom homes."/>
-<meta name="twitter:image" content="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg"/>
+<meta name="twitter:image" content="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
- --ivory:#f7f2e8;--cream:#efe7d4;--bone:#e6dcc6;--warm-white:#faf6ed;
- --charcoal:#1a1814;--graphite:#3a3732;--muted:#8a8276;
- --bronze:#c8623c;--bronze-dk:#a44e2d;--bronze-lt:#d88a62;
- --line:rgba(31,29,26,.14);--line-dark:rgba(247,242,232,.14);
+  --ivory:#f7f2e8;--cream:#efe7d4;--bone:#e6dcc6;--warm-white:#faf6ed;
+  --charcoal:#1a1814;--graphite:#3a3732;--muted:#8a8276;
+  --bronze:#c8623c;--bronze-dk:#a44e2d;--bronze-lt:#d88a62;--bronze-glow:#e8cb9a;
+  --line:rgba(31,29,26,.12);--line-dark:rgba(247,242,232,.14);
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;font-weight:300;color:var(--charcoal);background:var(--ivory);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:300;color:var(--charcoal);background:var(--ivory);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;text-rendering:optimizeLegibility}
 img{max-width:100%;height:auto;display:block}
-a{color:var(--bronze-dk);text-decoration:none;transition:color .2s}
+a{color:var(--bronze-dk);text-decoration:none;transition:color .3s var(--ease)}
 a:hover{color:var(--bronze)}
 
-header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease;border-bottom:1px solid transparent}
-header.nav.scrolled{background:rgba(247,242,232,.97);backdrop-filter:blur(10px);padding:14px 40px;border-bottom-color:var(--line)}
-.logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;letter-spacing:.18em;color:var(--ivory);white-space:nowrap;transition:color .3s}
+/* NAV */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease);border-bottom:1px solid transparent}
+header.nav.scrolled{background:rgba(247,242,232,.9);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);padding:14px 40px;border-bottom-color:var(--line)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;letter-spacing:.22em;color:var(--ivory);white-space:nowrap;transition:color .4s var(--ease)}
 header.nav.scrolled .logo{color:var(--charcoal)}
-.logo .amp{color:var(--bronze-lt);font-style:italic}
+.logo .amp{color:var(--bronze-lt);font-style:italic;font-weight:400;transition:color .4s var(--ease);display:inline-block}
 header.nav.scrolled .logo .amp{color:var(--bronze)}
 nav.main{display:flex;align-items:center;gap:2px}
 nav.main > .nav-item{position:relative}
-nav.main > .nav-item > a,nav.main > .nav-item > button{background:none;border:0;cursor:pointer;color:var(--ivory);font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;transition:color .3s}
+nav.main > .nav-item > a,nav.main > .nav-item > button{background:none;border:0;cursor:pointer;color:var(--ivory);font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;padding:10px 16px;display:inline-flex;align-items:center;gap:6px;transition:color .3s var(--ease);position:relative}
 header.nav.scrolled nav.main > .nav-item > a,header.nav.scrolled nav.main > .nav-item > button{color:var(--charcoal)}
 nav.main > .nav-item > a:hover,nav.main > .nav-item > button:hover{color:var(--bronze-lt)}
 header.nav.scrolled nav.main > .nav-item > a:hover,header.nav.scrolled nav.main > .nav-item > button:hover{color:var(--bronze)}
-.cta-nav{padding:11px 22px !important;border:1px solid currentColor;margin-left:12px;border-radius:2px}
+nav.main > .nav-item > a::after{content:'';position:absolute;left:16px;right:16px;bottom:6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav.main > .nav-item > a:hover::after{transform:scaleX(1)}
+.cta-nav{padding:10px 20px !important;border:1px solid currentColor;border-radius:2px;letter-spacing:.16em !important}
+.cta-nav::after{display:none !important}
 .cta-nav:hover{background:var(--bronze);color:var(--ivory) !important;border-color:var(--bronze)}
-.dropdown{position:absolute;top:100%;left:0;min-width:260px;background:var(--ivory);border:1px solid var(--line);box-shadow:0 18px 40px -20px rgba(0,0,0,.18);padding:10px 0;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .25s}
-.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-.dropdown a{display:block;padding:9px 22px;font-size:13px;letter-spacing:.02em;color:var(--charcoal) !important;text-transform:none;font-weight:300;border-left:2px solid transparent}
-.dropdown a:hover{background:var(--cream);color:var(--bronze-dk) !important;border-left-color:var(--bronze)}
+.dropdown{position:absolute;top:100%;left:0;min-width:280px;background:rgba(247,242,232,.98);backdrop-filter:blur(12px);border:1px solid var(--line);box-shadow:0 20px 50px -20px rgba(20,17,13,.2);padding:12px 0;opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s var(--ease);border-radius:2px}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(4px)}
+.dropdown a{display:block;padding:10px 24px;font-size:13px;letter-spacing:.02em;color:var(--charcoal) !important;text-transform:none;font-weight:300;border-left:2px solid transparent;transition:all .25s var(--ease)}
+.dropdown a:hover{background:var(--cream);color:var(--bronze-dk) !important;border-left-color:var(--bronze);padding-left:28px}
 .mobile-toggle{display:none;background:none;border:0;color:inherit;font-size:22px;cursor:pointer}
 
-.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:center;padding:140px 40px 90px}
-.hero-bg{position:absolute;inset:0;background-image:url('/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg');background-size:cover;background-position:center;transform:scale(1.04);animation:kenburns 20s ease-out forwards}
+/* HERO */
+.hero{position:relative;min-height:100dvh;overflow:hidden;display:flex;align-items:flex-end;padding:140px 40px 90px}
+.hero-bg{position:absolute;inset:0;background-image:url('/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg');background-size:cover;background-position:center;transform:scale(1.06);animation:kenburns 24s ease-out forwards;will-change:transform}
 @keyframes kenburns{to{transform:scale(1)}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(20,17,13,.82) 0%,rgba(20,17,13,.5) 50%,rgba(20,17,13,.2) 100%),linear-gradient(to bottom,rgba(20,17,13,.4) 0%,rgba(20,17,13,0) 35%,rgba(20,17,13,.3) 100%)}
+.hero-overlay{position:absolute;inset:0;background:
+  linear-gradient(105deg,rgba(20,17,13,.86) 0%,rgba(20,17,13,.55) 45%,rgba(20,17,13,.15) 100%),
+  linear-gradient(to bottom,rgba(20,17,13,.35) 0%,rgba(20,17,13,0) 30%,rgba(20,17,13,.5) 100%)}
 .hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;color:var(--ivory)}
-.hero-eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:28px;display:inline-flex;align-items:center;gap:14px;opacity:0;animation:fadeUp .9s ease .15s forwards}
-.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--bronze)}
-.hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(42px,6.2vw,90px);line-height:1.02;letter-spacing:-.012em;max-width:960px;margin-bottom:32px;opacity:0;animation:fadeUp 1s ease .35s forwards}
-.hero h1 em{font-style:italic;color:#e8cb9a;font-weight:300}
-.hero-sub{max-width:580px;font-size:18px;font-weight:300;color:rgba(247,242,232,.88);margin-bottom:44px;line-height:1.7;opacity:0;animation:fadeUp 1s ease .55s forwards}
-.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp 1s ease .75s forwards}
-.hero-badge{position:absolute;bottom:44px;right:48px;z-index:2;color:var(--ivory);font-size:11px;letter-spacing:.28em;text-transform:uppercase;text-align:right;opacity:0;animation:fadeUp 1s ease 1s forwards}
-.hero-badge strong{display:block;font-family:'Cormorant Garamond',serif;font-size:34px;letter-spacing:0;text-transform:none;font-weight:400;font-style:italic;color:var(--bronze-lt);margin-bottom:2px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:32px;display:inline-flex;align-items:center;gap:16px;opacity:0;animation:fadeUp .9s var(--ease) .15s forwards}
+.hero-eyebrow::before{content:'';width:48px;height:1px;background:var(--bronze)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(44px,6.6vw,104px);line-height:.98;letter-spacing:-.02em;max-width:1000px;margin-bottom:36px;opacity:0;animation:fadeUp 1.1s var(--ease) .32s forwards}
+.hero h1 em{font-style:italic;color:var(--bronze-glow);font-weight:300}
+.hero-sub{max-width:560px;font-size:18px;font-weight:300;color:rgba(247,242,232,.85);margin-bottom:52px;line-height:1.7;opacity:0;animation:fadeUp 1s var(--ease) .55s forwards}
+.hero-actions{display:flex;gap:20px;flex-wrap:wrap;align-items:center;opacity:0;animation:fadeUp 1s var(--ease) .75s forwards}
+.hero-tel{color:rgba(247,242,232,.65);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;display:inline-flex;align-items:center;gap:10px;transition:color .3s var(--ease)}
+.hero-tel:hover{color:var(--ivory)}
+.hero-tel::before{content:'';width:6px;height:6px;background:var(--bronze);border-radius:50%;animation:pulseDot 2.5s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+.hero-badge{position:absolute;bottom:44px;right:48px;z-index:2;color:var(--ivory);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;text-align:right;opacity:0;animation:fadeUp 1s var(--ease) 1s forwards;font-family:'JetBrains Mono',ui-monospace,monospace}
+.hero-badge strong{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;text-transform:none;font-weight:400;font-style:italic;color:var(--bronze-lt);margin-bottom:3px;letter-spacing:.04em}
+.hero-badge-line{font-size:9.5px;opacity:.6;margin-top:3px}
+.hero-scroll{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(247,242,232,.6);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;animation:fadeUp 1s var(--ease) 1.2s forwards}
+.hero-scroll::after{content:'';width:1px;height:36px;background:linear-gradient(to bottom,rgba(247,242,232,.5),rgba(247,242,232,0));animation:scrollLine 2.5s ease-in-out infinite}
+@keyframes scrollLine{0%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1)}100%{transform:scaleY(.3);transform-origin:bottom}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
-.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;transition:all .3s ease;cursor:pointer;border:1px solid transparent;font-family:'Inter',sans-serif;text-decoration:none !important;border-radius:2px}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 30px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;transition:all .4s var(--ease);cursor:pointer;border:1px solid transparent;font-family:'Inter',sans-serif;text-decoration:none !important;border-radius:2px;position:relative;overflow:hidden}
 .btn-primary{background:var(--bronze);color:var(--ivory) !important}
-.btn-primary:hover{background:var(--bronze-dk);transform:translateY(-2px);box-shadow:0 18px 40px -16px rgba(200,98,60,.6)}
-.btn-ghost{border-color:rgba(247,242,232,.55);color:var(--ivory) !important}
-.btn-ghost:hover{border-color:var(--ivory);background:rgba(247,242,232,.08)}
-.btn-dark{background:var(--charcoal);color:var(--ivory) !important}
-.btn-dark:hover{background:var(--bronze)}
-.btn-outline{border-color:var(--charcoal);color:var(--charcoal) !important}
-.btn-outline:hover{background:var(--charcoal);color:var(--ivory) !important}
-.btn .arrow{font-size:14px;transition:transform .3s}
-.btn:hover .arrow{transform:translateX(4px)}
+.btn-primary::before{content:'';position:absolute;inset:0;background:var(--bronze-dk);transform:translateY(100%);transition:transform .5s var(--ease);z-index:0}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 44px -18px rgba(200,98,60,.55)}
+.btn-primary:hover::before{transform:translateY(0)}
+.btn-primary > *{position:relative;z-index:1}
+.btn-ghost{border-color:rgba(247,242,232,.4);color:var(--ivory) !important;backdrop-filter:blur(4px)}
+.btn-ghost:hover{border-color:var(--ivory);background:rgba(247,242,232,.06)}
+.btn-outline{border-color:var(--charcoal);color:var(--charcoal) !important;background:transparent}
+.btn-outline:hover{background:var(--charcoal);color:var(--ivory) !important;transform:translateY(-2px)}
+.btn .arrow{font-size:14px;transition:transform .4s var(--ease);display:inline-block}
+.btn:hover .arrow{transform:translateX(6px)}
+.btn:active{transform:translateY(-1px) scale(.99)}
 
+/* SHARED */
 .container{max-width:1280px;margin:0 auto}
-.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);font-weight:500;margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
-.eyebrow::before{content:'';width:32px;height:1px;background:var(--bronze)}
-.section-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(36px,4.5vw,58px);line-height:1.08;letter-spacing:-.008em;margin-bottom:28px;color:var(--charcoal);max-width:820px}
-.section-title em{font-style:italic;color:var(--bronze)}
-.section-lead{max-width:620px;font-size:17px;color:var(--graphite);line-height:1.75}
-.section-head-center{text-align:center;margin-bottom:70px}
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze);font-weight:500;margin-bottom:24px;display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:'';width:36px;height:1px;background:var(--bronze)}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4.8vw,66px);line-height:1.02;letter-spacing:-.018em;margin-bottom:28px;color:var(--charcoal);max-width:900px}
+.section-title em{font-style:italic;color:var(--bronze);font-weight:300}
+.section-lead{max-width:620px;font-size:17px;color:var(--graphite);line-height:1.75;font-weight:300}
+.section-head-center{text-align:center;margin-bottom:80px}
 .section-head-center .eyebrow{justify-content:center}
 .section-head-center .eyebrow::before{display:none}
-.section-head-center .eyebrow::after{content:'';width:32px;height:1px;background:var(--bronze)}
+.section-head-center .eyebrow::after{content:'';width:36px;height:1px;background:var(--bronze)}
 .section-head-center .section-title{margin-left:auto;margin-right:auto}
-.section-head-center .section-lead{margin:22px auto 0}
+.section-head-center .section-lead{margin:26px auto 0}
 
-.intro{background:var(--ivory);position:relative;padding:140px 40px 120px}
-.intro .container{display:grid;grid-template-columns:1fr 1.05fr;gap:90px;align-items:center}
-.intro-visual{position:relative;aspect-ratio:4/5}
-.intro-visual.main-img{position:absolute;top:0;left:0;width:78%;height:78%;overflow:hidden;background:var(--cream)}
-.intro-visual.accent-img{position:absolute;bottom:0;right:0;width:58%;height:52%;overflow:hidden;background:var(--cream);border:10px solid var(--ivory)}
-.intro-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
-.intro-visual .main-img:hover img,.intro-visual .accent-img:hover img{transform:scale(1.05)}
-.intro-visual .est-tag{position:absolute;top:20px;left:20px;background:var(--ivory);padding:10px 18px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--charcoal);z-index:3}
-.intro-text p{font-size:17.5px;color:var(--graphite);margin-bottom:22px;line-height:1.8}
-.intro-text.pull-quote{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--charcoal);border-left:2px solid var(--bronze);padding:2px 0 2px 24px;margin:34px 0;line-height:1.45}
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;padding-top:44px;border-top:1px solid var(--line)}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:400;color:var(--charcoal);line-height:1;margin-bottom:8px}
-.stat-num em{font-style:italic;color:var(--bronze)}
-.stat-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:400}
+/* MANIFESTO STRIP */
+.manifesto{background:var(--charcoal);color:var(--ivory);padding:22px 0;overflow:hidden;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+.marquee{display:flex;gap:64px;animation:marquee 42s linear infinite;white-space:nowrap;will-change:transform}
+.marquee > span{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;font-weight:300;color:rgba(247,242,232,.55);display:inline-flex;align-items:center;gap:64px;flex-shrink:0}
+.marquee > span::after{content:'⁕';color:var(--bronze);font-style:normal;margin-left:64px;font-size:16px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-.services{background:var(--cream);padding:130px 40px}
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.service-card{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--charcoal);display:block;color:var(--ivory) !important;text-decoration:none !important;transition:transform .4s}
-.service-card:hover{transform:translateY(-4px)}
-.service-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s,opacity.6s;opacity: .82}
-.service-card:hover img{transform:scale(1.1);opacity:1}
-.service-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,14,12,.92) 0%,rgba(15,14,12,.35) 55%,rgba(15,14,12,0) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:var(--ivory)}
-.service-card-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--bronze-lt);margin-bottom:6px;letter-spacing:.04em}
-.service-card h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;line-height:1.15;margin-bottom:6px;color:var(--ivory)}
-.service-card p{font-size:12.5px;color:rgba(247,242,232,.82);margin:0;line-height:1.55;max-height:0;overflow:hidden;transition:max-height .5s,margin-top.3s}
-.service-card:hover p{max-height:100px;margin-top:4px}
-.service-card .link{margin-top:10px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--bronze-lt);display:inline-flex;align-items:center;gap:6px;opacity:0;transform:translateY(4px);transition:all .4s}
+/* INTRO */
+.intro{background:var(--ivory);position:relative;padding:150px 40px 130px;overflow:hidden}
+.intro .container{display:grid;grid-template-columns:1fr 1.15fr;gap:100px;align-items:center;position:relative}
+.intro-visual{position:relative;aspect-ratio:5/6}
+.intro-visual .main-img{position:absolute;top:0;left:0;width:82%;height:82%;overflow:hidden;background:var(--cream);border-radius:2px;box-shadow:0 30px 60px -20px rgba(20,17,13,.16)}
+.intro-visual .accent-img{position:absolute;bottom:0;right:0;width:52%;height:50%;overflow:hidden;background:var(--cream);border:8px solid var(--ivory);border-radius:2px;box-shadow:0 20px 40px -14px rgba(20,17,13,.18)}
+.intro-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.intro-visual .main-img:hover img,.intro-visual .accent-img:hover img{transform:scale(1.06)}
+.intro-visual .est-tag{position:absolute;top:24px;left:24px;background:var(--ivory);padding:12px 20px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--charcoal);z-index:3;border-radius:2px;box-shadow:0 8px 20px -8px rgba(20,17,13,.15)}
+.intro-visual .est-tag em{color:var(--bronze);font-style:normal}
+.intro-text p{font-size:17.5px;color:var(--graphite);margin-bottom:24px;line-height:1.8;font-weight:300}
+.intro-text .pull-quote{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:var(--charcoal);border-left:2px solid var(--bronze);padding:4px 0 4px 28px;margin:38px 0;line-height:1.4;font-weight:300}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:52px;padding-top:44px;border-top:1px solid var(--line)}
+.stats-row > div{padding-right:20px;border-right:1px solid var(--line)}
+.stats-row > div:last-child{border-right:0}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--charcoal);line-height:1;margin-bottom:10px;letter-spacing:-.02em}
+.stat-num em{font-style:italic;color:var(--bronze);font-weight:300}
+.stat-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:500;line-height:1.5}
+
+/* SERVICES BENTO */
+.services{background:var(--cream);padding:140px 40px;position:relative;overflow:hidden}
+.services::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;border:1px solid rgba(200,98,60,.08);border-radius:50%;pointer-events:none}
+.services-bento{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;grid-template-rows:auto auto;gap:14px;margin-top:20px}
+.service-card{position:relative;overflow:hidden;background:var(--charcoal);display:block;color:var(--ivory) !important;text-decoration:none !important;transition:transform .5s var(--ease),box-shadow .5s var(--ease);border-radius:2px;aspect-ratio:3/4}
+.service-card.feature{grid-column:1;grid-row:1/span 2;aspect-ratio:auto;min-height:100%}
+.service-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),filter .6s var(--ease);opacity:.9;filter:brightness(.92)}
+.service-card:hover img{transform:scale(1.08);opacity:1;filter:brightness(1)}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px -14px rgba(20,17,13,.28)}
+.service-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,14,12,.94) 0%,rgba(15,14,12,.4) 55%,rgba(15,14,12,0) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:26px;color:var(--ivory)}
+.service-card.feature .service-card-overlay{padding:40px}
+.service-card-num{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;color:var(--bronze-lt);margin-bottom:10px;text-transform:uppercase}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;line-height:1.15;margin-bottom:8px;color:var(--ivory);letter-spacing:-.005em}
+.service-card.feature h3{font-size:36px;font-weight:300}
+.service-card p{font-size:12.5px;color:rgba(247,242,232,.78);margin:0;line-height:1.55;max-height:0;overflow:hidden;transition:max-height .5s var(--ease),margin-top .3s var(--ease);font-weight:300}
+.service-card.feature p{max-height:100px;margin-top:6px;font-size:14px}
+.service-card:hover p{max-height:100px;margin-top:8px}
+.service-card .link{margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze-lt);display:inline-flex;align-items:center;gap:8px;opacity:0;transform:translateY(6px);transition:all .5s var(--ease)}
+.service-card.feature .link{opacity:1;transform:translateY(0)}
 .service-card:hover .link{opacity:1;transform:translateY(0)}
 
-.process{background:var(--ivory);padding:130px 40px}
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px}
-.process-step{position:relative;padding-top:24px;border-top:1px solid var(--line)}
-.process-step .num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:44px;font-weight:400;color:var(--bronze);line-height:1;margin-bottom:18px}
-.process-step h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;margin-bottom:12px;color:var(--charcoal)}
-.process-step p{font-size:15px;color:var(--graphite);line-height:1.7;margin:0}
+/* PROCESS */
+.process{background:var(--ivory);padding:140px 40px;position:relative}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:70px;position:relative}
+.process-step{padding:32px 32px 32px 0;border-left:1px solid var(--line);position:relative}
+.process-step:first-child{border-left:1px solid var(--bronze)}
+.process-step .num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;font-weight:400;color:var(--bronze);margin-bottom:22px;letter-spacing:.1em;padding-left:32px;position:relative}
+.process-step .num::before{content:'';position:absolute;left:-1px;top:8px;width:20px;height:1px;background:var(--bronze)}
+.process-step h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;margin-bottom:14px;color:var(--charcoal);padding-left:32px;line-height:1.15;letter-spacing:-.005em}
+.process-step p{font-size:14.5px;color:var(--graphite);line-height:1.7;margin:0;padding-left:32px;font-weight:300}
 
-.locations-section{background:var(--charcoal);color:var(--ivory);padding:130px 40px;position:relative;overflow:hidden}
-.locations-section::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border:1px solid rgba(160,118,69,.12);border-radius:50%;pointer-events:none}
-.locations-section .section-title{color:var(--ivory)}
+/* LOCATIONS */
+.locations-section{background:var(--charcoal);color:var(--ivory);padding:140px 40px;position:relative;overflow:hidden}
+.locations-section::before{content:'';position:absolute;top:-250px;right:-250px;width:700px;height:700px;border:1px solid rgba(200,98,60,.08);border-radius:50%;pointer-events:none}
+.locations-section::after{content:'';position:absolute;bottom:-200px;left:-200px;width:500px;height:500px;border:1px solid rgba(200,98,60,.06);border-radius:50%;pointer-events:none}
+.locations-section .section-title{color:var(--ivory);font-weight:300}
 .locations-section .section-title em{color:var(--bronze-lt)}
-.locations-section.section-lead{color:rgba(247,242,232,.75)}
-.locations-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px}
-.location-card{position:relative;overflow:hidden;aspect-ratio:1/1.2;display:block;color:var(--ivory) !important;text-decoration:none !important;background:#22201c}
-.location-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s,opacity.5s;opacity: .7}
-.location-card:hover img{transform:scale(1.08);opacity: .9}
-.location-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,14,12,.9) 0%,rgba(15,14,12,.2) 60%,rgba(15,14,12,.1) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
-.location-card-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:6px}
-.location-card h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;line-height:1.1;color:var(--ivory);margin-bottom:4px}
-.location-card p{font-size:12px;color:rgba(247,242,232,.7);margin:0;line-height:1.5}
+.locations-section .section-lead{color:rgba(247,242,232,.7)}
+.locations-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:12px;margin-top:70px}
+.location-card{position:relative;overflow:hidden;display:block;color:var(--ivory) !important;text-decoration:none !important;background:#22201c;aspect-ratio:1/1.2;transition:transform .4s var(--ease)}
+.location-card.feature{grid-column:span 2;aspect-ratio:2.05/1.2}
+.location-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),opacity .5s;opacity:.65}
+.location-card:hover img{transform:scale(1.08);opacity:.9}
+.location-card:hover{transform:translateY(-4px)}
+.location-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,14,12,.92) 0%,rgba(15,14,12,.3) 55%,rgba(15,14,12,.08) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px 24px}
+.location-card-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:8px}
+.location-card h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;line-height:1.1;color:var(--ivory);margin-bottom:6px;letter-spacing:-.005em}
+.location-card.feature h3{font-size:34px;font-weight:300}
+.location-card p{font-size:12px;color:rgba(247,242,232,.7);margin:0;line-height:1.55;font-weight:300}
 
-.testimonial{position:relative;padding:0;min-height:500px;display:flex;align-items:center;overflow:hidden}
-.testimonial-bg{position:absolute;inset:0;background-image:url('/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-41.jpg');background-size:cover;background-position:center}
-.testimonial-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(20,17,13,.88) 0%,rgba(20,17,13,.6) 100%)}
-.testimonial-content{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:130px 40px;color:var(--ivory);text-align:center}
-.quote-mark{font-family:'Cormorant Garamond',serif;font-size:120px;line-height: .5;color:var(--bronze-lt);display:block;height:40px;margin-bottom:4px}
-.testimonial blockquote{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(22px,2.4vw,30px);line-height:1.45;margin-bottom:32px;letter-spacing:-.005em;color:var(--ivory)}
-.testimonial cite{font-style:normal;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze-lt);display:block}
-.testimonial cite span{display:block;font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.04em;text-transform:none;color:var(--ivory);margin-top:6px;font-style:italic}
+/* TESTIMONIAL */
+.testimonial{position:relative;padding:0;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.testimonial-bg{position:absolute;inset:0;background-image:url('/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-04.jpg');background-size:cover;background-position:center;filter:brightness(.9)}
+.testimonial-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(20,17,13,.9) 0%,rgba(20,17,13,.55) 70%,rgba(20,17,13,.3) 100%)}
+.testimonial-content{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:140px 40px;color:var(--ivory)}
+.testimonial-mark{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.34em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:22px;display:inline-flex;align-items:center;gap:16px;font-style:normal;font-weight:500}
+.testimonial-mark::before{content:'';width:44px;height:1px;background:var(--bronze)}
+.testimonial blockquote{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(24px,2.8vw,36px);line-height:1.4;margin-bottom:38px;letter-spacing:-.008em;color:var(--ivory);max-width:820px}
+.testimonial cite{font-style:normal;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze-lt);display:block}
+.testimonial cite span{display:block;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.03em;text-transform:none;color:var(--ivory);margin-top:8px;font-style:italic;font-weight:400}
 
-.faq{background:var(--warm-white);padding:130px 40px}
-.faq .container{display:grid;grid-template-columns:1fr 1.55fr;gap:80px}
+/* FAQ */
+.faq{background:var(--warm-white);padding:140px 40px}
+.faq .container{display:grid;grid-template-columns:1fr 1.6fr;gap:100px;align-items:start}
+.faq-side{position:sticky;top:110px}
 .faq-list{list-style:none}
-.faq-item{border-bottom:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);transition:background .3s var(--ease)}
 .faq-item:first-child{border-top:1px solid var(--line)}
-.faq-q{width:100%;background:none;border:0;text-align:left;padding:26px 0;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--charcoal);display:flex;justify-content:space-between;align-items:center;gap:20px;transition:color .25s}
+.faq-item.open{background:linear-gradient(to right,rgba(200,98,60,.02),transparent)}
+.faq-q{width:100%;background:none;border:0;text-align:left;padding:28px 0;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:400;color:var(--charcoal);display:flex;justify-content:space-between;align-items:center;gap:20px;transition:color .3s var(--ease);letter-spacing:-.005em;line-height:1.3}
 .faq-q:hover{color:var(--bronze)}
-.faq-q .icon{font-family:'Inter',sans-serif;font-size:18px;color:var(--bronze);transition:transform .4s;flex-shrink:0;font-weight:300}
+.faq-q .icon{font-family:'Inter',sans-serif;font-size:20px;color:var(--bronze);transition:transform .5s var(--ease);flex-shrink:0;font-weight:200;line-height:1;width:24px;text-align:center}
 .faq-item.open .faq-q .icon{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .5s,padding.5s;color:var(--graphite);font-size:16px;line-height:1.75}
-.faq-item.open .faq-a{max-height:400px;padding:0 0 26px 0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .6s var(--ease),padding .5s var(--ease);color:var(--graphite);font-size:16px;line-height:1.75;font-weight:300}
+.faq-item.open .faq-a{max-height:440px;padding:0 0 28px 0}
+.faq-a a{border-bottom:1px solid rgba(200,98,60,.35);transition:border-color .3s var(--ease)}
+.faq-a a:hover{border-bottom-color:var(--bronze)}
 
-.insights{background:var(--cream);padding:130px 40px}
-.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px}
-.insight-card{background:var(--ivory);display:flex;flex-direction:column;color:inherit !important;text-decoration:none !important;transition:transform .3s,box-shadow.3s;border:1px solid var(--line)}
-.insight-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -24px rgba(0,0,0,.2);border-color:var(--bronze-lt)}
+/* INSIGHTS */
+.insights{background:var(--cream);padding:140px 40px}
+.insights-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;margin-top:70px}
+.insight-card{background:var(--ivory);display:flex;flex-direction:column;color:inherit !important;text-decoration:none !important;transition:transform .5s var(--ease),box-shadow .5s var(--ease);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.insight-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(20,17,13,.18);border-color:transparent}
 .insight-img{aspect-ratio:16/10;overflow:hidden;background:var(--cream)}
-.insight-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.insight-card.feature .insight-img{aspect-ratio:16/11}
+.insight-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .insight-card:hover .insight-img img{transform:scale(1.06)}
-.insight-body{padding:28px 26px}
-.insight-cat{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--bronze);margin-bottom:12px}
-.insight-card h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.25;margin-bottom:12px;color:var(--charcoal)}
-.insight-card p{font-size:14px;color:var(--graphite);margin:0 0 16px;line-height:1.65}
-.insight-card .read{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--bronze);display:inline-flex;align-items:center;gap:6px}
+.insight-body{padding:32px 30px 32px}
+.insight-card.feature .insight-body{padding:40px 36px}
+.insight-cat{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+.insight-cat::before{content:'';width:20px;height:1px;background:var(--bronze)}
+.insight-card h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;line-height:1.25;margin-bottom:14px;color:var(--charcoal);letter-spacing:-.005em}
+.insight-card.feature h3{font-size:30px;font-weight:300}
+.insight-card p{font-size:14.5px;color:var(--graphite);margin:0 0 20px;line-height:1.7;font-weight:300}
+.insight-card .read{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);display:inline-flex;align-items:center;gap:8px}
+.insight-card .read .arrow{transition:transform .4s var(--ease)}
+.insight-card:hover .read .arrow{transform:translateX(6px)}
 
-.cta-band{background:var(--charcoal);color:var(--ivory);padding:100px 40px;position:relative;overflow:hidden}
-.cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border:1px solid rgba(200,98,60,.18);border-radius:50%;pointer-events:none}
-.cta-band::after{content:'';position:absolute;bottom:-180px;left:-100px;width:640px;height:640px;border:1px solid rgba(200,98,60,.1);border-radius:50%;pointer-events:none}
-.cta-band .container{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr 1fr;gap:70px;align-items:center}
-.cta-band h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(30px,3.8vw,50px);line-height:1.08;margin-bottom:22px;color:var(--ivory)}
-.cta-band h2 em{font-style:italic;color:var(--bronze-lt)}
-.cta-band p{color:rgba(247,242,232,.75);font-size:16px;margin-bottom:32px;max-width:560px}
+/* CTA */
+.cta-band{background:var(--charcoal);color:var(--ivory);padding:120px 40px;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(200,98,60,.18) 0%,transparent 50%),radial-gradient(ellipse at 80% 60%,rgba(200,98,60,.12) 0%,transparent 50%);pointer-events:none;animation:meshShift 18s ease-in-out infinite}
+@keyframes meshShift{0%,100%{transform:translate(0,0)}33%{transform:translate(-2%,1%)}66%{transform:translate(2%,-1%)}}
+.cta-band .container{position:relative;z-index:2;display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:center}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4.2vw,58px);line-height:1.02;margin-bottom:26px;color:var(--ivory);letter-spacing:-.018em}
+.cta-band h2 em{font-style:italic;color:var(--bronze-lt);font-weight:300}
+.cta-band > .container > div > p{color:rgba(247,242,232,.72);font-size:16.5px;margin-bottom:36px;max-width:560px;font-weight:300;line-height:1.75}
 .cta-band .eyebrow{color:var(--bronze-lt)}
-.cta-info{border-left:1px solid rgba(247,242,232,.15);padding-left:44px}
-.cta-info dt{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:4px;font-weight:500}
-.cta-info dd{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ivory);margin-bottom:22px;font-weight:400}
-.cta-info dd a{color:var(--ivory)}
+.cta-info{border-left:1px solid rgba(247,242,232,.15);padding-left:48px}
+.cta-info dt{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:6px;font-weight:500}
+.cta-info dd{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--ivory);margin-bottom:26px;font-weight:400;letter-spacing:-.005em}
+.cta-info dd:last-child{margin-bottom:0}
+.cta-info dd a{color:var(--ivory);transition:color .3s var(--ease)}
+.cta-info dd a:hover{color:var(--bronze-lt)}
 
-footer{background:#15130f;color:rgba(247,242,232,.6);padding:90px 40px 32px}
-.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;padding-bottom:56px;border-bottom:1px solid rgba(247,242,232,.1)}
+/* FOOTER */
+footer{background:#15130f;color:rgba(247,242,232,.55);padding:100px 40px 32px;position:relative}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(200,98,60,.3),transparent)}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:70px;padding-bottom:60px;border-bottom:1px solid rgba(247,242,232,.08)}
 .footer-brand .logo{color:var(--ivory)}
 .footer-brand .logo .amp{color:var(--bronze)}
-.footer-brand p{margin-top:20px;font-size:14px;max-width:320px;line-height:1.7}
-footer h5{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17px;color:var(--ivory);margin-bottom:22px;letter-spacing:.03em}
+.footer-brand p{margin-top:22px;font-size:13.5px;max-width:320px;line-height:1.75;font-weight:300}
+footer h5{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:500;font-size:10px;color:rgba(247,242,232,.85);margin-bottom:24px;letter-spacing:.28em;text-transform:uppercase}
 footer ul{list-style:none}
-footer ul li{margin-bottom:11px;font-size:14px}
-footer a{color:rgba(247,242,232,.6)}
+footer ul li{margin-bottom:12px;font-size:13.5px;font-weight:300}
+footer a{color:rgba(247,242,232,.55);transition:color .3s var(--ease)}
 footer a:hover{color:var(--bronze-lt)}
-.footer-bottom{max-width:1280px;margin:28px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.08em;flex-wrap:wrap;gap:12px;color:rgba(247,242,232,.5)}
+.footer-bottom{max-width:1280px;margin:32px auto 0;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;flex-wrap:wrap;gap:14px;color:rgba(247,242,232,.4)}
 
+/* RESPONSIVE */
 @media(max-width:1024px){
-.services-grid,.locations-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
-.insights-grid{grid-template-columns:1fr}
-.intro .container{grid-template-columns:1fr;gap:50px}
+  .services-bento{grid-template-columns:repeat(2,1fr)}
+  .service-card.feature{grid-column:span 2;grid-row:auto;aspect-ratio:16/9}
+  .locations-bento{grid-template-columns:repeat(2,1fr)}
+  .location-card.feature{grid-column:span 2;aspect-ratio:16/9}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+  .insights-grid{grid-template-columns:1fr}
+  .intro .container{grid-template-columns:1fr;gap:60px}
+  .intro-visual{max-width:520px;margin:0 auto}
+  .cta-band .container{grid-template-columns:1fr;gap:50px}
+  .cta-info{border-left:0;border-top:1px solid rgba(247,242,232,.15);padding:32px 0 0}
 }
 @media(max-width:960px){
- header.nav{padding:16px 20px}
- header.nav.scrolled{padding:12px 20px}
- nav.main{display:none;position:fixed;top:60px;left:0;right:0;background:var(--ivory);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);align-items:stretch;gap:0}
- nav.main.open{display:flex}
- nav.main > .nav-item > a,nav.main > .nav-item > button{color:var(--charcoal) !important;padding:14px 0;border-bottom:1px solid var(--line);width:100%;justify-content:space-between}
-.cta-nav{margin:12px 0 0;justify-content:center;background:var(--bronze);color:var(--ivory) !important;border:0}
-.dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;background:var(--cream);margin:0 -20px;padding:6px 20px;display:none}
-.nav-item.open .dropdown{display:block}
-.mobile-toggle{display:block;color:var(--ivory)}
- header.nav.scrolled .mobile-toggle{color:var(--charcoal)}
-.hero{padding:120px 20px 70px;min-height:640px}
-.hero-badge{right:20px;bottom:24px;font-size:10px}
-.hero-badge strong{font-size:26px}
-.services,.process,.faq,.insights,.locations-section,.intro{padding:80px 20px}
-.testimonial-content{padding:80px 20px}
-.cta-band{padding:70px 20px}
-.cta-band .container{grid-template-columns:1fr;gap:40px}
-.cta-info{border-left:0;border-top:1px solid rgba(247,242,232,.15);padding:24px 0 0}
-.faq .container{grid-template-columns:1fr;gap:40px}
-.stats-row{grid-template-columns:1fr;gap:18px}
-.footer-grid{grid-template-columns:1fr 1fr;gap:40px}
- footer{padding:60px 20px 24px}
+  header.nav{padding:16px 20px}
+  header.nav.scrolled{padding:12px 20px}
+  nav.main{display:none;position:fixed;top:60px;left:0;right:0;background:var(--ivory);flex-direction:column;padding:24px;border-bottom:1px solid var(--line);align-items:stretch;gap:0}
+  nav.main.open{display:flex}
+  nav.main > .nav-item > a,nav.main > .nav-item > button{color:var(--charcoal) !important;padding:14px 0;border-bottom:1px solid var(--line);width:100%;justify-content:space-between}
+  nav.main > .nav-item > a::after{display:none}
+  .cta-nav{margin:14px 0 0;justify-content:center;background:var(--bronze);color:var(--ivory) !important;border:0}
+  .dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;background:var(--cream);margin:0 -20px;padding:6px 20px;display:none}
+  .nav-item.open .dropdown{display:block}
+  .mobile-toggle{display:block;color:var(--ivory)}
+  header.nav.scrolled .mobile-toggle{color:var(--charcoal)}
+  .hero{padding:120px 20px 90px;min-height:680px}
+  .hero-badge{right:20px;bottom:24px;font-size:10px}
+  .hero-badge strong{font-size:18px}
+  .hero-scroll{display:none}
+  .services,.process,.faq,.insights,.locations-section,.intro{padding:80px 20px}
+  .testimonial-content{padding:100px 20px}
+  .cta-band{padding:80px 20px}
+  .faq .container{grid-template-columns:1fr;gap:40px}
+  .faq-side{position:static}
+  .stats-row{grid-template-columns:1fr;gap:24px}
+  .stats-row > div{border-right:0;border-bottom:1px solid var(--line);padding-bottom:24px;padding-right:0}
+  .stats-row > div:last-child{border-bottom:0}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+  footer{padding:70px 20px 24px}
+  .process-step{padding-left:0}
 }
 @media(max-width:640px){
-.services-grid,.locations-grid,.process-grid{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr}
-.hero h1{font-size:40px}
+  .services-bento,.locations-bento,.process-grid{grid-template-columns:1fr}
+  .service-card.feature,.location-card.feature{grid-column:auto}
+  .footer-grid{grid-template-columns:1fr}
+  .hero h1{font-size:44px}
+  .footer-bottom{justify-content:center;text-align:center}
+}
+
+/* SITEWIDE POLISH */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important;scroll-behavior:auto !important}
+  .hero-bg{animation:none !important;transform:none !important}
+  .marquee{animation:none !important}
+}
+*:focus{outline:none}
+*:focus-visible{outline:2px solid var(--bronze);outline-offset:3px;border-radius:2px}
+::selection{background:var(--bronze);color:var(--ivory)}
+::-moz-selection{background:var(--bronze);color:var(--ivory)}
+body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.028;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/></svg>");
+  background-size:200px 200px}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+[data-reveal].is-in{opacity:1;transform:translateY(0)}
+[data-reveal="scale"]{transform:scale(.94)}
+[data-reveal="scale"].is-in{transform:scale(1)}
+[data-reveal-delay="1"]{transition-delay:.08s}
+[data-reveal-delay="2"]{transition-delay:.16s}
+[data-reveal-delay="3"]{transition-delay:.24s}
+[data-reveal-delay="4"]{transition-delay:.32s}
+[data-reveal-delay="5"]{transition-delay:.40s}
+[data-reveal-delay="6"]{transition-delay:.48s}
+@media print{
+  header.nav,.mobile-toggle,.cta-nav,.cta-band,.hero-scroll,.manifesto,footer .footer-bottom,.faq-a{display:none !important}
+  body{background:#fff;color:#000}
+  body::before{display:none !important}
 }
 </style>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://masonhomesconstruction.com/#organization","name":"Mason Homes","alternateName":"Mason Homes Construction","url":"https://masonhomesconstruction.com/","telephone":"+1-813-999-5910","description":"Licensed general contractor in Tampa, FL specializing in kitchen remodeling, bathroom remodeling, whole-home renovation, home additions, custom home building, and ADU construction.","identifier":{"@type":"PropertyValue","propertyID":"FL-DBPR-CGC","value":"CGC062538"},"address":{"@type":"PostalAddress","streetAddress":"5816 Little River Dr","addressLocality":"Tampa","addressRegion":"FL","postalCode":"","addressCountry":"US"},"areaServed":[{"@type":"AdministrativeArea","name":"Hillsborough County, Florida"},{"@type":"AdministrativeArea","name":"Pinellas County, Florida"},{"@type":"AdministrativeArea","name":"Pasco County, Florida"},{"@type":"AdministrativeArea","name":"Manatee County, Florida"},{"@type":"AdministrativeArea","name":"Sarasota County, Florida"},{"@type":"City","name":"Tampa"},{"@type":"City","name":"St. Petersburg"},{"@type":"City","name":"Clearwater"},{"@type":"City","name":"Brandon"},{"@type":"City","name":"Wesley Chapel"},{"@type":"City","name":"Riverview"},{"@type":"City","name":"Carrollwood"},{"@type":"City","name":"Bradenton"},{"@type":"City","name":"Sarasota"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:00"},"priceRange":"$$-$$$"}
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://masonhomesconstruction.com/#organization","name":"Mason Homes","alternateName":"Mason Homes Construction","url":"https://masonhomesconstruction.com/","telephone":"+1-813-999-5910","description":"Licensed general contractor in Tampa, FL specializing in kitchen remodeling, bathroom remodeling, whole-home renovation, home additions, custom home building, and ADU construction.","identifier":{"@type":"PropertyValue","propertyID":"FL-DBPR-CGC","value":"CGC062538"},"address":{"@type":"PostalAddress","streetAddress":"5816 Little River Dr","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33615","addressCountry":"US"},"areaServed":[{"@type":"AdministrativeArea","name":"Hillsborough County, Florida"},{"@type":"AdministrativeArea","name":"Pinellas County, Florida"},{"@type":"AdministrativeArea","name":"Pasco County, Florida"},{"@type":"AdministrativeArea","name":"Manatee County, Florida"},{"@type":"AdministrativeArea","name":"Sarasota County, Florida"},{"@type":"City","name":"Tampa"},{"@type":"City","name":"St. Petersburg"},{"@type":"City","name":"Clearwater"},{"@type":"City","name":"Brandon"},{"@type":"City","name":"Wesley Chapel"},{"@type":"City","name":"Riverview"},{"@type":"City","name":"Carrollwood"},{"@type":"City","name":"Bradenton"},{"@type":"City","name":"Sarasota"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:00"},"priceRange":"$$-$$$"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","url":"https://masonhomesconstruction.com/","name":"Mason Homes","publisher":{"@id":"https://masonhomesconstruction.com/#organization"}}
@@ -251,226 +359,353 @@ footer a:hover{color:var(--bronze-lt)}
 <body>
 
 <header class="nav" id="nav">
- <a href="/" class="logo">MASON <span class="amp">&amp;</span> HOMES</a>
- <nav class="main" id="main-nav">
- <div class="nav-item">
- <button>Services <span style="font-size:10px;opacity: .7">▾</span></button>
- <div class="dropdown">
- <a href="/services/">All Services</a>
- <a href="/services/kitchen-remodeling/">Kitchen Remodeling</a>
- <a href="/services/bathroom-remodeling/">Bathroom Remodeling</a>
- <a href="/services/whole-home-renovation/">Whole Home Renovation</a>
- <a href="/services/home-additions/">Home Additions</a>
- <a href="/services/custom-home-building/">Custom Home Building</a>
- <a href="/services/adu-accessory-dwelling-units/">ADU Construction</a>
- <a href="/services/flooring-installation/">Flooring Installation</a>
- <a href="/services/countertop-installation/">Countertop Installation</a>
- </div>
- </div>
- <div class="nav-item">
- <button>Locations <span style="font-size:10px;opacity: .7">▾</span></button>
- <div class="dropdown">
- <a href="/locations/">All Service Areas</a>
- <a href="/locations/tampa/">Tampa</a>
- <a href="/locations/south-tampa/">South Tampa</a>
- <a href="/locations/counties/hillsborough/">Hillsborough County →</a>
- <a href="/locations/counties/pinellas/">Pinellas County →</a>
- <a href="/locations/counties/pasco/">Pasco County →</a>
- <a href="/locations/counties/manatee/">Manatee County →</a>
- <a href="/locations/counties/sarasota/">Sarasota County →</a>
- </div>
- </div>
- <div class="nav-item"><a href="/gallery/">Gallery</a></div>
+  <a href="/" class="logo">MASON <span class="amp">&amp;</span> HOMES</a>
+  <nav class="main" id="main-nav">
+    <div class="nav-item">
+      <button>Services <span style="font-size:9px;opacity:.6">▾</span></button>
+      <div class="dropdown">
+        <a href="/services/">All Services</a>
+        <a href="/services/kitchen-remodeling/">Kitchen Remodeling</a>
+        <a href="/services/bathroom-remodeling/">Bathroom Remodeling</a>
+        <a href="/services/whole-home-renovation/">Whole Home Renovation</a>
+        <a href="/services/home-additions/">Home Additions</a>
+        <a href="/services/custom-home-building/">Custom Home Building</a>
+        <a href="/services/adu-accessory-dwelling-units/">ADU Construction</a>
+        <a href="/services/flooring-installation/">Flooring Installation</a>
+        <a href="/services/countertop-installation/">Countertop Installation</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button>Locations <span style="font-size:9px;opacity:.6">▾</span></button>
+      <div class="dropdown">
+        <a href="/locations/">All Service Areas</a>
+        <a href="/locations/tampa/">Tampa</a>
+        <a href="/locations/south-tampa/">South Tampa</a>
+        <a href="/locations/counties/hillsborough/">Hillsborough County →</a>
+        <a href="/locations/counties/pinellas/">Pinellas County →</a>
+        <a href="/locations/counties/pasco/">Pasco County →</a>
+        <a href="/locations/counties/manatee/">Manatee County →</a>
+        <a href="/locations/counties/sarasota/">Sarasota County →</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="/gallery/">Gallery</a></div>
     <div class="nav-item"><a href="/showroom/">Showroom</a></div>
- <div class="nav-item"><a href="/cost-guides/">Cost Guides</a></div>
- <div class="nav-item"><a href="/blog/">Journal</a></div>
- <div class="nav-item"><a href="/about/">About</a></div>
- <div class="nav-item"><a href="/free-estimate/" class="cta-nav">Free Estimate</a></div>
- </nav>
- <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">☰</button>
+    <div class="nav-item"><a href="/cost-guides/">Cost Guides</a></div>
+    <div class="nav-item"><a href="/blog/">Journal</a></div>
+    <div class="nav-item"><a href="/about/">About</a></div>
+    <div class="nav-item"><a href="/free-estimate/" class="cta-nav">Free Estimate</a></div>
+  </nav>
+  <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">☰</button>
 </header>
 
 <section class="hero">
- <div class="hero-bg"></div>
- <div class="hero-overlay"></div>
- <div class="hero-content">
- <div class="hero-eyebrow">Licensed &amp; Insured — Tampa, Florida</div>
- <h1>High-end remodeling<br>&amp; <em>custom construction</em><br>in Tampa Bay.</h1>
- <p class="hero-sub">One licensed general contractor for kitchens, bathrooms, whole-home renovations, additions, ADUs, and ground-up custom homes — from Hyde Park to Wesley Chapel. One contract, one point of contact, one warranty.</p>
- <div class="hero-buttons">
- <a href="/free-estimate/" class="btn btn-primary">Request Free Estimate <span class="arrow">→</span></a>
- <a href="/services/" class="btn btn-ghost">Explore Services</a>
- </div>
- </div>
- <div class="hero-badge">
- Licensed &amp; Insured<br>
- <strong>CGC062538</strong>
- Hillsborough · Pinellas · Pasco
- </div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">FL-DBPR-CGC 062538 · Licensed &amp; Insured</div>
+    <h1>High-end remodeling<br>&amp; <em>custom construction</em><br>in Tampa Bay.</h1>
+    <p class="hero-sub">One licensed general contractor for kitchens, bathrooms, whole-home renovations, additions, ADUs, and ground-up custom homes — from Hyde Park to Wesley Chapel. One contract, one point of contact, one warranty.</p>
+    <div class="hero-actions">
+      <a href="/free-estimate/" class="btn btn-primary"><span>Request Free Estimate</span> <span class="arrow">→</span></a>
+      <a href="/gallery/" class="btn btn-ghost">Browse Gallery</a>
+      <a href="tel:+18139995910" class="hero-tel">(813) 999-5910</a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    Licensed &amp; Insured<br>
+    <strong>CGC062538</strong>
+    <div class="hero-badge-line">Hillsborough · Pinellas · Pasco</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<section class="manifesto" aria-hidden="true">
+  <div class="marquee">
+    <span>Detail behind the detail</span>
+    <span>Detail behind the detail</span>
+    <span>Detail behind the detail</span>
+    <span>Detail behind the detail</span>
+    <span>Detail behind the detail</span>
+    <span>Detail behind the detail</span>
+  </div>
 </section>
 
 <section class="intro">
- <div class="container">
- <div class="intro-visual">
- <div class="est-tag">Est. Tampa</div>
- <div class="main-img"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-12.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/></div>
- <div class="accent-img"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-40.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/></div>
- </div>
- <div class="intro-text">
- <span class="eyebrow">Who We Are</span>
- <h2 class="section-title">Tampa's trusted contractor for homes that <em>earn</em> their place.</h2>
- <p>Mason Homes is a licensed Florida general contractor. We handle kitchen and bathroom remodels, whole-home renovations, additions, ADUs, and ground-up custom builds across Hillsborough, Pinellas, and Pasco counties.</p>
- <p class="pull-quote">"Our standard is the detail nobody sees — the framing, the waterproofing, the joinery behind the cabinet. The beauty follows."</p>
- <p>Every project is run by our in-house team under a single contract. We pull permits through City of Tampa Construction Services and Hillsborough County Building Services. Licensed, fully insured, and Florida-tough.</p>
- <div class="stats-row">
- <div><div class="stat-num">8<em>+</em></div><div class="stat-label">Full-Scope Services</div></div>
- <div><div class="stat-num">5<em>·</em></div><div class="stat-label">Counties Served</div></div>
- <div><div class="stat-num">1<em>·</em></div><div class="stat-label">Contract, One Warranty</div></div>
- </div>
- </div>
- </div>
+  <div class="container">
+    <div class="intro-visual" data-reveal>
+      <div class="est-tag"><em>Est.</em>&nbsp;Tampa</div>
+      <div class="main-img"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg" alt="Modern white kitchen with wood-accent cabinetry and quartz waterfall island — Mason Homes Tampa"/></div>
+      <div class="accent-img"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-41.jpg" alt="Green marble bathroom with double vessel sinks and floating vanity — Mason Homes Tampa"/></div>
+    </div>
+    <div class="intro-text">
+      <span class="eyebrow" data-reveal>Who We Are</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="1">Tampa's trusted contractor for homes that <em>earn</em> their place.</h2>
+      <p data-reveal data-reveal-delay="2">Mason Homes is a licensed Florida general contractor. We handle kitchen and bathroom remodels, whole-home renovations, additions, ADUs, and ground-up custom builds across Hillsborough, Pinellas, and Pasco counties.</p>
+      <p class="pull-quote" data-reveal data-reveal-delay="3">Our standard is the detail nobody sees — the framing, the waterproofing, the joinery behind the cabinet. The beauty follows.</p>
+      <p data-reveal data-reveal-delay="4">Every project is run by our in-house team under a single contract. We pull permits through City of Tampa Construction Services and Hillsborough County Building Services. Licensed, fully insured, and Florida-tough.</p>
+      <div class="stats-row" data-reveal data-reveal-delay="5">
+        <div><div class="stat-num">8<em>+</em></div><div class="stat-label">Full-Scope Services</div></div>
+        <div><div class="stat-num">5<em>·</em></div><div class="stat-label">Counties Served</div></div>
+        <div><div class="stat-num">1<em>·</em></div><div class="stat-label">Contract, One Warranty</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="services">
- <div class="container">
- <div class="section-head-center">
- <span class="eyebrow">What We Build</span>
- <h2 class="section-title">A focused practice — <em>precisely</em> executed.</h2>
- <p class="section-lead">Eight services, one contractor, full accountability. Each handled by our in-house team with licensed trades, permits pulled, and inspections scheduled through final walkthrough.</p>
- </div>
- <div class="services-grid">
- <a href="/services/kitchen-remodeling/" class="service-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-32.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="service-card-overlay"><div class="service-card-num">01 — Kitchens</div><h3>Kitchen Remodeling</h3><p>Cabinetry, stone countertops, layout changes. $10K–$120K range; $25K–$60K mid-range.</p><span class="link">Explore <span>→</span></span></div></a>
- <a href="/services/bathroom-remodeling/" class="service-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-06.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="service-card-overlay"><div class="service-card-num">02 — Bathrooms</div><h3>Bathroom Remodeling</h3><p>Walk-in showers, tub conversions, custom vanities. $9K–$75K+.</p><span class="link">Explore <span>→</span></span></div></a>
- <a href="/services/whole-home-renovation/" class="service-card"><img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-100.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="service-card-overlay"><div class="service-card-num">03 — Whole Home</div><h3>Whole Home Renovation</h3><p>Multi-room remodels, open floor plans, full gut renovations.</p><span class="link">Explore <span>→</span></span></div></a>
- <a href="/services/home-additions/" class="service-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-01.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="service-card-overlay"><div class="service-card-num">04 — Additions</div><h3>Home Additions</h3><p>Room additions, second-story builds, garage conversions, sunrooms.</p><span class="link">Explore <span>→</span></span></div></a>
- <a href="/services/custom-home-building/" class="service-card"><img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-100.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="service-card-overlay"><div class="service-card-num">05 — Custom</div><h3>Custom Home Building</h3><p>Ground-up construction on your lot. $150–$400+/sq ft.</p><span class="link">Explore <span>→</span></span></div></a>
- <a href="/services/adu-accessory-dwelling-units/" class="service-card"><img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-95.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="service-card-overlay"><div class="service-card-num">06 — ADU</div><h3>ADU Construction</h3><p>Florida ADU law (Fla. Stat. §163.31771) compliant backyard cottages &amp; in-law suites.</p><span class="link">Explore <span>→</span></span></div></a>
- <a href="/services/flooring-installation/" class="service-card"><img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-90.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="service-card-overlay"><div class="service-card-num">07 — Flooring</div><h3>Flooring Installation</h3><p>LVP, tile, hardwood, and stone. Standalone or full remodel.</p><span class="link">Explore <span>→</span></span></div></a>
- <a href="/services/countertop-installation/" class="service-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-32.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="service-card-overlay"><div class="service-card-num">08 — Stone</div><h3>Countertop Installation</h3><p>Granite from $27/sq ft. Quartz from $50/sq ft. Marble available.</p><span class="link">Explore <span>→</span></span></div></a>
- </div>
- </div>
+  <div class="container">
+    <div class="section-head-center">
+      <span class="eyebrow" data-reveal>What We Build</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="1">A focused practice — <em>precisely</em> executed.</h2>
+      <p class="section-lead" data-reveal data-reveal-delay="2">Eight services, one contractor, full accountability. Each handled by our in-house team with licensed trades, permits pulled, and inspections scheduled through final walkthrough.</p>
+    </div>
+    <div class="services-bento">
+      <a href="/services/kitchen-remodeling/" class="service-card feature" data-reveal="scale">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/>
+        <div class="service-card-overlay">
+          <div class="service-card-num">01 · Featured Trade</div>
+          <h3>Kitchen Remodeling</h3>
+          <p>Cabinetry, stone countertops, layout changes. Mid-range $25K–$60K; luxury gut renovations up to $120K+ with custom cabinetry and full layout redesign.</p>
+          <span class="link">Explore Kitchens <span>→</span></span>
+        </div>
+      </a>
+      <a href="/services/bathroom-remodeling/" class="service-card" data-reveal="scale" data-reveal-delay="1">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-41.jpg" alt="Green marble bathroom finish — Mason Homes Tampa"/>
+        <div class="service-card-overlay">
+          <div class="service-card-num">02 · Bath</div>
+          <h3>Bathroom Remodeling</h3>
+          <p>Walk-in showers, tub conversions, custom vanities. $9K–$75K+.</p>
+          <span class="link">Explore <span>→</span></span>
+        </div>
+      </a>
+      <a href="/services/whole-home-renovation/" class="service-card" data-reveal="scale" data-reveal-delay="2">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-32.jpg" alt="Whole-home renovation finish — Mason Homes Tampa"/>
+        <div class="service-card-overlay">
+          <div class="service-card-num">03 · Whole Home</div>
+          <h3>Whole Home Renovation</h3>
+          <p>Multi-room remodels, open floor plans, full gut renovations.</p>
+          <span class="link">Explore <span>→</span></span>
+        </div>
+      </a>
+      <a href="/services/custom-home-building/" class="service-card" data-reveal="scale" data-reveal-delay="3">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-04.jpg" alt="Custom home interior detail — Mason Homes Tampa"/>
+        <div class="service-card-overlay">
+          <div class="service-card-num">05 · Custom</div>
+          <h3>Custom Home Building</h3>
+          <p>Ground-up construction on your lot. $150–$400+/sq ft.</p>
+          <span class="link">Explore <span>→</span></span>
+        </div>
+      </a>
+      <a href="/services/home-additions/" class="service-card" data-reveal="scale" data-reveal-delay="1">
+        <img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-100.jpg" alt="Screened deck and outdoor living addition — Mason Homes Tampa"/>
+        <div class="service-card-overlay">
+          <div class="service-card-num">04 · Additions</div>
+          <h3>Home Additions</h3>
+          <p>Room additions, second-story builds, garage conversions, sunrooms.</p>
+          <span class="link">Explore <span>→</span></span>
+        </div>
+      </a>
+      <a href="/services/adu-accessory-dwelling-units/" class="service-card" data-reveal="scale" data-reveal-delay="2">
+        <img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-95.jpg" alt="ADU project — Mason Homes Tampa"/>
+        <div class="service-card-overlay">
+          <div class="service-card-num">06 · ADU</div>
+          <h3>ADU Construction</h3>
+          <p>Florida ADU statute compliant backyard cottages &amp; in-law suites.</p>
+          <span class="link">Explore <span>→</span></span>
+        </div>
+      </a>
+      <a href="/services/flooring-installation/" class="service-card" data-reveal="scale" data-reveal-delay="3">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-40.jpg" alt="LVP wide-plank flooring — Mason Homes Tampa"/>
+        <div class="service-card-overlay">
+          <div class="service-card-num">07 · Flooring</div>
+          <h3>Flooring Installation</h3>
+          <p>LVP, tile, hardwood, and stone. Standalone or full remodel.</p>
+          <span class="link">Explore <span>→</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
 </section>
 
 <section class="process">
- <div class="container">
- <div class="section-head-center">
- <span class="eyebrow">The Process</span>
- <h2 class="section-title">A considered path, start to <em>finish</em>.</h2>
- <p class="section-lead">Every project runs the same way. Clear numbers, clear timelines, one contractor managing the whole scope.</p>
- </div>
- <div class="process-grid">
- <div class="process-step"><div class="num">i.</div><h3>Consultation</h3><p>We visit your home, listen carefully, and sketch a direction within days — not weeks.</p></div>
- <div class="process-step"><div class="num">ii.</div><h3>Design &amp; Estimate</h3><p>Detailed plans, material selections, and a transparent fixed-scope estimate with line-by-line pricing.</p></div>
- <div class="process-step"><div class="num">iii.</div><h3>Build</h3><p>Our in-house team executes with daily oversight, weekly client check-ins, and full permitting.</p></div>
- <div class="process-step"><div class="num">iv.</div><h3>Walkthrough</h3><p>Final white-glove walkthrough. Industry-leading warranty. A relationship for future projects.</p></div>
- </div>
- </div>
+  <div class="container">
+    <div class="section-head-center">
+      <span class="eyebrow" data-reveal>The Process</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="1">A considered path, start to <em>finish</em>.</h2>
+      <p class="section-lead" data-reveal data-reveal-delay="2">Every project runs the same way. Clear numbers, clear timelines, one contractor managing the whole scope.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step" data-reveal data-reveal-delay="1">
+        <div class="num">i · Discovery</div>
+        <h3>Consultation</h3>
+        <p>We visit your home, listen carefully, and sketch a direction within days — not weeks.</p>
+      </div>
+      <div class="process-step" data-reveal data-reveal-delay="2">
+        <div class="num">ii · Plan</div>
+        <h3>Design &amp; Estimate</h3>
+        <p>Detailed plans, material selections, and a transparent fixed-scope estimate with line-by-line pricing.</p>
+      </div>
+      <div class="process-step" data-reveal data-reveal-delay="3">
+        <div class="num">iii · Build</div>
+        <h3>In-House Build</h3>
+        <p>Our in-house team executes with daily oversight, weekly client check-ins, and full permitting.</p>
+      </div>
+      <div class="process-step" data-reveal data-reveal-delay="4">
+        <div class="num">iv · Deliver</div>
+        <h3>Walkthrough</h3>
+        <p>Final white-glove walkthrough. Industry-leading warranty. A relationship for future projects.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="locations-section">
- <div class="container">
- <div class="section-head-center">
- <span class="eyebrow" style="color:var(--bronze-lt)">Where We Work</span>
- <h2 class="section-title">Across <em>Tampa Bay</em> — neighborhood by neighborhood.</h2>
- <p class="section-lead">From historic Hyde Park bungalows to new construction in Wesley Chapel, we know the permit requirements, HOA rules, flood zones, and architectural vernacular of every area we serve.</p>
- </div>
- <div class="locations-grid">
- <a href="/locations/tampa/" class="location-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-20.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="location-card-overlay"><div class="location-card-label">Hillsborough · Citywide</div><h3>Tampa</h3><p>City-wide hub · all neighborhoods</p></div></a>
- <a href="/locations/south-tampa/" class="location-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-40.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="location-card-overlay"><div class="location-card-label">Tampa</div><h3>South Tampa</h3><p>Hyde Park · Davis Islands · Bayshore</p></div></a>
- <a href="/locations/carrollwood/" class="location-card"><img src="/assets/projects/04-flooring-installation/flooring-installation-tampa-01.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="location-card-overlay"><div class="location-card-label">Tampa</div><h3>Carrollwood</h3><p>Carrollwood Village · Lake Carroll</p></div></a>
- <a href="/locations/brandon/" class="location-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="location-card-overlay"><div class="location-card-label">Hillsborough</div><h3>Brandon</h3><p>Bloomingdale · FishHawk · Valrico</p></div></a>
- <a href="/locations/wesley-chapel/" class="location-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="location-card-overlay"><div class="location-card-label">Pasco</div><h3>Wesley Chapel</h3><p>Epperson · Wiregrass Ranch</p></div></a>
- <a href="/locations/st-petersburg/" class="location-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-41.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="location-card-overlay"><div class="location-card-label">Pinellas</div><h3>St. Petersburg</h3><p>Snell Isle · Old Northeast</p></div></a>
- <a href="/locations/clearwater/" class="location-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-12.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="location-card-overlay"><div class="location-card-label">Pinellas</div><h3>Clearwater</h3><p>Clearwater Beach · Countryside</p></div></a>
- <a href="/locations/riverview/" class="location-card"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-04.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/><div class="location-card-overlay"><div class="location-card-label">Hillsborough</div><h3>Riverview</h3><p>Alafia · Summerfield · Boyette</p></div></a>
- </div>
- </div>
+  <div class="container">
+    <div class="section-head-center">
+      <span class="eyebrow" style="color:var(--bronze-lt)" data-reveal>Where We Work</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="1">Across <em>Tampa Bay</em> — neighborhood by neighborhood.</h2>
+      <p class="section-lead" data-reveal data-reveal-delay="2">From historic Hyde Park bungalows to new construction in Wesley Chapel, we know the permit requirements, HOA rules, flood zones, and architectural vernacular of every area we serve.</p>
+    </div>
+    <div class="locations-bento">
+      <a href="/locations/south-tampa/" class="location-card feature" data-reveal="scale">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg" alt="South Tampa — Mason Homes"/>
+        <div class="location-card-overlay">
+          <div class="location-card-label">City of Tampa · Featured</div>
+          <h3>South Tampa</h3>
+          <p>Hyde Park · Davis Islands · Palma Ceia · Bayshore · Beach Park</p>
+        </div>
+      </a>
+      <a href="/locations/tampa/" class="location-card" data-reveal="scale" data-reveal-delay="1">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg" alt="Tampa"/>
+        <div class="location-card-overlay"><div class="location-card-label">Hillsborough</div><h3>Tampa</h3><p>City-wide · all neighborhoods</p></div>
+      </a>
+      <a href="/locations/carrollwood/" class="location-card" data-reveal="scale" data-reveal-delay="2">
+        <img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-100.jpg" alt="Carrollwood"/>
+        <div class="location-card-overlay"><div class="location-card-label">Hillsborough</div><h3>Carrollwood</h3><p>Village · Lake Carroll · Northdale</p></div>
+      </a>
+      <a href="/locations/brandon/" class="location-card" data-reveal="scale" data-reveal-delay="3">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-40.jpg" alt="Brandon"/>
+        <div class="location-card-overlay"><div class="location-card-label">Hillsborough</div><h3>Brandon</h3><p>Bloomingdale · FishHawk · Valrico</p></div>
+      </a>
+      <a href="/locations/wesley-chapel/" class="location-card" data-reveal="scale" data-reveal-delay="1">
+        <img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-95.jpg" alt="Wesley Chapel"/>
+        <div class="location-card-overlay"><div class="location-card-label">Pasco</div><h3>Wesley Chapel</h3><p>Epperson · Wiregrass Ranch</p></div>
+      </a>
+      <a href="/locations/st-petersburg/" class="location-card" data-reveal="scale" data-reveal-delay="2">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-32.jpg" alt="St Petersburg"/>
+        <div class="location-card-overlay"><div class="location-card-label">Pinellas</div><h3>St. Petersburg</h3><p>Snell Isle · Old Northeast</p></div>
+      </a>
+      <a href="/locations/clearwater/" class="location-card" data-reveal="scale" data-reveal-delay="3">
+        <img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-06.jpg" alt="Clearwater"/>
+        <div class="location-card-overlay"><div class="location-card-label">Pinellas</div><h3>Clearwater</h3><p>Clearwater Beach · Countryside</p></div>
+      </a>
+      <a href="/locations/riverview/" class="location-card" data-reveal="scale" data-reveal-delay="4">
+        <img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-90.jpg" alt="Riverview"/>
+        <div class="location-card-overlay"><div class="location-card-label">Hillsborough</div><h3>Riverview</h3><p>Alafia · Summerfield · Boyette</p></div>
+      </a>
+    </div>
+  </div>
 </section>
 
 <section class="testimonial">
- <div class="testimonial-bg"></div>
- <div class="testimonial-overlay"></div>
- <div class="testimonial-content">
- <span class="quote-mark">"</span>
- <blockquote>The framing behind the drywall. The waterproofing under the tile. The wire chase behind the cabinet. Our promise is that the work you never see is done as carefully as the finishes you will.</blockquote>
- <cite>Our Standard<span>Mason Homes · Licensed FL CGC062538</span></cite>
- </div>
+  <div class="testimonial-bg"></div>
+  <div class="testimonial-overlay"></div>
+  <div class="testimonial-content" data-reveal>
+    <div class="testimonial-mark">Our Standard</div>
+    <blockquote>The framing behind the drywall. The waterproofing under the tile. The wire chase behind the cabinet. Our promise is that the work you never see is done as carefully as the finishes you will.</blockquote>
+    <cite>Mason Homes Construction<span>Licensed FL General Contractor · CGC062538</span></cite>
+  </div>
 </section>
 
 <section class="faq">
- <div class="container">
- <div>
- <span class="eyebrow">Good Questions</span>
- <h2 class="section-title">Answers for <em>Tampa</em> homeowners.</h2>
- <p class="section-lead">The questions we field most — with specific numbers, not hedges. Every cost range cited from verified 2026 Tampa market data.</p>
- </div>
- <ul class="faq-list">
- <li class="faq-item open"><button class="faq-q">How much does a kitchen remodel cost in Tampa? <span class="icon">+</span></button><div class="faq-a">Tampa kitchen remodels range from $10,000 for cosmetic refreshes (paint, hardware, countertops) to $120,000+ for luxury gut renovations with custom cabinetry and layout changes. Mid-range projects run $25,000–$60,000, in line with the 2026 Remodeling Magazine Cost vs. Value benchmark for the Tampa/St. Petersburg/Clearwater metro. <a href="/cost-guides/kitchen-remodel-cost-tampa/">See the full kitchen cost guide →</a></div></li>
- <li class="faq-item"><button class="faq-q">Do I need a permit for home renovation in Tampa? <span class="icon">+</span></button><div class="faq-a">Yes for most projects. Structural changes, electrical, plumbing, HVAC, roofing, or window/door replacement all require a permit from the City of Tampa or Hillsborough County. Cosmetic work like painting, tiling, and cabinet refacing does not. Permit fees typically run $250–$1,500 based on job valuation — a kitchen remodel usually falls in the $400–$900 range.</div></li>
- <li class="faq-item"><button class="faq-q">How long does a whole home remodel take? <span class="icon">+</span></button><div class="faq-a">A full home renovation in Tampa typically takes 3–6 months depending on scope, permit timelines, and material lead times. A single kitchen remodel runs 4–8 weeks; a bathroom 3–5 weeks. Hillsborough County residential permit review is currently 10–15 business days for standard remodels; ADUs and additions are running 4–8 weeks due to elevated post-hurricane volume.</div></li>
- <li class="faq-item"><button class="faq-q">What areas does Mason Homes serve? <span class="icon">+</span></button><div class="faq-a">Hillsborough, Pinellas, and Pasco counties — including Tampa, South Tampa, St. Petersburg, Clearwater, Brandon, Wesley Chapel, Riverview, Carrollwood, and surrounding communities. <a href="/locations/">See all service areas →</a></div></li>
- <li class="faq-item"><button class="faq-q">Are you licensed and insured? <span class="icon">+</span></button><div class="faq-a">Yes. Mason Homes holds a Florida General Contractor License issued by the FL Department of Business and Professional Regulation (FL DBPR). We carry general liability insurance and workers' compensation on every project.</div></li>
- <li class="faq-item"><button class="faq-q">What's the first step? <span class="icon">+</span></button><div class="faq-a">Call (813) 999-5910 or <a href="/free-estimate/">request a free estimate online</a>. We respond within 24 hours and schedule an on-site consultation within 48 hours for homes in Hillsborough, Pinellas, and Pasco counties.</div></li>
- </ul>
- </div>
+  <div class="container">
+    <div class="faq-side">
+      <span class="eyebrow" data-reveal>Good Questions</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="1">Answers for <em>Tampa</em> homeowners.</h2>
+      <p class="section-lead" data-reveal data-reveal-delay="2">The questions we field most — with specific numbers, not hedges. Every cost range cited from verified 2026 Tampa market data.</p>
+    </div>
+    <ul class="faq-list">
+      <li class="faq-item open" data-reveal><button class="faq-q">How much does a kitchen remodel cost in Tampa? <span class="icon">+</span></button><div class="faq-a">Tampa kitchen remodels range from $10,000 for cosmetic refreshes (paint, hardware, countertops) to $120,000+ for luxury gut renovations with custom cabinetry and layout changes. Mid-range projects run $25,000–$60,000, in line with the 2026 Remodeling Magazine Cost vs. Value benchmark for the Tampa/St. Petersburg/Clearwater metro. <a href="/cost-guides/kitchen-remodel-cost-tampa/">See the full kitchen cost guide →</a></div></li>
+      <li class="faq-item" data-reveal data-reveal-delay="1"><button class="faq-q">Do I need a permit for home renovation in Tampa? <span class="icon">+</span></button><div class="faq-a">Yes for most projects. Structural changes, electrical, plumbing, HVAC, roofing, or window/door replacement all require a permit from the City of Tampa or Hillsborough County. Cosmetic work like painting, tiling, and cabinet refacing does not. Permit fees typically run $250–$1,500 based on job valuation — a kitchen remodel usually falls in the $400–$900 range.</div></li>
+      <li class="faq-item" data-reveal data-reveal-delay="2"><button class="faq-q">How long does a whole home remodel take? <span class="icon">+</span></button><div class="faq-a">A full home renovation in Tampa typically takes 3–6 months depending on scope, permit timelines, and material lead times. A single kitchen remodel runs 4–8 weeks; a bathroom 3–5 weeks. Hillsborough County residential permit review is currently 10–15 business days for standard remodels; ADUs and additions are running 4–8 weeks due to elevated post-hurricane volume.</div></li>
+      <li class="faq-item" data-reveal data-reveal-delay="3"><button class="faq-q">What areas does Mason Homes serve? <span class="icon">+</span></button><div class="faq-a">Hillsborough, Pinellas, Pasco, Manatee, and Sarasota counties — including Tampa, South Tampa, St. Petersburg, Clearwater, Brandon, Wesley Chapel, Riverview, Carrollwood, Bradenton, Sarasota, and surrounding communities. <a href="/locations/">See all service areas →</a></div></li>
+      <li class="faq-item" data-reveal data-reveal-delay="4"><button class="faq-q">Are you licensed and insured? <span class="icon">+</span></button><div class="faq-a">Yes. Mason Homes holds a Florida General Contractor License (CGC062538) issued by the FL Department of Business and Professional Regulation. We carry general liability insurance and workers' compensation on every project.</div></li>
+      <li class="faq-item" data-reveal data-reveal-delay="5"><button class="faq-q">What's the first step? <span class="icon">+</span></button><div class="faq-a">Call (813) 999-5910 or <a href="/free-estimate/">request a free estimate online</a>. We respond within 24 hours and schedule an on-site consultation within 48 hours for homes in Hillsborough, Pinellas, and Pasco counties.</div></li>
+    </ul>
+  </div>
 </section>
 
 <section class="insights">
- <div class="container">
- <div class="section-head-center">
- <span class="eyebrow">Journal</span>
- <h2 class="section-title">Guides for <em>Tampa</em> homeowners.</h2>
- <p class="section-lead">Permits, costs, material choices, and the local details that matter. Written with real Tampa market data — not generic advice.</p>
- </div>
- <div class="insights-grid">
- <a href="/blog/tampa-building-permit-guide/" class="insight-card">
- <div class="insight-img"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-32.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/></div>
- <div class="insight-body"><div class="insight-cat">Permits &amp; Process</div><h3>The Tampa Building Permit Guide</h3><p>What requires a permit, what doesn't, and how the City of Tampa and Hillsborough County differ.</p><span class="read">Read article <span>→</span></span></div>
- </a>
- <a href="/blog/florida-adu-law-2024/" class="insight-card">
- <div class="insight-img"><img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-95.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/></div>
- <div class="insight-body"><div class="insight-cat">ADU Law</div><h3>Florida's 2024 ADU Law Explained</h3><p>Recent state-level updates expanded ADU rights across Florida. What Tampa homeowners can now build — and what the city still controls.</p><span class="read">Read article <span>→</span></span></div>
- </a>
- <a href="/blog/kitchen-remodel-roi-tampa/" class="insight-card">
- <div class="insight-img"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-32.jpg" alt="Custom home interior finish — Mason Homes Tampa project"/></div>
- <div class="insight-body"><div class="insight-cat">Investment</div><h3>Kitchen Remodel ROI in Tampa, 2026</h3><p>Which kitchen upgrades return their investment at resale in the Tampa market — and which quietly don't.</p><span class="read">Read article <span>→</span></span></div>
- </a>
- </div>
- <div style="text-align:center;margin-top:50px">
- <a href="/blog/" class="btn btn-outline">Read the Full Journal <span class="arrow">→</span></a>
- </div>
- </div>
+  <div class="container">
+    <div class="section-head-center">
+      <span class="eyebrow" data-reveal>Journal</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="1">Guides for <em>Tampa</em> homeowners.</h2>
+      <p class="section-lead" data-reveal data-reveal-delay="2">Permits, costs, material choices, and the local details that matter. Written with real Tampa market data — not generic advice.</p>
+    </div>
+    <div class="insights-grid">
+      <a href="/blog/tampa-building-permit-guide/" class="insight-card feature" data-reveal>
+        <div class="insight-img"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-04.jpg" alt="Tampa building permits"/></div>
+        <div class="insight-body">
+          <div class="insight-cat">Permits &amp; Process</div>
+          <h3>The Tampa Building Permit Guide</h3>
+          <p>What requires a permit, what doesn't, and how the City of Tampa and Hillsborough County differ. Turnaround, fees, and inspection scheduling — all in one place.</p>
+          <span class="read">Read article <span class="arrow">→</span></span>
+        </div>
+      </a>
+      <a href="/blog/florida-adu-law-2024/" class="insight-card" data-reveal data-reveal-delay="1">
+        <div class="insight-img"><img src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-100.jpg" alt="Florida ADU law"/></div>
+        <div class="insight-body">
+          <div class="insight-cat">ADU Law</div>
+          <h3>Florida ADU Law Explained</h3>
+          <p>What Tampa homeowners can now build — and what the city still controls.</p>
+          <span class="read">Read article <span class="arrow">→</span></span>
+        </div>
+      </a>
+      <a href="/blog/kitchen-remodel-roi-tampa/" class="insight-card" data-reveal data-reveal-delay="2">
+        <div class="insight-img"><img src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg" alt="Kitchen ROI"/></div>
+        <div class="insight-body">
+          <div class="insight-cat">Investment</div>
+          <h3>Kitchen Remodel ROI in Tampa, 2026</h3>
+          <p>Which kitchen upgrades return their investment at resale — and which quietly don't.</p>
+          <span class="read">Read article <span class="arrow">→</span></span>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:60px" data-reveal>
+      <a href="/blog/" class="btn btn-outline">Read the Full Journal <span class="arrow">→</span></a>
+    </div>
+  </div>
 </section>
 
 <section class="cta-band">
- <div class="container">
- <div>
- <span class="eyebrow">Start Your Project</span>
- <h2>Let's build something <em>extraordinary</em>.</h2>
- <p>Tell us about your home and your vision. We'll be in touch within one business day to arrange your complimentary on-site consultation.</p>
- <a href="/free-estimate/" class="btn btn-primary">Request Free Estimate <span class="arrow">→</span></a>
- </div>
- <dl class="cta-info">
- <dt>Direct Line</dt><dd><a href="tel:+18139995910">(813) 999-5910</a></dd>
- <dt>Studio</dt><dd>5816 Little River Dr, Tampa, FL</dd>
- <dt>Hours</dt><dd>Mon – Sat · 8a – 6p</dd>
- </dl>
- </div>
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Start Your Project</span>
+      <h2>Let's build something <em>extraordinary</em>.</h2>
+      <p>Tell us about your home and your vision. We'll be in touch within one business day to arrange your complimentary on-site consultation.</p>
+      <a href="/free-estimate/" class="btn btn-primary"><span>Request Free Estimate</span> <span class="arrow">→</span></a>
+    </div>
+    <dl class="cta-info" data-reveal data-reveal-delay="2">
+      <dt>Direct Line</dt><dd><a href="tel:+18139995910">(813) 999-5910</a></dd>
+      <dt>Studio</dt><dd>5816 Little River Dr, Tampa, FL 33615</dd>
+      <dt>Hours</dt><dd>Mon – Sat · 8a – 6p</dd>
+    </dl>
+  </div>
 </section>
 
 <footer>
- <div class="footer-grid">
- <div class="footer-brand">
- <a href="/" class="logo">MASON <span class="amp">&amp;</span> HOMES</a>
- <p>Licensed general contractor serving Tampa, St. Petersburg, Clearwater, and Florida's Gulf Coast. High-end residential remodeling and custom home construction.</p>
- </div>
- <div><h5>Services</h5><ul><li><a href="/services/kitchen-remodeling/">Kitchen Remodeling</a></li><li><a href="/services/bathroom-remodeling/">Bathroom Remodeling</a></li><li><a href="/services/whole-home-renovation/">Whole Home Renovation</a></li><li><a href="/services/home-additions/">Home Additions</a></li><li><a href="/services/custom-home-building/">Custom Home Building</a></li><li><a href="/services/adu-accessory-dwelling-units/">ADU Construction</a></li></ul></div>
- <div><h5>Locations</h5><ul><li><a href="/locations/tampa/">Tampa</a></li>
- <li><a href="/locations/south-tampa/">South Tampa</a></li><li><a href="/locations/st-petersburg/">St. Petersburg</a></li><li><a href="/locations/clearwater/">Clearwater</a></li><li><a href="/locations/brandon/">Brandon</a></li><li><a href="/locations/carrollwood/">Carrollwood</a></li><li><a href="/locations/wesley-chapel/">Wesley Chapel</a></li><li><a href="/locations/riverview/">Riverview</a></li></ul></div>
- <div><h5>Contact</h5><ul><li><a href="tel:+18139995910">(813) 999-5910</a></li><li>5816 Little River Dr, Tampa, FL</li><li><a href="/showroom/">Showroom</a></li>
- <li><a href="/free-estimate/">Free Estimate</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li></ul></div>
- </div>
- <div class="footer-bottom"><span>© 2026 Mason Homes Construction · Licensed General Contractor in Florida</span><span>Tampa · St. Petersburg · Clearwater</span></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo">MASON <span class="amp">&amp;</span> HOMES</a>
+      <p>Licensed general contractor serving Tampa, St. Petersburg, Clearwater, and Florida's Gulf Coast. High-end residential remodeling and custom home construction.</p>
+    </div>
+    <div><h5>Services</h5><ul><li><a href="/services/kitchen-remodeling/">Kitchen Remodeling</a></li><li><a href="/services/bathroom-remodeling/">Bathroom Remodeling</a></li><li><a href="/services/whole-home-renovation/">Whole Home Renovation</a></li><li><a href="/services/home-additions/">Home Additions</a></li><li><a href="/services/custom-home-building/">Custom Home Building</a></li><li><a href="/services/adu-accessory-dwelling-units/">ADU Construction</a></li></ul></div>
+    <div><h5>Locations</h5><ul><li><a href="/locations/tampa/">Tampa</a></li>
+      <li><a href="/locations/south-tampa/">South Tampa</a></li><li><a href="/locations/st-petersburg/">St. Petersburg</a></li><li><a href="/locations/clearwater/">Clearwater</a></li><li><a href="/locations/brandon/">Brandon</a></li><li><a href="/locations/carrollwood/">Carrollwood</a></li><li><a href="/locations/wesley-chapel/">Wesley Chapel</a></li><li><a href="/locations/riverview/">Riverview</a></li></ul></div>
+    <div><h5>Contact</h5><ul><li><a href="tel:+18139995910">(813) 999-5910</a></li><li>5816 Little River Dr, Tampa, FL 33615</li><li><a href="/gallery/">Gallery</a></li><li><a href="/showroom/">Showroom</a></li>
+      <li><a href="/free-estimate/">Free Estimate</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 MASON HOMES CONSTRUCTION · CGC062538</span><span>TAMPA · ST. PETERSBURG · CLEARWATER</span></div>
 </footer>
 
 <script>
@@ -480,19 +715,37 @@ document.addEventListener('scroll',onScroll,{passive:true});onScroll();
 const tog=document.getElementById('mobile-toggle');
 const mn=document.getElementById('main-nav');
 if(tog&&mn){
- tog.addEventListener('click',()=>mn.classList.toggle('open'));
- mn.querySelectorAll('.nav-item > button').forEach(b=>{
- b.addEventListener('click',e=>{if(window.innerWidth<=960){e.preventDefault();b.parentElement.classList.toggle('open')}});
- });
+  tog.addEventListener('click',()=>mn.classList.toggle('open'));
+  mn.querySelectorAll('.nav-item > button').forEach(b=>{
+    b.addEventListener('click',e=>{if(window.innerWidth<=960){e.preventDefault();b.parentElement.classList.toggle('open')}});
+  });
 }
 document.querySelectorAll('.faq-q').forEach(btn=>{
- btn.addEventListener('click',()=>{
- const item=btn.parentElement;
- const wasOpen=item.classList.contains('open');
- document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
- if(!wasOpen)item.classList.add('open');
- });
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
 });
+</script>
+
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) {
+    document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('is-in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  },{rootMargin:'-8% 0px -8% 0px',threshold:0.05});
+  document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+})();
 </script>
 
 </body>
