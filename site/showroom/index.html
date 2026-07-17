@@ -38,8 +38,8 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 40px;dis
 header.nav.scrolled{background:rgba(247,242,232,.97);backdrop-filter:blur(10px);padding:14px 40px;border-bottom-color:var(--line)}
 .logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;letter-spacing:.18em;color:var(--ivory);white-space:nowrap;transition:color .3s}
 header.nav.scrolled .logo{color:var(--charcoal)}
-.logo.amp{color:var(--bronze-lt);font-style:italic}
-header.nav.scrolled .logo.amp{color:var(--bronze)}
+.logo .amp{color:var(--bronze-lt);font-style:italic}
+header.nav.scrolled .logo .amp{color:var(--bronze)}
 nav.main{display:flex;align-items:center;gap:2px}
 nav.main > .nav-item{position:relative}
 nav.main > .nav-item > a,nav.main > .nav-item > button{background:none;border:0;cursor:pointer;color:var(--ivory);font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;transition:color .3s}
@@ -155,11 +155,11 @@ header.nav.scrolled nav.main > .nav-item > a:hover,header.nav.scrolled nav.main 
 /* CTA BAND */
 .cta-band{background:var(--charcoal);color:var(--ivory);padding:90px 40px;position:relative;overflow:hidden}
 .cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border:1px solid rgba(200,98,60,.18);border-radius:50%;pointer-events:none}
-.cta-band.container{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
+.cta-band .container{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
 .cta-band h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.1;margin-bottom:18px;color:var(--ivory)}
 .cta-band h2 em{font-style:italic;color:var(--bronze-lt)}
 .cta-band p{color:rgba(247,242,232,.75);font-size:16px;margin-bottom:28px;max-width:520px}
-.cta-band.eyebrow{color:var(--bronze-lt)}
+.cta-band .eyebrow{color:var(--bronze-lt)}
 .cta-info-band{border-left:1px solid rgba(247,242,232,.15);padding-left:40px}
 .cta-info-band dt{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze-lt);margin-bottom:4px;font-weight:500}
 .cta-info-band dd{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ivory);margin-bottom:20px;font-weight:400}
@@ -168,8 +168,8 @@ header.nav.scrolled nav.main > .nav-item > a:hover,header.nav.scrolled nav.main 
 /* FOOTER */
 footer{background:#15130f;color:rgba(247,242,232,.6);padding:80px 40px 28px}
 .footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;padding-bottom:50px;border-bottom:1px solid rgba(247,242,232,.1)}
-.footer-brand.logo{color:var(--ivory)}
-.footer-brand.logo.amp{color:var(--bronze)}
+.footer-brand .logo{color:var(--ivory)}
+.footer-brand .logo .amp{color:var(--bronze)}
 .footer-brand p{margin-top:18px;font-size:14px;max-width:320px;line-height:1.7}
 footer h5{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17px;color:var(--ivory);margin-bottom:20px}
 footer ul{list-style:none}
@@ -182,7 +182,7 @@ footer a:hover{color:var(--bronze-lt)}
 @media(max-width:1024px){
 .tiles{grid-template-columns:repeat(3,1fr)}
 .detail-grid{grid-template-columns:1fr;gap:30px}
-.cta-band.container{grid-template-columns:1fr;gap:40px}
+.cta-band .container{grid-template-columns:1fr;gap:40px}
 }
 @media(max-width:860px){
 .tiles{grid-template-columns:repeat(2,1fr)}
