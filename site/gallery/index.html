@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Project Gallery | Mason Homes Tampa</title>
+<meta name="description" content="Real project photos from Mason Homes Construction. 220 images across whole-home renovations, kitchen and bath remodels, outdoor living additions, and custom builds in Tampa Bay."/>
+<link rel="canonical" href="https://masonhomesconstruction.com/gallery/"/>
+<meta property="og:title" content="Project Gallery | Mason Homes Tampa"/>
+<meta property="og:description" content="Real project photos from Mason Homes Construction — 220 images across our completed and in-progress Tampa Bay projects."/>
+<meta property="og:url" content="https://masonhomesconstruction.com/gallery/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg"/>
+<meta property="og:site_name" content="Mason Homes"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Project Gallery | Mason Homes Tampa"/>
+<meta name="twitter:description" content="Real project photos from Mason Homes Construction — 220 images across our Tampa Bay projects."/>
+<meta name="twitter:image" content="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#f7f2e8;--cream:#efe7d4;--bone:#e6dcc6;--warm-white:#faf6ed;
+  --charcoal:#1a1814;--graphite:#3a3732;--muted:#8a8276;
+  --bronze:#c8623c;--bronze-dk:#a44e2d;--bronze-lt:#d88a62;
+  --line:rgba(31,29,26,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;font-weight:300;color:var(--charcoal);background:var(--ivory);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--bronze-dk);text-decoration:none;transition:color .2s}
+a:hover{color:var(--bronze)}
+
+/* Nav (matches site) */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(247,242,232,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;letter-spacing:.18em;color:var(--charcoal)}
+.logo .amp{color:var(--bronze);font-style:italic}
+nav.main{display:flex;gap:20px}
+nav.main a{color:var(--charcoal);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:400}
+nav.main a:hover{color:var(--bronze)}
+.cta-nav{padding:11px 22px !important;border:1px solid var(--charcoal);border-radius:2px}
+.cta-nav:hover{background:var(--bronze);color:var(--ivory) !important;border-color:var(--bronze)}
+
+/* Hero */
+.gallery-hero{padding:160px 40px 60px;text-align:center;background:var(--cream);border-bottom:1px solid var(--line)}
+.gallery-hero .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:24px;display:inline-flex;align-items:center;gap:14px}
+.gallery-hero .eyebrow::before,.gallery-hero .eyebrow::after{content:'';width:32px;height:1px;background:var(--bronze)}
+.gallery-hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(42px,6vw,80px);line-height:1.02;letter-spacing:-.012em;margin-bottom:24px}
+.gallery-hero h1 em{font-style:italic;color:var(--bronze)}
+.gallery-hero p{max-width:640px;margin:0 auto;font-size:17px;color:var(--graphite);line-height:1.75}
+
+/* TOC */
+.toc{background:var(--ivory);padding:50px 40px;border-bottom:1px solid var(--line)}
+.toc .container{max-width:1200px;margin:0 auto}
+.toc h3{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;font-weight:500}
+.toc ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.toc a{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--warm-white);border:1px solid var(--line);border-radius:2px;color:var(--charcoal);font-family:'Cormorant Garamond',serif;font-size:17px;transition:all .2s}
+.toc a:hover{border-color:var(--bronze);color:var(--bronze);transform:translateX(4px)}
+.toc a span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--bronze);font-weight:500;letter-spacing:.06em}
+
+/* Project sections */
+.project{padding:90px 40px 60px}
+.project:nth-child(even){background:var(--warm-white)}
+.project-head{max-width:900px;margin:0 auto 50px;text-align:center}
+.project-head .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:16px;display:inline-block}
+.project-head h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(30px,4vw,44px);line-height:1.1;margin-bottom:16px;color:var(--charcoal)}
+.project-head p{font-size:16px;color:var(--graphite);line-height:1.7;max-width:660px;margin:0 auto}
+
+.grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.thumb{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--bone);cursor:pointer;display:block}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .3s;filter:brightness(.96)}
+.thumb:hover img{transform:scale(1.06);filter:brightness(1.05)}
+.thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(20,17,13,.4) 0%,rgba(20,17,13,0) 40%);opacity:0;transition:opacity .3s;pointer-events:none}
+.thumb:hover::after{opacity:1}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(20,17,13,.96);z-index:1000;display:none;align-items:center;justify-content:center;padding:40px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.lightbox-close{position:absolute;top:24px;right:32px;background:none;border:0;color:var(--ivory);font-size:44px;cursor:pointer;font-weight:200;line-height:1;transition:color .2s}
+.lightbox-close:hover{color:var(--bronze-lt)}
+.lightbox-caption{position:absolute;bottom:32px;left:0;right:0;text-align:center;color:var(--ivory);font-size:14px;letter-spacing:.05em;font-family:'Inter',sans-serif}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--ivory);font-size:32px;cursor:pointer;padding:16px;font-family:'Cormorant Garamond',serif;font-weight:300;transition:color .2s}
+.lightbox-nav:hover{color:var(--bronze-lt)}
+.lightbox-prev{left:24px}
+.lightbox-next{right:24px}
+
+/* CTA at end */
+.gallery-cta{background:var(--charcoal);color:var(--ivory);padding:100px 40px;text-align:center}
+.gallery-cta h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(30px,4vw,48px);margin-bottom:22px}
+.gallery-cta h2 em{font-style:italic;color:var(--bronze-lt)}
+.gallery-cta p{max-width:520px;margin:0 auto 32px;color:rgba(247,242,232,.75);font-size:16px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;background:var(--bronze);color:var(--ivory) !important;transition:all .3s;border-radius:2px}
+.btn:hover{background:var(--bronze-dk);transform:translateY(-2px);box-shadow:0 18px 40px -16px rgba(200,98,60,.6)}
+
+/* Footer */
+footer{background:#15130f;color:rgba(247,242,232,.6);padding:60px 40px 32px;text-align:center;font-size:13px}
+footer a{color:rgba(247,242,232,.7)}
+footer a:hover{color:var(--bronze-lt)}
+.footer-bottom{margin-top:20px;font-size:11px;letter-spacing:.08em;color:rgba(247,242,232,.5)}
+
+@media(max-width:900px){
+  header.nav{padding:16px 20px}
+  nav.main{display:none}
+  .gallery-hero,.toc,.project,.gallery-cta,footer{padding-left:20px;padding-right:20px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="/" class="logo">MASON <span class="amp">&amp;</span> HOMES</a>
+  <nav class="main">
+    <a href="/services/">Services</a>
+    <a href="/locations/">Locations</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/showroom/">Showroom</a>
+    <a href="/about/">About</a>
+    <a href="/free-estimate/" class="cta-nav">Free Estimate</a>
+  </nav>
+</header>
+
+<section class="gallery-hero">
+  <span class="eyebrow">Real Projects · Real Photos</span>
+  <h1>Every home we've <em>touched</em>.</h1>
+  <p>220 photos from Mason Homes Construction — whole-home renovations, kitchen and bath remodels, outdoor living additions, custom home construction, and everything in between. Every image is from our own work in Tampa Bay.</p>
+</section>
+
+<section class="toc">
+  <div class="container">
+    <h3>Jump to a project</h3>
+    <ul>
+    <li><a href="#01-luxury-custom-home-interior">Luxury Whole-Home Renovation <span>41</span></a></li>
+    <li><a href="#02-screened-deck-outdoor-living">Screened Deck & Outdoor Living Addition <span>100</span></a></li>
+    <li><a href="#03-bathroom-remodel">Bathroom Remodel — In Progress <span>11</span></a></li>
+    <li><a href="#04-flooring-installation">Hardwood & LVP Flooring <span>7</span></a></li>
+    <li><a href="#05-completed-new-build">Completed New Construction <span>1</span></a></li>
+    <li><a href="#06-exterior-repair">Exterior Repair & Restoration <span>3</span></a></li>
+    <li><a href="#07-cbs-custom-home-progress">Custom Home Construction — CBS Framing <span>12</span></a></li>
+    <li><a href="#08-site-work-utilities">Site Preparation & Foundation <span>34</span></a></li>
+    <li><a href="#09-misc-2026-projects">Additional 2026 Projects <span>11</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+<section class="project" id="01-luxury-custom-home-interior">
+  <div class="project-head">
+    <span class="eyebrow">41 photos</span>
+    <h2>Luxury Whole-Home Renovation</h2>
+    <p>Custom finishes, marble accent walls, wood slat paneling, and modern kitchen + bath work across a full renovation.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-01.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-01.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-02.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-02.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-03.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-03.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-04.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-04.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-05.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-05.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-06.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-06.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-07.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-07.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-08.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-08.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-09.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-09.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-10.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-11.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-11.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-12.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-12.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-13.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-13.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-14.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-14.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-15.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-15.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-16.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-16.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-17.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-17.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-18.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-18.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-19.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-19.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-20.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-20.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-21.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-21.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-22.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-22.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-23.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-23.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-24.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-24.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-25.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-26.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-26.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-27.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-27.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-28.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-28.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-29.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-29.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-30.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-30.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-31.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-31.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-32.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-32.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-33.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-33.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-34.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-34.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-35.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-35.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-36.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-36.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-37.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-37.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-38.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-38.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-39.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-39.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-40.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-40.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-41.jpg" data-caption="Luxury Whole-Home Renovation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/01-luxury-custom-home-interior/luxury-custom-home-tampa-41.jpg" alt="Luxury Whole-Home Renovation — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="project" id="02-screened-deck-outdoor-living">
+  <div class="project-head">
+    <span class="eyebrow">100 photos</span>
+    <h2>Screened Deck & Outdoor Living Addition</h2>
+    <p>Full outdoor living conversion — existing lanai to composite deck with a screened enclosure and hot tub. Complete before, during, and after.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-01.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-01.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-02.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-02.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-03.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-03.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-04.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-04.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-05.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-05.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-06.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-06.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-07.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-07.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-08.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-08.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-09.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-09.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-10.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-10.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-100.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-100.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-11.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-11.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-12.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-12.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-13.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-13.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-14.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-14.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-15.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-15.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-16.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-16.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-17.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-17.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-18.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-18.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-19.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-19.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-20.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-20.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-21.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-21.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-22.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-22.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-23.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-23.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-24.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-24.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-25.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-25.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-26.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-26.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-27.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-27.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-28.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-28.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-29.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-29.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-30.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-30.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-31.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-31.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-32.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-32.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-33.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-33.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-34.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-34.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-35.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-35.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-36.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-36.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-37.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-37.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-38.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-38.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-39.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-39.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-40.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-40.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-41.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-41.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-42.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-42.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-43.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-43.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-44.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-44.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-45.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-45.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-46.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-46.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-47.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-47.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-48.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-48.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-49.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-49.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-50.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-50.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-51.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-51.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-52.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-52.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-53.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-53.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-54.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-54.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-55.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-55.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-56.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-56.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-57.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-57.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-58.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-58.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-59.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-59.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-60.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-60.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-61.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-61.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-62.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-62.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-63.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-63.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-64.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-64.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-65.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-65.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-66.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-66.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-67.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-67.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-68.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-68.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-69.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-69.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-70.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-70.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-71.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-71.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-72.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-72.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-73.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-73.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-74.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-74.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-75.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-75.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-76.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-76.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-77.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-77.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-78.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-78.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-79.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-79.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-80.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-80.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-81.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-81.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-82.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-82.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-83.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-83.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-84.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-84.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-85.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-85.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-86.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-86.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-87.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-87.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-88.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-88.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-89.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-89.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-90.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-90.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-91.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-91.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-92.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-92.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-93.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-93.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-94.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-94.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-95.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-95.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-96.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-96.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-97.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-97.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-98.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-98.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-99.jpg" data-caption="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/02-screened-deck-outdoor-living/outdoor-living-screened-deck-tampa-99.jpg" alt="Screened Deck & Outdoor Living Addition — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="project" id="03-bathroom-remodel">
+  <div class="project-head">
+    <span class="eyebrow">11 photos</span>
+    <h2>Bathroom Remodel — In Progress</h2>
+    <p>Rough-in plumbing, drain relocation, and framing during a full bathroom renovation.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-01.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-01.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-02.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-02.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-03.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-03.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-04.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-04.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-05.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-05.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-06.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-06.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-07.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-07.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-08.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-08.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-09.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-09.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-10.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-10.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-11.jpg" data-caption="Bathroom Remodel — In Progress — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/03-bathroom-remodel/bathroom-remodel-tampa-11.jpg" alt="Bathroom Remodel — In Progress — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="project" id="04-flooring-installation">
+  <div class="project-head">
+    <span class="eyebrow">7 photos</span>
+    <h2>Hardwood & LVP Flooring</h2>
+    <p>Wide-plank hardwood and LVP flooring installations, including underlayment and moisture-barrier prep.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/04-flooring-installation/flooring-installation-tampa-01.jpg" data-caption="Hardwood & LVP Flooring — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/04-flooring-installation/flooring-installation-tampa-01.jpg" alt="Hardwood & LVP Flooring — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/04-flooring-installation/flooring-installation-tampa-02.jpg" data-caption="Hardwood & LVP Flooring — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/04-flooring-installation/flooring-installation-tampa-02.jpg" alt="Hardwood & LVP Flooring — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/04-flooring-installation/flooring-installation-tampa-03.jpg" data-caption="Hardwood & LVP Flooring — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/04-flooring-installation/flooring-installation-tampa-03.jpg" alt="Hardwood & LVP Flooring — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/04-flooring-installation/flooring-installation-tampa-04.jpg" data-caption="Hardwood & LVP Flooring — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/04-flooring-installation/flooring-installation-tampa-04.jpg" alt="Hardwood & LVP Flooring — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/04-flooring-installation/flooring-installation-tampa-05.jpg" data-caption="Hardwood & LVP Flooring — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/04-flooring-installation/flooring-installation-tampa-05.jpg" alt="Hardwood & LVP Flooring — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/04-flooring-installation/flooring-installation-tampa-06.jpg" data-caption="Hardwood & LVP Flooring — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/04-flooring-installation/flooring-installation-tampa-06.jpg" alt="Hardwood & LVP Flooring — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/04-flooring-installation/flooring-installation-tampa-07.jpg" data-caption="Hardwood & LVP Flooring — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/04-flooring-installation/flooring-installation-tampa-07.jpg" alt="Hardwood & LVP Flooring — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="project" id="05-completed-new-build">
+  <div class="project-head">
+    <span class="eyebrow">1 photos</span>
+    <h2>Completed New Construction</h2>
+    <p>A finished single-family home delivered move-in ready.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/05-completed-new-build/completed-new-home-tampa-01.jpg" data-caption="Completed New Construction — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/05-completed-new-build/completed-new-home-tampa-01.jpg" alt="Completed New Construction — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="project" id="06-exterior-repair">
+  <div class="project-head">
+    <span class="eyebrow">3 photos</span>
+    <h2>Exterior Repair & Restoration</h2>
+    <p>Existing-conditions and repair work on siding and exterior envelope.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/06-exterior-repair/exterior-repair-tampa-01.jpg" data-caption="Exterior Repair & Restoration — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/06-exterior-repair/exterior-repair-tampa-01.jpg" alt="Exterior Repair & Restoration — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/06-exterior-repair/exterior-repair-tampa-02.jpg" data-caption="Exterior Repair & Restoration — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/06-exterior-repair/exterior-repair-tampa-02.jpg" alt="Exterior Repair & Restoration — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/06-exterior-repair/exterior-repair-tampa-03.jpg" data-caption="Exterior Repair & Restoration — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/06-exterior-repair/exterior-repair-tampa-03.jpg" alt="Exterior Repair & Restoration — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="project" id="07-cbs-custom-home-progress">
+  <div class="project-head">
+    <span class="eyebrow">12 photos</span>
+    <h2>Custom Home Construction — CBS Framing</h2>
+    <p>Concrete block (CBS) wall construction, ZIP sheathing, and structural framing on a two-story custom home.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-01.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-01.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-02.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-02.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-03.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-03.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-04.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-04.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-05.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-05.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-06.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-06.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-07.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-07.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-08.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-08.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-09.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-09.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-10.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-10.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-11.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-11.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-12.jpg" data-caption="Custom Home Construction — CBS Framing — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/07-cbs-custom-home-progress/custom-home-construction-tampa-12.jpg" alt="Custom Home Construction — CBS Framing — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="project" id="08-site-work-utilities">
+  <div class="project-head">
+    <span class="eyebrow">34 photos</span>
+    <h2>Site Preparation & Foundation</h2>
+    <p>Well and utility installation, concrete slab pours, and site preparation.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-01.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-01.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-02.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-02.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-03.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-03.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-04.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-04.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-05.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-05.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-06.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-06.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-07.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-07.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-08.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-08.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-09.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-09.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-10.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-10.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-11.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-11.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-12.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-12.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-13.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-13.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-14.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-14.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-15.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-15.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-16.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-16.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-17.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-17.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-18.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-18.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-19.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-19.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-20.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-20.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-21.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-21.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-22.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-22.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-23.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-23.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-24.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-24.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-25.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-25.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-26.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-26.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-27.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-27.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-28.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-28.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-29.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-29.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-30.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-30.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-31.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-31.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-32.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-32.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-33.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-33.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-34.jpg" data-caption="Site Preparation & Foundation — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/08-site-work-utilities/site-work-foundation-tampa-34.jpg" alt="Site Preparation & Foundation — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="project" id="09-misc-2026-projects">
+  <div class="project-head">
+    <span class="eyebrow">11 photos</span>
+    <h2>Additional 2026 Projects</h2>
+    <p>Mixed work from throughout 2026.</p>
+  </div>
+  <div class="grid">
+    <a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-01.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-01.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-02.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-02.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-03.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-03.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-04.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-04.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-05.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-05.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-06.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-06.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-07.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-07.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-08.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-08.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-09.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-09.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-10.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-10.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+<a class="thumb" href="/assets/projects/09-misc-2026-projects/project-tampa-11.jpg" data-caption="Additional 2026 Projects — Mason Homes Tampa"><img loading="lazy" src="/assets/projects/09-misc-2026-projects/project-tampa-11.jpg" alt="Additional 2026 Projects — Mason Homes Tampa"/></a>
+
+  </div>
+</section>
+
+
+<section class="gallery-cta">
+  <h2>Ready to build <em>your</em> project?</h2>
+  <p>Every project on this page started with a consultation. Tell us about yours — we'll be in touch within one business day.</p>
+  <a href="/free-estimate/" class="btn">Request Free Estimate →</a>
+</section>
+
+<footer>
+  <a href="/" class="logo">MASON <span class="amp">&amp;</span> HOMES</a>
+  <p style="margin-top:14px">Licensed Florida General Contractor · CGC062538 · (813) 999-5910</p>
+  <p style="margin-top:6px">5816 Little River Dr, Tampa, FL 33615</p>
+  <div class="footer-bottom">© 2026 Mason Homes Construction · <a href="/">Home</a> · <a href="/services/">Services</a> · <a href="/about/">About</a> · <a href="/contact/">Contact</a></div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous">‹</button>
+  <img id="lightbox-img" src="" alt=""/>
+  <button class="lightbox-nav lightbox-next" aria-label="Next">›</button>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ImageGallery","name":"Mason Homes Construction — Project Gallery","description":"Real project photos from Mason Homes Construction Tampa Bay","url":"https://masonhomesconstruction.com/gallery/","publisher":{"@type":"HomeAndConstructionBusiness","name":"Mason Homes","identifier":{"@type":"PropertyValue","propertyID":"FL-DBPR-CGC","value":"CGC062538"}}}
+</script>
+
+<script>
+(function(){
+  const thumbs = Array.from(document.querySelectorAll('.thumb'));
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCap = document.getElementById('lightbox-caption');
+  let currentIdx = 0;
+  function open(idx){
+    currentIdx = idx;
+    lbImg.src = thumbs[idx].getAttribute('href');
+    lbImg.alt = thumbs[idx].querySelector('img').alt;
+    lbCap.textContent = thumbs[idx].dataset.caption + '  (' + (idx+1) + ' / ' + thumbs.length + ')';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function next(){ open((currentIdx+1) % thumbs.length); }
+  function prev(){ open((currentIdx-1+thumbs.length) % thumbs.length); }
+  thumbs.forEach((t,i)=>t.addEventListener('click', e=>{e.preventDefault();open(i);}));
+  document.querySelector('.lightbox-close').addEventListener('click', close);
+  document.querySelector('.lightbox-next').addEventListener('click', next);
+  document.querySelector('.lightbox-prev').addEventListener('click', prev);
+  lightbox.addEventListener('click', e=>{ if(e.target === lightbox) close(); });
+  document.addEventListener('keydown', e=>{
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'ArrowLeft') prev();
+  });
+})();
+</script>
+
+</body>
+</html>
