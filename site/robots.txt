@@ -1,5 +1,5 @@
 # Mason Homes — masonhomesconstruction.com
-# Updated: April 17, 2026
+# Updated: 2026-07-18
 
 # Default: allow all crawlers
 User-agent: *
@@ -55,3 +55,6 @@ Allow: /
 
 # Sitemap
 Sitemap: https://masonhomesconstruction.com/sitemap.xml
+
+# IndexNow key for Bing/Yandex
+# Key file: /2qm4wj50o94iye2us926ky80xaacoxiw.txt

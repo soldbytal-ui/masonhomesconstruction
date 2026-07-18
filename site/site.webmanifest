@@ -1,0 +1,15 @@
+{
+  "name": "Mason Homes Construction",
+  "short_name": "Mason Homes",
+  "description": "Licensed Tampa general contractor. Kitchen, bathroom & whole-home remodeling, additions, ADUs & custom homes.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f2e8",
+  "theme_color": "#c8623c",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/apple-touch-icon.svg", "type": "image/svg+xml", "sizes": "180x180" }
+  ]
+}
