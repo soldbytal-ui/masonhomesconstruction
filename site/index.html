@@ -355,6 +355,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opa
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a kitchen remodel cost in Tampa?","acceptedAnswer":{"@type":"Answer","text":"Tampa kitchen remodels range from $10,000 for cosmetic updates to $120,000+ for luxury gut renovations. Mid-range projects run $25,000-$60,000."}},{"@type":"Question","name":"Do I need a permit for home renovation in Tampa?","acceptedAnswer":{"@type":"Answer","text":"Yes, most projects require permits from City of Tampa or Hillsborough County. Permit fees typically run $250-$1,500 based on job valuation."}},{"@type":"Question","name":"How long does a whole home remodel take?","acceptedAnswer":{"@type":"Answer","text":"3-6 months typically. Kitchens 4-8 weeks, bathrooms 3-5 weeks. Hillsborough County residential permit review is currently 10-15 business days (longer for ADUs and additions due to post-Milton/Helene volume)."}},{"@type":"Question","name":"What areas does Mason Homes serve?","acceptedAnswer":{"@type":"Answer","text":"Hillsborough, Pinellas, Pasco, Manatee, and Sarasota counties including Tampa, St. Petersburg, Clearwater, Brandon, Wesley Chapel, Riverview, Carrollwood, Bradenton, and Sarasota."}}]}
 </script>
+<link rel="stylesheet" href="/assets/css/widgets.css"/>
 </head>
 <body>
 
@@ -399,7 +400,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opa
   <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">☰</button>
 </header>
 
-<section class="hero">
+<a id="main" tabindex="-1"></a><section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -749,5 +750,6 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
 })();
 </script>
 
+<script src="/assets/js/widgets.js" defer></script>
 </body>
 </html>
