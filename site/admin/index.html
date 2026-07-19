@@ -15,6 +15,7 @@
 <body>
 <script>
 mhBoot('dashboard', 'Dashboard · Today', function(root){
+  function render(){
   const db = mhDB.get();
   const now = new Date();
   const daysAgo = (n) => new Date(Date.now() - n*24*3600*1000);
@@ -91,12 +92,14 @@ mhBoot('dashboard', 'Dashboard · Today', function(root){
     +   '<div class="panel">'
     +     '<div class="panel-head"><h2>Recent leads</h2><div class="actions"><a href="/admin/leads/" class="btn btn-outline btn-sm">View all →</a></div></div>'
     +     '<div class="panel-body">'
-    +       '<table class="data-table">'
+    +       (recentLeads.length === 0
+        ? '<div class="empty" style="padding:40px 20px"><h3>No leads yet.</h3><p>Chat widget, contact form, and free estimate submissions will appear here as soon as they land in Netlify Forms.</p></div>'
+        : '<table class="data-table">'
     +         '<thead><tr><th>Client</th><th>Project</th><th>Budget</th><th>Location</th><th>Status</th><th>When</th></tr></thead>'
     +         '<tbody>' + recentLeads.map(l =>
-    '<tr onclick="location.href=\'/admin/leads/\'"><td><div class="name-cell"><div class="avatar">' + mhFmt.initials(l.name) + '</div><div><div class="primary">' + l.name + '</div><div class="secondary mono">' + l.phone + '</div></div></div></td><td>' + l.project + '</td><td class="mono">' + l.budget + '</td><td>' + l.location + '</td><td><span class="pill ' + l.status.replace('_estimate_sent','estimate').replace('_proposal_sent','proposal').replace('_','-') + '">' + l.status.replace('_',' ') + '</span></td><td class="mono" style="color:var(--muted)">' + mhFmt.relative(l.created_at) + '</td></tr>'
+    '<tr onclick="location.href=\'/admin/leads/\'"><td><div class="name-cell"><div class="avatar">' + mhFmt.initials(l.name) + '</div><div><div class="primary">' + l.name + '</div><div class="secondary mono">' + (l.phone||'—') + '</div></div></div></td><td>' + (l.project||'—') + '</td><td class="mono">' + (l.budget||'—') + '</td><td>' + (l.location||'—') + '</td><td><span class="pill ' + l.status.replace('_estimate_sent','estimate').replace('_proposal_sent','proposal').replace('_','-') + '">' + l.status.replace('_',' ') + '</span></td><td class="mono" style="color:var(--muted)">' + mhFmt.relative(l.created_at) + '</td></tr>'
       ).join('') + '</tbody>'
-    +       '</table>'
+    +       '</table>')
     +     '</div>'
     +   '</div>'
     +   '<div class="panel">'
@@ -106,6 +109,9 @@ mhBoot('dashboard', 'Dashboard · Today', function(root){
     +     '</div>'
     +   '</div>'
     + '</div>';
+  }
+  render();
+  mhSync.banner(root, render);
 });
 </script>
 </body>

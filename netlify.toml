@@ -5,6 +5,7 @@
 
 [build]
   publish = "site"
+  functions = "netlify/functions"
   # No build command — this is a static HTML site.
 
 # ============ HEADERS ============
@@ -75,8 +76,12 @@
 
 # ============ REDIRECTS ============
 
-# Canonicalize non-trailing-slash to trailing-slash on all directory URLs
-# (Netlify handles most of this by default via "pretty URLs" but we're explicit)
+# Pretty API endpoint for admin CRM -> Netlify function
+[[redirects]]
+  from = "/api/leads"
+  to = "/.netlify/functions/leads"
+  status = 200
+  force = true
 
 # Custom 404 fallback (Netlify serves 404.html automatically for missing paths)
 [[redirects]]

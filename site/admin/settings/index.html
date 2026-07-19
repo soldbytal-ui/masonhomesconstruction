@@ -46,19 +46,20 @@ mhBoot('settings', 'Settings · Company configuration', function(root){
     +   '<div class="panel">'
     +     '<div class="panel-head"><h2>Data</h2></div>'
     +     '<div class="panel-body padded">'
-    +       '<p class="hint" style="margin-bottom:14px">Prototype uses browser localStorage. Wire up Supabase to persist across devices.</p>'
+    +       '<p class="hint" style="margin-bottom:14px">Leads sync live from Netlify Forms (contact, free estimate, chat widget). Local edits — status changes, notes, estimates, projects — live in this browser only until the Supabase migration.</p>'
     +       '<div class="hstack" style="gap:10px;flex-wrap:wrap">'
     +         '<button class="btn btn-outline" id="export">Export data (JSON)</button>'
     +         '<button class="btn btn-outline" id="import">Import data (JSON)</button>'
-    +         '<button class="btn btn-danger" id="reset">Reset to seed data</button>'
+    +         '<button class="btn btn-danger" id="reset">Reset local data</button>'
     +       '</div>'
     +     '</div>'
     +   '</div>'
     +   '<div class="panel">'
-    +     '<div class="panel-head"><h2>Supabase migration plan</h2></div>'
+    +     '<div class="panel-head"><h2>Live sync + Supabase plan</h2></div>'
     +     '<div class="panel-body padded">'
-    +       '<p class="hint" style="margin-bottom:14px">The data model is already Supabase-ready. See <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">/admin/data-model.md</code> for the migration SQL.</p>'
-    +       '<div class="hstack" style="gap:10px"><a href="/admin/data-model.md" class="btn btn-outline">' + mhIcon('external') + ' View schema</a></div>'
+    +       '<p class="hint" style="margin-bottom:10px"><strong>Now:</strong> a Netlify serverless function at <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">/api/leads</code> pulls submissions on every dashboard load. Requires <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">NETLIFY_API_TOKEN</code> + <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">NETLIFY_SITE_ID</code> env vars.</p>'
+    +       '<p class="hint" style="margin-bottom:14px"><strong>Later:</strong> Supabase gives multi-device sync, team logins, and real persistence. Schema is already Supabase-shaped.</p>'
+    +       '<div class="hstack" style="gap:10px"><a href="/admin/data-model.md" class="btn btn-outline">' + mhIcon('external') + ' View migration SQL</a></div>'
     +     '</div>'
     +   '</div>'
     + '</div>'
@@ -111,7 +112,7 @@ mhBoot('settings', 'Settings · Company configuration', function(root){
   });
 
   document.getElementById('reset').addEventListener('click', function(){
-    if(!confirm('Reset all data to demo seed? This will erase everything.')) return;
+    if(!confirm('Reset local data? This clears everything stored in this browser. Live form leads will re-sync from Netlify on next load.')) return;
     mhDB.reset();
     location.reload();
   });

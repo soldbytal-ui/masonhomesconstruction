@@ -39,86 +39,18 @@ function nowISO(){ return new Date().toISOString(); }
 
 function seedIfEmpty(){
   const existing = loadDB();
-  if(existing && existing.leads && existing.leads.length) return existing;
-
-  const daysAgo = (n) => new Date(Date.now() - n*24*3600*1000).toISOString();
-  const hoursAgo = (h) => new Date(Date.now() - h*3600*1000).toISOString();
+  if(existing && existing.leads) return existing;
 
   const db = {
-    leads: [
-      { id: uid(), source:'chat_widget', project:'Kitchen', budget:'$50K – $100K', timeline:'Next 3 months', location:'South Tampa', name:'Elena Vasquez', phone:'(813) 555-2481', email:'elena.v@example.com', status:'qualified', notes:'Hyde Park bungalow, existing walls. Interested in waterfall island + custom cabs.', page:'/services/kitchen-remodeling/', created_at:hoursAgo(3), updated_at:hoursAgo(3) },
-      { id: uid(), source:'chat_widget', project:'Bathroom', budget:'$25K – $50K', timeline:'This month', location:'Carrollwood', name:'Marcus Chen', phone:'(813) 555-8712', email:'marcus.chen@example.com', status:'estimate_sent', notes:'Master bath gut. Wants walk-in shower + double vanity.', page:'/services/bathroom-remodeling/', created_at:daysAgo(2), updated_at:daysAgo(1) },
-      { id: uid(), source:'form', project:'Whole Home', budget:'$250K+', timeline:'Next 6 months', location:'Wesley Chapel', name:'Priya Iyer', phone:'(813) 555-4416', email:'p.iyer@example.com', status:'proposal_sent', notes:'2,800 sqft ranch — full gut. Design phase.', page:'/free-estimate/', created_at:daysAgo(6), updated_at:daysAgo(1) },
-      { id: uid(), source:'chat_widget', project:'Addition', budget:'$100K – $250K', timeline:'Next 3 months', location:'Brandon', name:'Sofia Kowalski', phone:'(813) 555-9932', email:'sofia.k@example.com', status:'contacted', notes:'400sqft addition — bedroom + bath. FishHawk area.', page:'/services/home-additions/', created_at:daysAgo(4), updated_at:daysAgo(3) },
-      { id: uid(), source:'form', project:'Custom Build', budget:'$250K+', timeline:'Just researching', location:'Odessa', name:'Rohan Bhatt', phone:'(813) 555-1147', email:'r.bhatt@example.com', status:'new', notes:'2.5 acre lot in Keystone. Wants a 4,500sqft custom.', page:'/free-estimate/', created_at:hoursAgo(18), updated_at:hoursAgo(18) },
-      { id: uid(), source:'referral', project:'ADU', budget:'$100K – $250K', timeline:'Next 6 months', location:'St. Petersburg', name:'Jordan Whitfield', phone:'(727) 555-6203', email:'jordan.w@example.com', status:'won', notes:'Detached ADU for aging parent. Snell Isle.', page:'/services/adu-accessory-dwelling-units/', created_at:daysAgo(28), updated_at:daysAgo(14) },
-      { id: uid(), source:'chat_widget', project:'Kitchen', budget:'$25K – $50K', timeline:'Next 3 months', location:'Clearwater', name:'Maya Fitzgerald', phone:'(727) 555-3341', email:'maya.f@example.com', status:'new', notes:'Countryside townhome. Cosmetic refresh.', page:'/', created_at:hoursAgo(1), updated_at:hoursAgo(1) },
-      { id: uid(), source:'form', project:'Whole Home', budget:'$100K – $250K', timeline:'Next 3 months', location:'Riverview', name:'Aiden Boateng', phone:'(813) 555-7724', email:'aiden.b@example.com', status:'lost', notes:'Chose a different GC — timing conflict.', page:'/locations/riverview/', created_at:daysAgo(45), updated_at:daysAgo(21) },
-    ],
-    projects: [
-      { id: uid(), client_name:'Jordan Whitfield', address:'2418 Snell Isle Blvd NE, St. Petersburg', service:'ADU Construction', phase:'build', budget_planned:185000, budget_actual:142300, start_date:daysAgo(60), target_end_date:daysAgo(-45), status:'active', progress_pct:68, notes:'Detached 620sqft ADU. Foundation and CBS complete. Framing next week.', created_at:daysAgo(60) },
-      { id: uid(), client_name:'Wilson Family', address:'820 Bayshore Blvd, Tampa', service:'Whole Home Renovation', phase:'design', budget_planned:420000, budget_actual:12500, start_date:daysAgo(14), target_end_date:daysAgo(-180), status:'active', progress_pct:12, notes:'Historic Hyde Park bungalow. Currently in design + selections.', created_at:daysAgo(14) },
-      { id: uid(), client_name:'Kaminski Household', address:'1204 Countryside Blvd, Clearwater', service:'Kitchen Remodel', phase:'permitting', budget_planned:78500, budget_actual:8200, start_date:daysAgo(30), target_end_date:daysAgo(-60), status:'active', progress_pct:28, notes:'Permit review with City of Clearwater. Expected approval next week.', created_at:daysAgo(30) },
-      { id: uid(), client_name:'Ramirez, T.', address:'5540 Estuary Dr, Wesley Chapel', service:'Master Bath Remodel', phase:'walkthrough', budget_planned:52000, budget_actual:51100, start_date:daysAgo(90), target_end_date:daysAgo(-3), status:'active', progress_pct:96, notes:'Final punch list. Walkthrough scheduled Thursday.', created_at:daysAgo(90) },
-      { id: uid(), client_name:'Delgado, R.', address:'815 Palma Ceia Ave, Tampa', service:'Kitchen + Great Room', phase:'consultation', budget_planned:0, budget_actual:0, start_date:null, target_end_date:null, status:'on-hold', progress_pct:0, notes:'Consulted 3/12. Waiting on client architect selection.', created_at:daysAgo(35) },
-      { id: uid(), client_name:'Nguyen, K.', address:'2201 Alafia River Dr, Riverview', service:'Screened Deck Addition', phase:'complete', budget_planned:48000, budget_actual:46200, start_date:daysAgo(180), target_end_date:daysAgo(120), actual_end_date:daysAgo(112), status:'complete', progress_pct:100, notes:'Delivered under budget + on time. Client referred a neighbor.', created_at:daysAgo(180) },
-    ],
-    estimates: [
-      { id: uid(), lead_name:'Marcus Chen', project_type:'Bathroom Remodel', items:[
-        { description:'Demolition + haul-off', qty:1, unit:'lot', price:2400, total:2400 },
-        { description:'Plumbing rough-in (drain relocation)', qty:1, unit:'lot', price:4800, total:4800 },
-        { description:'Electrical (GFCI, sconces, fan)', qty:1, unit:'lot', price:2200, total:2200 },
-        { description:'Tile floor + shower surround', qty:120, unit:'sqft', price:22, total:2640 },
-        { description:'Frameless glass shower enclosure', qty:1, unit:'unit', price:2800, total:2800 },
-        { description:'Vanity + quartz top (double)', qty:1, unit:'unit', price:4200, total:4200 },
-        { description:'Fixtures + trim (Kohler)', qty:1, unit:'lot', price:3400, total:3400 },
-        { description:'Labor (framing, drywall, paint, finish)', qty:1, unit:'lot', price:12500, total:12500 },
-        { description:'Permit fee', qty:1, unit:'lot', price:450, total:450 },
-        { description:'Contingency (10%)', qty:1, unit:'lot', price:3540, total:3540 },
-      ], subtotal:35390, contingency:3540, total:38930, status:'sent', sent_at:daysAgo(1), created_at:daysAgo(2) },
-      { id: uid(), lead_name:'Priya Iyer', project_type:'Whole Home Renovation', items:[
-        { description:'Design services + drawings', qty:1, unit:'lot', price:14000, total:14000 },
-        { description:'Demo + haul-off (whole home)', qty:1, unit:'lot', price:18500, total:18500 },
-        { description:'Structural (2x load-bearing removal + LVL beams)', qty:2, unit:'unit', price:9800, total:19600 },
-        { description:'MEP rough-in (whole home)', qty:1, unit:'lot', price:48000, total:48000 },
-        { description:'Insulation + drywall + paint', qty:2800, unit:'sqft', price:9, total:25200 },
-        { description:'LVP flooring throughout', qty:2400, unit:'sqft', price:8, total:19200 },
-        { description:'Kitchen (cabinets, quartz, appliances)', qty:1, unit:'lot', price:62000, total:62000 },
-        { description:'Baths (3 full)', qty:3, unit:'unit', price:24000, total:72000 },
-        { description:'Trim, doors, hardware', qty:1, unit:'lot', price:14500, total:14500 },
-        { description:'Labor + PM', qty:1, unit:'lot', price:52000, total:52000 },
-        { description:'Permits', qty:1, unit:'lot', price:2400, total:2400 },
-        { description:'Contingency (12%)', qty:1, unit:'lot', price:41208, total:41208 },
-      ], subtotal:347400, contingency:41208, total:388608, status:'draft', created_at:daysAgo(5) },
-    ],
-    invoices: [
-      { id: uid(), project_client:'Jordan Whitfield', description:'Draw #4 — Foundation complete', amount:37000, status:'paid', due_date:daysAgo(20), paid_at:daysAgo(18) },
-      { id: uid(), project_client:'Kaminski Household', description:'Draw #1 — Design + permits', amount:8200, status:'paid', due_date:daysAgo(15), paid_at:daysAgo(12) },
-      { id: uid(), project_client:'Ramirez, T.', description:'Final draw — Punch list', amount:5100, status:'sent', due_date:daysAgo(-7), paid_at:null },
-      { id: uid(), project_client:'Wilson Family', description:'Draw #1 — Design retainer', amount:12500, status:'paid', due_date:daysAgo(10), paid_at:daysAgo(9) },
-      { id: uid(), project_client:'Jordan Whitfield', description:'Draw #5 — CBS + slab', amount:32000, status:'sent', due_date:daysAgo(-3), paid_at:null },
-    ],
+    leads: [],
+    projects: [],
+    estimates: [],
+    invoices: [],
     team: [
       { id: uid(), name:'Founder / Owner', role:'owner', email:'info@masonhomesfl.com', phone:'(813) 999-5910', active:true },
-      { id: uid(), name:'Lead Project Manager', role:'project_manager', email:'pm1@masonhomesfl.com', phone:'(813) 555-2200', active:true },
-      { id: uid(), name:'Lead Carpenter', role:'lead_carpenter', email:'', phone:'(813) 555-3100', active:true },
-      { id: uid(), name:'Estimator', role:'estimator', email:'', phone:'(813) 555-4400', active:true },
-      { id: uid(), name:'Office Admin', role:'admin', email:'admin@masonhomesfl.com', phone:'(813) 999-5910', active:true },
     ],
-    tasks: [
-      { id: uid(), project_client:'Ramirez, T.', title:'Final punch walkthrough', due_date:daysAgo(-2), status:'todo', priority:'high', assignee:'Lead Project Manager' },
-      { id: uid(), project_client:'Kaminski Household', title:'Follow up on Clearwater permit review', due_date:daysAgo(-3), status:'in_progress', priority:'high', assignee:'Office Admin' },
-      { id: uid(), project_client:'Jordan Whitfield', title:'Schedule CBS inspection', due_date:daysAgo(-1), status:'todo', priority:'high', assignee:'Lead Project Manager' },
-      { id: uid(), project_client:'Wilson Family', title:'Send finish selection binder', due_date:daysAgo(-5), status:'todo', priority:'normal', assignee:'Estimator' },
-      { id: uid(), project_client:'Marcus Chen', title:'Send estimate reminder + follow-up', due_date:daysAgo(-1), status:'todo', priority:'normal', assignee:'Office Admin' },
-      { id: uid(), project_client:'Priya Iyer', title:'Design review meeting', due_date:daysAgo(-4), status:'todo', priority:'normal', assignee:'Founder / Owner' },
-    ],
-    communications: [
-      { id: uid(), lead_name:'Marcus Chen', type:'chat', direction:'inbound', subject:'Website chat', body:'Started chat via widget. Completed intake — bath remodel, $25-50K, this month.', created_at:daysAgo(2) },
-      { id: uid(), lead_name:'Marcus Chen', type:'email', direction:'outbound', subject:'Estimate — Bathroom Remodel', body:'Sent line-item estimate ($38,930). Attached 2 project references.', created_at:daysAgo(1) },
-      { id: uid(), lead_name:'Priya Iyer', type:'phone', direction:'inbound', subject:'Design phase check-in', body:'Discussed cabinet selections. Client leaning toward matte white shaker.', created_at:daysAgo(2) },
-      { id: uid(), lead_name:'Jordan Whitfield', type:'email', direction:'outbound', subject:'Draw #5 invoice', body:'Sent invoice for CBS + slab pour. $32,000 due in 15 days.', created_at:daysAgo(3) },
-    ],
+    tasks: [],
+    communications: [],
     settings: {
       company_name:'Mason Homes Inc',
       display_name:'Mason Homes',
@@ -142,6 +74,95 @@ function getDB(){ db = db || loadDB() || seedIfEmpty(); return db; }
 function resetDB(){ localStorage.removeItem(DB_KEY); db = null; return seedIfEmpty(); }
 
 window.mhDB = { get: getDB, save: saveDB, reset: resetDB, uid, nowISO };
+
+// ---------- LIVE LEAD SYNC (Netlify Forms via /api/leads function) ----------
+async function syncFromNetlify(){
+  try {
+    const res = await fetch('/api/leads', { cache:'no-store' });
+    if(!res.ok) return { ok:false, error:'HTTP ' + res.status };
+    const data = await res.json();
+    if(!data.configured) return { ok:true, configured:false, added:0, message:data.message };
+    if(data.error) return { ok:false, configured:true, error:data.error };
+
+    const db = getDB();
+    const existingIds = new Set(db.leads.map(l => l.id));
+    let added = 0;
+    (data.leads || []).forEach(lead => {
+      if(!existingIds.has(lead.id)){
+        db.leads.push(lead);
+        added++;
+      }
+    });
+    if(added > 0) saveDB(db);
+    return { ok:true, configured:true, added, total:(data.leads||[]).length, fetched_at:data.fetched_at };
+  } catch(err) {
+    return { ok:false, error: err.message || String(err) };
+  }
+}
+
+window.mhLeads = { sync: syncFromNetlify };
+
+// Sync banner HTML helper — shows current sync state at top of a page
+function syncBannerHTML(state){
+  state = state || { phase:'syncing' };
+  const cls = { syncing:'', ok:'ok', setup:'warn', error:'err' }[state.phase] || '';
+  let msg = '';
+  if(state.phase === 'syncing'){
+    msg = '<strong>Syncing…</strong> checking Netlify Forms for new submissions.';
+  } else if(state.phase === 'ok'){
+    if(state.added > 0){
+      msg = '<strong>' + state.added + ' new lead' + (state.added===1?'':'s') + ' imported.</strong> Live sync active · '
+        + state.total + ' total from forms.';
+    } else {
+      msg = '<strong>Up to date.</strong> Live sync active · ' + state.total + ' lead' + (state.total===1?'':'s') + ' pulled from forms.';
+    }
+  } else if(state.phase === 'setup'){
+    msg = '<strong>Live sync not configured.</strong> Add <code>NETLIFY_API_TOKEN</code> and <code>NETLIFY_SITE_ID</code> in Netlify → Site settings → Environment variables. Until then, admin only shows locally-added leads.';
+  } else if(state.phase === 'error'){
+    msg = '<strong>Sync failed.</strong> ' + (state.error || 'Unknown error') + ' — retry in a moment.';
+  }
+  return ''
+    + '<div class="sync-banner ' + cls + '" id="sync-banner">'
+    +   '<span class="dot"></span>'
+    +   '<div class="msg">' + msg + '</div>'
+    +   '<button class="refresh" id="sync-refresh"' + (state.phase==='syncing'?' disabled':'') + '>' + (state.phase==='syncing'?'Syncing…':'Refresh') + '</button>'
+    + '</div>';
+}
+
+// Attach a banner to a page. renderFn = () => void, re-renders page after sync completes.
+async function attachSyncBanner(root, renderFn){
+  const holder = document.createElement('div');
+  holder.id = 'sync-banner-holder';
+  holder.innerHTML = syncBannerHTML({ phase:'syncing' });
+  root.prepend(holder);
+
+  async function doSync(){
+    holder.innerHTML = syncBannerHTML({ phase:'syncing' });
+    const res = await syncFromNetlify();
+    let state;
+    if(!res.ok){
+      state = { phase:'error', error: res.error };
+    } else if(!res.configured){
+      state = { phase:'setup' };
+    } else {
+      state = { phase:'ok', added: res.added, total: res.total };
+    }
+    holder.innerHTML = syncBannerHTML(state);
+    holder.querySelector('#sync-refresh').addEventListener('click', doSync);
+    if(res.ok && res.configured && res.added > 0){
+      renderFn();
+      // Re-attach the holder since renderFn may have wiped root
+      const newRoot = document.getElementById('content');
+      if(newRoot && !document.getElementById('sync-banner-holder')){
+        newRoot.prepend(holder);
+      }
+    }
+  }
+  holder.querySelector('#sync-refresh').addEventListener('click', doSync);
+  doSync();
+}
+
+window.mhSync = { banner: attachSyncBanner };
 
 // ---------- FORMATTING HELPERS ----------
 function fmtMoney(n){

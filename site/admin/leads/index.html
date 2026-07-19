@@ -15,7 +15,7 @@
 <body>
 <script>
 mhBoot('leads', 'Leads Inbox', function(root){
-  const db = mhDB.get();
+  let db = mhDB.get();
   let currentFilter = 'all';
 
   function statusPill(s){
@@ -125,7 +125,7 @@ mhBoot('leads', 'Leads Inbox', function(root){
       +     '<div class="actions">' + filterBar + '</div>'
       +   '</div>'
       +   '<div class="panel-body">'
-      +     (sorted.length === 0 ? '<div class="empty"><h3>No leads match.</h3><p>Try another filter.</p></div>' :
+      +     (sorted.length === 0 ? '<div class="empty"><h3>' + (db.leads.length === 0 ? 'No leads yet.' : 'No leads match this filter.') + '</h3><p>' + (db.leads.length === 0 ? 'Submissions from the chat widget, contact form, and free estimate form will appear here as soon as they arrive.' : 'Try a different status filter above.') + '</p></div>' :
       '<table class="data-table">'
       + '<thead><tr><th>Client</th><th>Project</th><th>Budget</th><th>Timeline</th><th>Location</th><th>Status</th><th>Source</th><th>Received</th></tr></thead>'
       + '<tbody>' + sorted.map(l =>
@@ -142,6 +142,7 @@ mhBoot('leads', 'Leads Inbox', function(root){
     }));
   }
   render();
+  mhSync.banner(root, render);
 });
 </script>
 </body>
