@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Settings · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('settings', 'Settings · Company configuration', function(root){
+  const db = mhDB.get();
+  const s = db.settings;
+
+  root.innerHTML = ''
+    + '<div class="grid-2">'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Company details</h2></div>'
+    +     '<div class="panel-body padded">'
+    +       '<div class="form-field"><label>Legal Name</label><input type="text" id="s-legal" value="' + s.company_name + '"/></div>'
+    +       '<div class="form-field"><label>Display Name</label><input type="text" id="s-display" value="' + s.display_name + '"/></div>'
+    +       '<div class="form-field"><label>License Number</label><input type="text" id="s-license" value="' + s.license + '"/></div>'
+    +       '<div class="form-grid-2">'
+    +         '<div class="form-field"><label>Phone</label><input type="text" id="s-phone" value="' + s.phone + '"/></div>'
+    +         '<div class="form-field"><label>Email</label><input type="email" id="s-email" value="' + s.email + '"/></div>'
+    +       '</div>'
+    +       '<div class="form-field"><label>Address</label><input type="text" id="s-address" value="' + s.address + '"/></div>'
+    +       '<div class="form-field"><label>Hours</label><input type="text" id="s-hours" value="' + s.hours + '"/></div>'
+    +     '</div>'
+    +   '</div>'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Estimating defaults</h2></div>'
+    +     '<div class="panel-body padded">'
+    +       '<div class="form-field"><label>Default contingency %</label><input type="number" id="s-contingency" value="' + s.contingency_default_pct + '" min="0" max="30"/></div>'
+    +       '<div class="form-field"><label>Skilled trades labor rate ($/hr)</label><input type="number" id="s-labor" value="' + s.trades_labor_rate_hr + '"/></div>'
+    +     '</div>'
+    +   '</div>'
+    + '</div>'
+    + '<div class="grid-2">'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Data</h2></div>'
+    +     '<div class="panel-body padded">'
+    +       '<p class="hint" style="margin-bottom:14px">Prototype uses browser localStorage. Wire up Supabase to persist across devices.</p>'
+    +       '<div class="hstack" style="gap:10px;flex-wrap:wrap">'
+    +         '<button class="btn btn-outline" id="export">Export data (JSON)</button>'
+    +         '<button class="btn btn-outline" id="import">Import data (JSON)</button>'
+    +         '<button class="btn btn-danger" id="reset">Reset to seed data</button>'
+    +       '</div>'
+    +     '</div>'
+    +   '</div>'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Supabase migration plan</h2></div>'
+    +     '<div class="panel-body padded">'
+    +       '<p class="hint" style="margin-bottom:14px">The data model is already Supabase-ready. See <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">/admin/data-model.md</code> for the migration SQL.</p>'
+    +       '<div class="hstack" style="gap:10px"><a href="/admin/data-model.md" class="btn btn-outline">' + mhIcon('external') + ' View schema</a></div>'
+    +     '</div>'
+    +   '</div>'
+    + '</div>'
+    + '<div class="panel">'
+    +   '<div class="panel-head"><h2>Save</h2></div>'
+    +   '<div class="panel-body padded"><button class="btn btn-primary" id="save-settings">Save all changes</button></div>'
+    + '</div>';
+
+  document.getElementById('save-settings').addEventListener('click', function(){
+    s.company_name = document.getElementById('s-legal').value;
+    s.display_name = document.getElementById('s-display').value;
+    s.license = document.getElementById('s-license').value;
+    s.phone = document.getElementById('s-phone').value;
+    s.email = document.getElementById('s-email').value;
+    s.address = document.getElementById('s-address').value;
+    s.hours = document.getElementById('s-hours').value;
+    s.contingency_default_pct = parseInt(document.getElementById('s-contingency').value,10);
+    s.trades_labor_rate_hr = parseInt(document.getElementById('s-labor').value,10);
+    mhDB.save(db);
+    alert('Settings saved.');
+  });
+
+  document.getElementById('export').addEventListener('click', function(){
+    const data = JSON.stringify(mhDB.get(), null, 2);
+    const blob = new Blob([data], { type:'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'mason-homes-admin-export-' + new Date().toISOString().slice(0,10) + '.json';
+    a.click(); URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('import').addEventListener('click', function(){
+    const inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = 'application/json';
+    inp.onchange = function(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = function(ev){
+        try {
+          const data = JSON.parse(ev.target.result);
+          mhDB.save(data);
+          alert('Data imported. Reloading...');
+          location.reload();
+        } catch(err){ alert('Invalid JSON.'); }
+      };
+      reader.readAsText(file);
+    };
+    inp.click();
+  });
+
+  document.getElementById('reset').addEventListener('click', function(){
+    if(!confirm('Reset all data to demo seed? This will erase everything.')) return;
+    mhDB.reset();
+    location.reload();
+  });
+});
+</script>
+</body>
+</html>

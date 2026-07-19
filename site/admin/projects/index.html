@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Projects · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('projects', 'Projects · Delivery pipeline', function(root){
+  const db = mhDB.get();
+  const phases = ['consultation','design','permitting','build','walkthrough'];
+  const phaseLabels = { consultation:'Consultation', design:'Design', permitting:'Permitting', build:'Build', walkthrough:'Walkthrough' };
+
+  function projCard(p){
+    const remaining = p.budget_planned ? (p.budget_planned - p.budget_actual) : 0;
+    const targetDate = p.target_end_date ? mhFmt.dateShort(p.target_end_date) : '—';
+    return ''
+      + '<div class="kanban-card">'
+      +   '<div class="k-title">' + p.client_name + '</div>'
+      +   '<div class="k-sub">' + p.service + '<br><span style="color:var(--muted)">' + p.address + '</span></div>'
+      +   '<div class="progress"><div style="width:' + (p.progress_pct||0) + '%"></div></div>'
+      +   '<div class="k-meta"><span>' + (p.progress_pct||0) + '% · target ' + targetDate + '</span><span class="money">' + mhFmt.money(p.budget_planned) + '</span></div>'
+      + '</div>';
+  }
+
+  const kanbanHTML = phases.map(ph => {
+    const items = db.projects.filter(p => p.phase === ph && p.status === 'active');
+    return '<div class="kanban-col"><h4>' + phaseLabels[ph] + '<span class="count">' + items.length + '</span></h4>' + items.map(projCard).join('') + '</div>';
+  }).join('');
+
+  // KPIs
+  const active = db.projects.filter(p => p.status === 'active');
+  const totalPlanned = active.reduce((s,p) => s + (p.budget_planned||0), 0);
+  const totalActual = active.reduce((s,p) => s + (p.budget_actual||0), 0);
+  const avgProgress = active.length ? Math.round(active.reduce((s,p)=>s+(p.progress_pct||0),0) / active.length) : 0;
+  const completed = db.projects.filter(p => p.status === 'complete').length;
+
+  // All projects table
+  const allTable = ''
+    + '<table class="data-table">'
+    + '<thead><tr><th>Client</th><th>Address</th><th>Service</th><th>Phase</th><th>Budget Planned</th><th>Budget Actual</th><th>Progress</th><th>Target End</th><th>Status</th></tr></thead>'
+    + '<tbody>' + [...db.projects].sort((a,b) => new Date(b.created_at) - new Date(a.created_at)).map(p =>
+      '<tr><td><div class="name-cell"><div class="avatar">' + mhFmt.initials(p.client_name) + '</div><div class="primary">' + p.client_name + '</div></div></td><td style="max-width:280px" class="secondary">' + p.address + '</td><td>' + p.service + '</td><td><span class="pill ' + p.phase + '">' + phaseLabels[p.phase] || p.phase + '</span></td><td class="money">' + mhFmt.money(p.budget_planned) + '</td><td class="money">' + mhFmt.money(p.budget_actual) + '</td><td><div class="progress" style="min-width:100px"><div style="width:' + (p.progress_pct||0) + '%"></div></div></td><td class="mono">' + mhFmt.dateShort(p.target_end_date) + '</td><td><span class="pill ' + p.status.replace(' ','-') + '">' + p.status + '</span></td></tr>'
+    ).join('') + '</tbody></table>';
+
+  root.innerHTML = ''
+    + '<div class="kpis">'
+    +   '<div class="kpi"><div class="label">Active Projects</div><div class="value">' + active.length + '</div><div class="trend">' + db.projects.filter(p=>p.phase==='build').length + ' in build</div></div>'
+    +   '<div class="kpi info"><div class="label">Total Planned Budget</div><div class="value">' + mhFmt.money(totalPlanned) + '</div></div>'
+    +   '<div class="kpi success"><div class="label">Deployed to Date</div><div class="value">' + mhFmt.money(totalActual) + '</div><div class="trend">' + Math.round(totalActual/(totalPlanned||1)*100) + '% of budget</div></div>'
+    +   '<div class="kpi"><div class="label">Avg Progress</div><div class="value">' + avgProgress + '<span class="unit">%</span></div></div>'
+    +   '<div class="kpi warn"><div class="label">Completed (YTD)</div><div class="value">' + completed + '</div></div>'
+    + '</div>'
+    + '<div class="panel">'
+    +   '<div class="panel-head"><h2>Active pipeline · by phase</h2></div>'
+    +   '<div class="panel-body padded"><div class="kanban">' + kanbanHTML + '</div></div>'
+    + '</div>'
+    + '<div class="panel">'
+    +   '<div class="panel-head"><h2>All projects</h2></div>'
+    +   '<div class="panel-body">' + allTable + '</div>'
+    + '</div>';
+});
+</script>
+</body>
+</html>

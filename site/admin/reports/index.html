@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Reports · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('reports', 'Reports · Analytics', function(root){
+  const db = mhDB.get();
+
+  // Conversion funnel
+  const funnelStages = [
+    { key:'new', label:'New Leads' },
+    { key:'contacted', label:'Contacted' },
+    { key:'qualified', label:'Qualified' },
+    { key:'estimate_sent', label:'Estimate Sent' },
+    { key:'proposal_sent', label:'Proposal Sent' },
+    { key:'won', label:'Won' },
+  ];
+  const funnelCounts = funnelStages.map(s => db.leads.filter(l =>
+    // Cumulative: all leads that reached this stage or beyond
+    ['new','contacted','qualified','estimate_sent','proposal_sent','won','lost'].slice(['new','contacted','qualified','estimate_sent','proposal_sent','won'].indexOf(s.key)).includes(l.status) ||
+    ['contacted','qualified','estimate_sent','proposal_sent','won'].indexOf(s.key) < ['contacted','qualified','estimate_sent','proposal_sent','won'].indexOf(l.status)
+  ).length);
+  // Simple funnel: cumulative counts
+  const orderedStates = ['new','contacted','qualified','estimate_sent','proposal_sent','won'];
+  const cumFunnel = funnelStages.map(s => {
+    const idx = orderedStates.indexOf(s.key);
+    return db.leads.filter(l => orderedStates.indexOf(l.status) >= idx || l.status === 'lost' && idx <= orderedStates.indexOf('proposal_sent')).length;
+  });
+  const maxFunnel = Math.max.apply(null, cumFunnel);
+
+  // Revenue by service
+  const serviceRevenue = {};
+  db.invoices.filter(i => i.status === 'paid').forEach(i => {
+    const project = db.projects.find(p => p.client_name === i.project_client);
+    const svc = (project && project.service) || 'Other';
+    serviceRevenue[svc] = (serviceRevenue[svc]||0) + i.amount;
+  });
+  const svcBars = Object.entries(serviceRevenue).map(([label,value]) => ({ label: label.split(' ')[0], value })).slice(0,8);
+
+  // Revenue by location
+  const locRevenue = {};
+  db.projects.forEach(p => {
+    const city = (p.address||'').split(',').pop().trim().split(' ').slice(0,2).join(' ') || 'Tampa';
+    locRevenue[city] = (locRevenue[city]||0) + (p.budget_actual||0);
+  });
+  const locSegments = Object.entries(locRevenue).slice(0,5).map(([label,value],i) => ({
+    label, value, color: ['#c8623c','#3a3732','#3c78c8','#2a7f2a','#c8823c'][i%5]
+  }));
+
+  // Lead source breakdown
+  const sourceCounts = {};
+  db.leads.forEach(l => { sourceCounts[l.source] = (sourceCounts[l.source]||0) + 1; });
+  const sourceSegments = Object.entries(sourceCounts).map(([k,v],i) => ({
+    label: k.replace('_',' '), value: v,
+    color: ['#c8623c','#3a3732','#3c78c8','#2a7f2a','#c8823c'][i%5]
+  }));
+
+  // Lead trend last 30 days
+  const daysAgo = (n) => new Date(Date.now() - n*24*3600*1000);
+  const trendData = Array.from({length:30}, (_, i) => {
+    const d = daysAgo(29 - i);
+    const start = new Date(d); start.setHours(0,0,0,0);
+    const end = new Date(d); end.setHours(23,59,59,999);
+    return { label: (i % 5 === 0) ? d.getDate().toString() : '', value: db.leads.filter(l => new Date(l.created_at) >= start && new Date(l.created_at) <= end).length };
+  });
+
+  // KPI computations
+  const wonCount = db.leads.filter(l => l.status === 'won').length;
+  const totalLeads = db.leads.length;
+  const winRate = totalLeads ? Math.round(wonCount / totalLeads * 100) : 0;
+  const avgProjectSize = db.projects.filter(p => p.budget_planned > 0).reduce((s,p) => s + p.budget_planned, 0) / (db.projects.filter(p => p.budget_planned > 0).length || 1);
+  const totalRevenue = db.invoices.filter(i => i.status === 'paid').reduce((s,i) => s + i.amount, 0);
+
+  root.innerHTML = ''
+    + '<div class="kpis">'
+    +   '<div class="kpi"><div class="label">Total Leads (all-time)</div><div class="value">' + totalLeads + '</div></div>'
+    +   '<div class="kpi success"><div class="label">Win Rate</div><div class="value">' + winRate + '<span class="unit">%</span></div><div class="trend up">' + wonCount + ' won</div></div>'
+    +   '<div class="kpi info"><div class="label">Avg Project Size</div><div class="value">' + mhFmt.money(avgProjectSize) + '</div></div>'
+    +   '<div class="kpi"><div class="label">Revenue Paid</div><div class="value">' + mhFmt.money(totalRevenue) + '</div></div>'
+    + '</div>'
+
+    + '<div class="grid-2">'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Lead volume · last 30 days</h2></div>'
+    +     '<div class="panel-body padded"><div class="chart" style="height:280px">' + mhCharts.bars(trendData) + '</div></div>'
+    +   '</div>'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Conversion funnel</h2></div>'
+    +     '<div class="panel-body padded">'
+    +       '<div class="vstack" style="gap:14px">' + funnelStages.map((s,i) => {
+              const val = cumFunnel[i];
+              const pct = maxFunnel ? Math.round(val / maxFunnel * 100) : 0;
+              return '<div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--charcoal);font-weight:500">' + s.label + '</span><span style="font-family:JetBrains Mono,monospace;font-size:13px;font-weight:500">' + val + '<span style="color:var(--muted);margin-left:6px">(' + pct + '%)</span></span></div><div class="progress" style="height:14px"><div style="width:' + pct + '%"></div></div></div>';
+            }).join('') + '</div>'
+    +     '</div>'
+    +   '</div>'
+    + '</div>'
+
+    + '<div class="grid-3">'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Revenue by service</h2></div>'
+    +     '<div class="panel-body padded">' + (svcBars.length ? '<div class="chart" style="height:240px">' + mhCharts.bars(svcBars) + '</div>' : '<div class="empty"><p>No revenue data yet.</p></div>') + '</div>'
+    +   '</div>'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Lead sources</h2></div>'
+    +     '<div class="panel-body padded" style="text-align:center">' + mhCharts.donut(sourceSegments)
+    +       '<div class="vstack" style="margin-top:16px;align-items:flex-start;gap:8px">' + sourceSegments.map(s => '<div style="display:flex;align-items:center;gap:10px;font-size:12.5px;width:100%"><span style="width:12px;height:12px;background:' + s.color + ';border-radius:2px"></span><span style="text-transform:capitalize">' + s.label + '</span><span style="margin-left:auto;font-family:JetBrains Mono,monospace;color:var(--muted)">' + s.value + '</span></div>').join('') + '</div>'
+    +     '</div>'
+    +   '</div>'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Revenue by location</h2></div>'
+    +     '<div class="panel-body padded">'
+    +       (locSegments.length ? locSegments.map((s,i) => '<div style="padding:10px 0;' + (i<locSegments.length-1?'border-bottom:1px solid var(--line)':'') + '"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:13px;font-weight:500">' + s.label + '</span><span class="mono" style="font-size:13px;font-weight:500">' + mhFmt.money(s.value) + '</span></div><div class="progress"><div style="width:' + Math.round(s.value/Math.max.apply(null,locSegments.map(x=>x.value))*100) + '%;background:' + s.color + '"></div></div></div>').join('') : '<div class="empty"><p>No location data yet.</p></div>')
+    +     '</div>'
+    +   '</div>'
+    + '</div>';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Invoices · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('invoices', 'Invoices · Financials', function(root){
+  const db = mhDB.get();
+  const paid = db.invoices.filter(i => i.status === 'paid');
+  const sent = db.invoices.filter(i => i.status === 'sent');
+  const totalPaid = paid.reduce((s,i) => s + i.amount, 0);
+  const totalOutstanding = sent.reduce((s,i) => s + i.amount, 0);
+  const overdue = sent.filter(i => new Date(i.due_date) < new Date());
+  const totalOverdue = overdue.reduce((s,i) => s + i.amount, 0);
+
+  const sorted = [...db.invoices].sort((a,b) => new Date(b.due_date) - new Date(a.due_date));
+
+  root.innerHTML = ''
+    + '<div class="kpis">'
+    +   '<div class="kpi success"><div class="label">Paid · YTD</div><div class="value">' + mhFmt.money(totalPaid) + '</div><div class="trend up">' + paid.length + ' invoices</div></div>'
+    +   '<div class="kpi info"><div class="label">Outstanding</div><div class="value">' + mhFmt.money(totalOutstanding) + '</div><div class="trend">' + sent.length + ' invoices</div></div>'
+    +   '<div class="kpi warn"><div class="label">Overdue</div><div class="value">' + mhFmt.money(totalOverdue) + '</div><div class="trend down">' + overdue.length + ' invoices</div></div>'
+    +   '<div class="kpi"><div class="label">Avg Days to Pay</div><div class="value">' + (paid.length ? Math.round(paid.reduce((s,i) => s + (new Date(i.paid_at) - new Date(i.due_date))/86400000, 0) / paid.length + 15) : 0) + '<span class="unit">d</span></div></div>'
+    + '</div>'
+    + '<div class="panel">'
+    +   '<div class="panel-head"><h2>All invoices</h2><div class="actions"><button class="btn btn-primary">' + mhIcon('plus') + ' New invoice</button></div></div>'
+    +   '<div class="panel-body">'
+    +     '<table class="data-table">'
+    +       '<thead><tr><th>Client / Project</th><th>Description</th><th>Amount</th><th>Due</th><th>Paid</th><th>Status</th></tr></thead>'
+    +       '<tbody>' + sorted.map(i =>
+      '<tr><td><div class="name-cell"><div class="avatar">' + mhFmt.initials(i.project_client) + '</div><div class="primary">' + i.project_client + '</div></div></td><td>' + i.description + '</td><td class="money"><strong>' + mhFmt.moneyFull(i.amount) + '</strong></td><td class="mono">' + mhFmt.dateShort(i.due_date) + '</td><td class="mono">' + (i.paid_at ? mhFmt.dateShort(i.paid_at) : '—') + '</td><td><span class="pill ' + i.status + '">' + i.status + '</span></td></tr>'
+    ).join('') + '</tbody>'
+    +     '</table>'
+    +   '</div>'
+    + '</div>';
+});
+</script>
+</body>
+</html>

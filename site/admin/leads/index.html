@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Leads · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('leads', 'Leads Inbox', function(root){
+  const db = mhDB.get();
+  let currentFilter = 'all';
+
+  function statusPill(s){
+    const map = { new:'new', contacted:'contacted', qualified:'qualified', estimate_sent:'estimate', proposal_sent:'proposal', won:'won', lost:'lost' };
+    return '<span class="pill ' + (map[s]||s) + '">' + s.replace('_',' ') + '</span>';
+  }
+
+  function statusOrder(){
+    return ['new','contacted','qualified','estimate_sent','proposal_sent','won','lost'];
+  }
+
+  function openLeadDrawer(id){
+    const l = db.leads.find(x => x.id === id);
+    if(!l) return;
+    const commsForLead = db.communications.filter(c => c.lead_name === l.name);
+    mhDrawer.open(''
+      + '<div class="drawer-head"><div><div class="eyebrow-sm">Lead · ' + l.source.replace('_',' ') + '</div><h2>' + l.name + '</h2></div><button class="drawer-close" aria-label="Close">' + mhIcon('close') + '</button></div>'
+      + '<div class="drawer-body">'
+      +   '<div class="drawer-section">'
+      +     '<h4>Contact</h4>'
+      +     '<div class="detail-row"><div class="k">Phone</div><div class="v mono"><a href="tel:' + l.phone + '">' + l.phone + '</a></div></div>'
+      +     '<div class="detail-row"><div class="k">Email</div><div class="v"><a href="mailto:' + l.email + '">' + l.email + '</a></div></div>'
+      +     '<div class="detail-row"><div class="k">Location</div><div class="v">' + l.location + '</div></div>'
+      +   '</div>'
+      +   '<div class="drawer-section">'
+      +     '<h4>Project Brief</h4>'
+      +     '<div class="detail-row"><div class="k">Type</div><div class="v">' + l.project + '</div></div>'
+      +     '<div class="detail-row"><div class="k">Budget</div><div class="v mono">' + l.budget + '</div></div>'
+      +     '<div class="detail-row"><div class="k">Timeline</div><div class="v">' + l.timeline + '</div></div>'
+      +     '<div class="detail-row"><div class="k">Source</div><div class="v">' + l.source.replace('_',' ') + ' · <span class="mono" style="color:var(--muted)">' + l.page + '</span></div></div>'
+      +     '<div class="detail-row"><div class="k">Notes</div><div class="v" style="line-height:1.7">' + l.notes + '</div></div>'
+      +   '</div>'
+      +   '<div class="drawer-section">'
+      +     '<h4>Status</h4>'
+      +     '<div class="hstack" style="flex-wrap:wrap;gap:6px">'
+      +       statusOrder().map(s => '<button class="filter pill ' + (map=>map[s]||s)({ new:'new', contacted:'contacted', qualified:'qualified', estimate_sent:'estimate', proposal_sent:'proposal', won:'won', lost:'lost' }) + '" data-set-status="' + s + '" data-id="' + l.id + '" style="cursor:pointer;' + (l.status===s?'outline:2px solid var(--charcoal);outline-offset:2px':'') + '">' + s.replace('_',' ') + '</button>').join('')
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="drawer-section">'
+      +     '<h4>Communications</h4>'
+      +     (commsForLead.length ? '<ul class="feed">' + commsForLead.map(c => '<li><div class="when">' + c.type + ' · ' + c.direction + ' · ' + mhFmt.relative(c.created_at) + '</div><div class="what"><strong>' + c.subject + '</strong><br>' + c.body + '</div></li>').join('') + '</ul>' : '<p class="hint">No communications logged yet.</p>')
+      +   '</div>'
+      +   '<div class="drawer-section">'
+      +     '<h4>Actions</h4>'
+      +     '<div class="hstack" style="flex-wrap:wrap;gap:10px">'
+      +       '<a href="tel:' + l.phone + '" class="btn btn-primary">' + mhIcon('external') + ' Call now</a>'
+      +       '<a href="mailto:' + l.email + '" class="btn btn-outline">' + mhIcon('external') + ' Email</a>'
+      +       '<button class="btn btn-outline" data-convert="' + l.id + '">Convert to project</button>'
+      +       '<button class="btn btn-danger" data-delete="' + l.id + '">' + mhIcon('trash') + ' Delete lead</button>'
+      +     '</div>'
+      +   '</div>'
+      + '</div>'
+    );
+
+    // wire status buttons
+    document.querySelectorAll('[data-set-status]').forEach(b => b.addEventListener('click', function(){
+      const id = this.dataset.id, ns = this.dataset.setStatus;
+      const idx = db.leads.findIndex(x => x.id === id);
+      db.leads[idx].status = ns; db.leads[idx].updated_at = mhDB.nowISO();
+      mhDB.save(db);
+      mhDrawer.close();
+      render();
+    }));
+    document.querySelector('[data-delete]').addEventListener('click', function(){
+      if(!confirm('Delete this lead? This cannot be undone.')) return;
+      const id = this.dataset.delete;
+      db.leads = db.leads.filter(x => x.id !== id);
+      mhDB.save(db);
+      mhDrawer.close();
+      render();
+    });
+    document.querySelector('[data-convert]').addEventListener('click', function(){
+      if(!confirm('Convert this lead to an active project?')) return;
+      const id = this.dataset.convert;
+      const lead = db.leads.find(x => x.id === id);
+      db.projects.unshift({
+        id: mhDB.uid(), client_name: lead.name, address: lead.location,
+        service: lead.project, phase:'consultation',
+        budget_planned: 0, budget_actual:0, start_date: mhDB.nowISO(),
+        target_end_date: null, status:'active', progress_pct:0,
+        notes:'Converted from lead. Notes: ' + lead.notes,
+        created_at: mhDB.nowISO(),
+      });
+      lead.status = 'won';
+      mhDB.save(db);
+      mhDrawer.close();
+      alert('Project created. View in Projects.');
+      render();
+    });
+  }
+
+  function render(){
+    const filtered = currentFilter === 'all' ? db.leads : db.leads.filter(l => l.status === currentFilter);
+    const sorted = [...filtered].sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+    const counts = {};
+    ['new','contacted','qualified','estimate_sent','proposal_sent','won','lost'].forEach(s => { counts[s] = db.leads.filter(l => l.status === s).length; });
+    counts.all = db.leads.length;
+
+    const filterBar = ['all','new','contacted','qualified','estimate_sent','proposal_sent','won','lost']
+      .map(s => '<button class="filter' + (currentFilter === s ? ' active' : '') + '" data-filter="' + s + '">' + s.replace('_',' ') + ' <span style="opacity:.5;margin-left:6px">' + (counts[s]||0) + '</span></button>')
+      .join('');
+
+    root.innerHTML = ''
+      + '<div class="panel">'
+      +   '<div class="panel-head">'
+      +     '<h2>' + (currentFilter === 'all' ? 'All leads' : currentFilter.replace('_',' ')) + ' <span style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-left:12px">' + sorted.length + ' shown</span></h2>'
+      +     '<div class="actions">' + filterBar + '</div>'
+      +   '</div>'
+      +   '<div class="panel-body">'
+      +     (sorted.length === 0 ? '<div class="empty"><h3>No leads match.</h3><p>Try another filter.</p></div>' :
+      '<table class="data-table">'
+      + '<thead><tr><th>Client</th><th>Project</th><th>Budget</th><th>Timeline</th><th>Location</th><th>Status</th><th>Source</th><th>Received</th></tr></thead>'
+      + '<tbody>' + sorted.map(l =>
+        '<tr data-open="' + l.id + '"><td><div class="name-cell"><div class="avatar">' + mhFmt.initials(l.name) + '</div><div><div class="primary">' + l.name + '</div><div class="secondary mono">' + l.email + '</div></div></div></td><td>' + l.project + '</td><td class="mono">' + l.budget + '</td><td>' + l.timeline + '</td><td>' + l.location + '</td><td>' + statusPill(l.status) + '</td><td style="color:var(--muted);text-transform:capitalize">' + l.source.replace('_',' ') + '</td><td class="mono" style="color:var(--muted)">' + mhFmt.relative(l.created_at) + '</td></tr>'
+      ).join('') + '</tbody></table>')
+      +   '</div>'
+      + '</div>';
+
+    document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', function(){
+      currentFilter = this.dataset.filter; render();
+    }));
+    document.querySelectorAll('[data-open]').forEach(r => r.addEventListener('click', function(){
+      openLeadDrawer(this.dataset.open);
+    }));
+  }
+  render();
+});
+</script>
+</body>
+</html>

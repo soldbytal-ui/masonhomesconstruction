@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Schedule · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('schedule', 'Schedule · Crew calendar', function(root){
+  const db = mhDB.get();
+  const today = new Date();
+  let viewMonth = today.getMonth();
+  let viewYear = today.getFullYear();
+
+  // Derive events from tasks + project milestones
+  function events(){
+    const evts = [];
+    db.tasks.forEach(t => {
+      if(t.due_date) evts.push({ date: new Date(t.due_date), title: t.title, kind: t.priority === 'high' ? 'walkthrough' : 'internal', meta: t.project_client + ' · ' + t.assignee });
+    });
+    db.projects.forEach(p => {
+      if(p.target_end_date) evts.push({ date: new Date(p.target_end_date), title: p.client_name + ' · target end', kind: 'walkthrough', meta: p.service });
+      if(p.start_date) evts.push({ date: new Date(p.start_date), title: p.client_name + ' · start', kind: 'build', meta: p.service });
+    });
+    // Add some fake consultation slots (for demo)
+    const daysAgo = (n) => new Date(Date.now() - n*24*3600*1000);
+    evts.push({ date: daysAgo(-1), title: 'Wilson Family · design review', kind: 'consultation', meta: '2pm · Hyde Park' });
+    evts.push({ date: daysAgo(-2), title: 'New consult · Priya Iyer', kind: 'consultation', meta: '10am · Wesley Chapel' });
+    evts.push({ date: daysAgo(-4), title: 'CBS block inspection · Whitfield', kind: 'build', meta: '9am · Snell Isle' });
+    return evts;
+  }
+
+  function renderCal(){
+    const first = new Date(viewYear, viewMonth, 1);
+    const lastDay = new Date(viewYear, viewMonth+1, 0).getDate();
+    const startDay = first.getDay();
+    const prevLast = new Date(viewYear, viewMonth, 0).getDate();
+    const cells = [];
+    // leading days
+    for(let i=startDay-1; i>=0; i--){ cells.push({ n: prevLast - i, out: true, date: new Date(viewYear, viewMonth-1, prevLast-i) }); }
+    for(let d=1; d<=lastDay; d++){ cells.push({ n:d, date: new Date(viewYear, viewMonth, d) }); }
+    while(cells.length % 7 !== 0){ cells.push({ n: cells.length - lastDay - startDay + 1, out: true, date: new Date(viewYear, viewMonth+1, cells.length - lastDay - startDay + 1) }); }
+
+    const allEvents = events();
+    const isToday = (d) => d.toDateString() === new Date().toDateString();
+    const eventsFor = (d) => allEvents.filter(e => e.date.toDateString() === d.toDateString());
+    const monthLabel = first.toLocaleDateString('en-US', { month:'long', year:'numeric' });
+
+    const dayHeads = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => '<div class="cal-day-head">' + d + '</div>').join('');
+    const dayCells = cells.map(c => {
+      const evs = eventsFor(c.date);
+      const cls = 'cal-day' + (c.out ? ' out' : '') + (isToday(c.date) ? ' today' : '');
+      return '<div class="' + cls + '"><div class="n">' + c.n + '</div>' + evs.slice(0,3).map(e => '<div class="cal-event ' + e.kind + '" title="' + e.title + ' — ' + e.meta + '">' + e.title + '</div>').join('') + (evs.length > 3 ? '<div style="font-size:10px;color:var(--muted);margin-top:2px">+' + (evs.length - 3) + ' more</div>' : '') + '</div>';
+    }).join('');
+
+    // Upcoming today + next 7
+    const in7 = new Date(); in7.setDate(in7.getDate() + 7);
+    const upcoming = allEvents.filter(e => e.date >= new Date(new Date().setHours(0,0,0,0)) && e.date <= in7).sort((a,b) => a.date - b.date);
+
+    root.innerHTML = ''
+      + '<div class="kpis">'
+      +   '<div class="kpi"><div class="label">Today’s events</div><div class="value">' + allEvents.filter(e => e.date.toDateString() === new Date().toDateString()).length + '</div></div>'
+      +   '<div class="kpi info"><div class="label">This week</div><div class="value">' + upcoming.length + '</div></div>'
+      +   '<div class="kpi warn"><div class="label">Consults scheduled</div><div class="value">' + allEvents.filter(e => e.kind === 'consultation').length + '</div></div>'
+      +   '<div class="kpi success"><div class="label">Walkthroughs due</div><div class="value">' + db.tasks.filter(t => t.title.toLowerCase().includes('walkthrough') && t.status !== 'done').length + '</div></div>'
+      + '</div>'
+      + '<div class="grid-2-1">'
+      +   '<div class="panel">'
+      +     '<div class="panel-head"><h2>' + monthLabel + '</h2><div class="actions"><button class="btn btn-outline btn-sm" data-nav="-1">← Prev</button><button class="btn btn-outline btn-sm" data-nav="today">Today</button><button class="btn btn-outline btn-sm" data-nav="1">Next →</button></div></div>'
+      +     '<div class="panel-body padded"><div class="cal-grid">' + dayHeads + dayCells + '</div></div>'
+      +   '</div>'
+      +   '<div class="panel">'
+      +     '<div class="panel-head"><h2>Upcoming · next 7 days</h2></div>'
+      +     '<div class="panel-body padded">'
+      +       (upcoming.length ? '<ul class="feed">' + upcoming.slice(0, 10).map(e => '<li><div class="when">' + e.date.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' }) + '</div><div class="what"><strong>' + e.title + '</strong><br><span style="color:var(--muted);font-size:12.5px">' + e.meta + '</span></div></li>').join('') + '</ul>' : '<div class="empty"><h3>Quiet week.</h3><p>Nothing scheduled in the next 7 days.</p></div>')
+      +     '</div>'
+      +   '</div>'
+      + '</div>';
+
+    document.querySelectorAll('[data-nav]').forEach(b => b.addEventListener('click', function(){
+      const d = this.dataset.nav;
+      if(d === 'today'){ const t = new Date(); viewMonth = t.getMonth(); viewYear = t.getFullYear(); }
+      else { viewMonth += parseInt(d,10); if(viewMonth < 0){ viewMonth = 11; viewYear--; } if(viewMonth > 11){ viewMonth = 0; viewYear++; } }
+      renderCal();
+    }));
+  }
+
+  renderCal();
+});
+</script>
+</body>
+</html>

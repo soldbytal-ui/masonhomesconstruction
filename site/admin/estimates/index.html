@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Estimates · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('estimates', 'Estimates · Fixed-scope builder', function(root){
+  const db = mhDB.get();
+  let editing = null;
+
+  function calcTotals(items, contingencyPct){
+    const subtotal = items.reduce((s,i) => s + (parseFloat(i.qty)||0) * (parseFloat(i.price)||0), 0);
+    const contingency = Math.round(subtotal * (contingencyPct/100));
+    const total = subtotal + contingency;
+    return { subtotal, contingency, total };
+  }
+
+  function openBuilder(id){
+    editing = id ? JSON.parse(JSON.stringify(db.estimates.find(e => e.id === id))) : {
+      id: mhDB.uid(), lead_name:'', project_type:'Kitchen Remodel', items:[
+        { description:'Demolition + haul-off', qty:1, unit:'lot', price:2400 },
+        { description:'Labor (framing, drywall, finish)', qty:1, unit:'lot', price:8500 },
+        { description:'Materials', qty:1, unit:'lot', price:12000 },
+        { description:'Permit fee', qty:1, unit:'lot', price:400 },
+      ], contingency_pct:10, status:'draft', created_at:mhDB.nowISO()
+    };
+    renderBuilder();
+  }
+
+  function renderBuilder(){
+    const e = editing;
+    const items = e.items.map(i => ({ ...i, total: (parseFloat(i.qty)||0) * (parseFloat(i.price)||0) }));
+    const t = calcTotals(items, e.contingency_pct || 10);
+
+    mhDrawer.open(''
+      + '<div class="drawer-head"><div><div class="eyebrow-sm">' + (e.status === 'draft' ? 'New Estimate' : e.status.toUpperCase()) + ' · ' + mhFmt.dateShort(e.created_at) + '</div><h2>' + (e.lead_name || 'New Estimate') + '</h2></div><button class="drawer-close" aria-label="Close">' + mhIcon('close') + '</button></div>'
+      + '<div class="drawer-body">'
+      +   '<div class="drawer-section">'
+      +     '<h4>Client &amp; Scope</h4>'
+      +     '<div class="form-grid-2">'
+      +       '<div class="form-field"><label>Client Name</label><input type="text" id="e-client" value="' + (e.lead_name||'') + '"/></div>'
+      +       '<div class="form-field"><label>Project Type</label><select id="e-project"><option>Kitchen Remodel</option><option>Bathroom Remodel</option><option>Whole Home Renovation</option><option>Home Addition</option><option>Custom Home Build</option><option>ADU Construction</option><option>Flooring Installation</option><option>Countertop Installation</option></select></div>'
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="drawer-section">'
+      +     '<h4>Line Items</h4>'
+      +     '<div class="line-items">'
+      +       '<div class="line-items-head"><div>Description</div><div>Qty</div><div>Unit</div><div style="text-align:right">Price</div><div style="text-align:right">Total</div><div></div></div>'
+      +       items.map((it,idx) => ''
+      +         + '<div class="line-item">'
+      +         +   '<input type="text" data-i="' + idx + '" data-k="description" value="' + it.description.replace(/"/g,'&quot;') + '"/>'
+      +         +   '<input type="number" data-i="' + idx + '" data-k="qty" value="' + it.qty + '" step="any" min="0" style="text-align:right"/>'
+      +         +   '<input type="text" data-i="' + idx + '" data-k="unit" value="' + it.unit + '"/>'
+      +         +   '<input type="number" data-i="' + idx + '" data-k="price" value="' + it.price + '" step="any" min="0" style="text-align:right"/>'
+      +         +   '<div class="money">' + mhFmt.moneyFull(it.total) + '</div>'
+      +         +   '<button class="del" data-del-i="' + idx + '" aria-label="Delete row">' + mhIcon('trash') + '</button>'
+      +         + '</div>'
+      +       ).join('')
+      +     '</div>'
+      +     '<div style="margin-top:14px"><button class="btn btn-outline btn-sm" id="add-line">' + mhIcon('plus') + ' Add line</button></div>'
+      +   '</div>'
+      +   '<div class="drawer-section">'
+      +     '<h4>Totals</h4>'
+      +     '<div class="estimate-totals">'
+      +       '<div class="row"><div class="k">Subtotal</div><div class="v">' + mhFmt.moneyFull(t.subtotal) + '</div></div>'
+      +       '<div class="row"><div class="k">Contingency (<input type="number" id="cont-pct" value="' + (e.contingency_pct||10) + '" min="0" max="30" style="width:44px;background:transparent;border:0;font-family:JetBrains Mono,monospace;font-size:11px;text-align:center;color:var(--muted)"/>%)</div><div class="v">' + mhFmt.moneyFull(t.contingency) + '</div></div>'
+      +       '<div class="row total"><div class="k">Client Total</div><div class="v">' + mhFmt.moneyFull(t.total) + '</div></div>'
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="drawer-section">'
+      +     '<div class="hstack" style="flex-wrap:wrap;gap:10px">'
+      +       '<button class="btn btn-primary" id="save-est">Save estimate</button>'
+      +       '<button class="btn btn-outline" id="save-send">Save &amp; Send</button>'
+      +       (e.status !== 'draft' ? '<button class="btn btn-danger" id="del-est">' + mhIcon('trash') + ' Delete</button>' : '')
+      +     '</div>'
+      +   '</div>'
+      + '</div>'
+    );
+
+    // wire events
+    document.querySelectorAll('[data-i]').forEach(inp => inp.addEventListener('input', function(){
+      const i = parseInt(this.dataset.i,10), k = this.dataset.k;
+      editing.items[i][k] = this.value;
+      renderBuilder(); // re-render totals live
+    }));
+    document.querySelectorAll('[data-del-i]').forEach(btn => btn.addEventListener('click', function(){
+      const i = parseInt(this.dataset.delI,10);
+      editing.items.splice(i,1);
+      renderBuilder();
+    }));
+    document.getElementById('add-line').addEventListener('click', function(){
+      editing.items.push({ description:'', qty:1, unit:'lot', price:0 });
+      renderBuilder();
+    });
+    document.getElementById('cont-pct').addEventListener('input', function(){
+      editing.contingency_pct = parseInt(this.value,10) || 0;
+      renderBuilder();
+    });
+    document.getElementById('e-client').addEventListener('input', function(){ editing.lead_name = this.value; });
+    document.getElementById('e-project').value = editing.project_type;
+    document.getElementById('e-project').addEventListener('change', function(){ editing.project_type = this.value; });
+
+    document.getElementById('save-est').addEventListener('click', function(){
+      const totals = calcTotals(editing.items.map(i => ({ ...i, total: (parseFloat(i.qty)||0)*(parseFloat(i.price)||0) })), editing.contingency_pct||10);
+      editing.subtotal = totals.subtotal; editing.contingency = totals.contingency; editing.total = totals.total;
+      const idx = db.estimates.findIndex(x => x.id === editing.id);
+      if(idx >= 0) db.estimates[idx] = editing; else db.estimates.unshift(editing);
+      mhDB.save(db);
+      mhDrawer.close();
+      renderList();
+    });
+    document.getElementById('save-send').addEventListener('click', function(){
+      editing.status = 'sent'; editing.sent_at = mhDB.nowISO();
+      document.getElementById('save-est').click();
+    });
+    const del = document.getElementById('del-est');
+    if(del) del.addEventListener('click', function(){
+      if(!confirm('Delete this estimate?')) return;
+      db.estimates = db.estimates.filter(x => x.id !== editing.id);
+      mhDB.save(db);
+      mhDrawer.close();
+      renderList();
+    });
+  }
+
+  function renderList(){
+    const list = [...db.estimates].sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+    const drafts = list.filter(e => e.status === 'draft').length;
+    const sent = list.filter(e => e.status === 'sent').length;
+    const accepted = list.filter(e => e.status === 'accepted').length;
+    const pipelineTotal = list.filter(e => ['sent','viewed'].includes(e.status)).reduce((s,e)=> s+e.total, 0);
+
+    root.innerHTML = ''
+      + '<div class="kpis">'
+      +   '<div class="kpi"><div class="label">Total Estimates</div><div class="value">' + list.length + '</div></div>'
+      +   '<div class="kpi info"><div class="label">Sent · Awaiting</div><div class="value">' + sent + '</div><div class="trend">' + mhFmt.money(pipelineTotal) + ' at stake</div></div>'
+      +   '<div class="kpi success"><div class="label">Accepted</div><div class="value">' + accepted + '</div><div class="trend up">' + (list.length ? Math.round(accepted/list.length*100) : 0) + '% win rate</div></div>'
+      +   '<div class="kpi warn"><div class="label">Drafts</div><div class="value">' + drafts + '</div></div>'
+      + '</div>'
+      + '<div class="panel">'
+      +   '<div class="panel-head"><h2>All estimates</h2><div class="actions"><button class="btn btn-primary" id="new-est">' + mhIcon('plus') + ' New estimate</button></div></div>'
+      +   '<div class="panel-body">'
+      +     '<table class="data-table">'
+      +       '<thead><tr><th>Client</th><th>Project</th><th>Subtotal</th><th>Contingency</th><th>Client Total</th><th>Status</th><th>Sent</th></tr></thead>'
+      +       '<tbody>' + list.map(e =>
+          '<tr data-edit="' + e.id + '"><td><div class="name-cell"><div class="avatar">' + mhFmt.initials(e.lead_name) + '</div><div class="primary">' + e.lead_name + '</div></div></td><td>' + e.project_type + '</td><td class="money">' + mhFmt.money(e.subtotal) + '</td><td class="money">' + mhFmt.money(e.contingency) + '</td><td class="money"><strong>' + mhFmt.money(e.total) + '</strong></td><td><span class="pill ' + e.status + '">' + e.status + '</span></td><td class="mono">' + (e.sent_at ? mhFmt.relative(e.sent_at) : '—') + '</td></tr>'
+        ).join('') + '</tbody>'
+      +     '</table>'
+      +   '</div>'
+      + '</div>';
+
+    document.getElementById('new-est').addEventListener('click', () => openBuilder());
+    document.querySelectorAll('[data-edit]').forEach(r => r.addEventListener('click', function(){
+      openBuilder(this.dataset.edit);
+    }));
+  }
+
+  renderList();
+});
+</script>
+</body>
+</html>

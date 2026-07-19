@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Dashboard · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('dashboard', 'Dashboard · Today', function(root){
+  const db = mhDB.get();
+  const now = new Date();
+  const daysAgo = (n) => new Date(Date.now() - n*24*3600*1000);
+
+  // KPI calculations
+  const newLeads24 = db.leads.filter(l => new Date(l.created_at) > daysAgo(1)).length;
+  const newLeads7 = db.leads.filter(l => new Date(l.created_at) > daysAgo(7)).length;
+  const pipelineLeads = db.leads.filter(l => !['won','lost'].includes(l.status));
+  const budgetMids = { 'Under $25K':15000, '$25K – $50K':37500, '$50K – $100K':75000, '$100K – $250K':175000, '$250K+':350000, 'Not sure yet':50000 };
+  const pipelineValue = pipelineLeads.reduce((s,l) => s + (budgetMids[l.budget]||0), 0);
+  const activeProjects = db.projects.filter(p => p.status === 'active').length;
+  const wonThisMonth = db.leads.filter(l => l.status === 'won').length;
+  const revenueYTD = db.invoices.filter(i => i.status === 'paid').reduce((s,i) => s + i.amount, 0);
+  const outstanding = db.invoices.filter(i => i.status === 'sent').reduce((s,i) => s + i.amount, 0);
+  const openTasks = db.tasks.filter(t => t.status !== 'done').length;
+
+  // Sparkline data (last 14 days lead volume)
+  const sparkData = Array.from({length:14}, (_, i) => {
+    const d = daysAgo(13 - i);
+    const start = new Date(d); start.setHours(0,0,0,0);
+    const end = new Date(d); end.setHours(23,59,59,999);
+    return db.leads.filter(l => new Date(l.created_at) >= start && new Date(l.created_at) <= end).length;
+  });
+
+  // Recent leads (top 8)
+  const recentLeads = [...db.leads].sort((a,b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 6);
+
+  // Recent tasks (open)
+  const openTaskList = db.tasks.filter(t => t.status !== 'done').slice(0, 6);
+
+  // Chart data — pipeline by source
+  const sourceCounts = {};
+  db.leads.forEach(l => { sourceCounts[l.source] = (sourceCounts[l.source]||0) + 1; });
+  const sourceSegments = Object.entries(sourceCounts).map(([k,v],i) => ({
+    label: k.replace('_',' '), value: v,
+    color: ['#c8623c','#3a3732','#3c78c8','#c8823c','#8a8276'][i%5]
+  }));
+
+  // Lead trend last 14 days for main chart
+  const barsData = Array.from({length:14}, (_, i) => {
+    const d = daysAgo(13 - i);
+    const start = new Date(d); start.setHours(0,0,0,0);
+    const end = new Date(d); end.setHours(23,59,59,999);
+    return { label: d.getDate().toString(), value: db.leads.filter(l => new Date(l.created_at) >= start && new Date(l.created_at) <= end).length };
+  });
+
+  root.innerHTML = ''
+    + '<div class="kpis">'
+    +   '<div class="kpi"><div class="label">New Leads · 24h</div><div class="value">' + newLeads24 + '</div><div class="trend up">+' + newLeads24 + ' since yesterday</div>' + mhCharts.sparkline(sparkData) + '</div>'
+    +   '<div class="kpi info"><div class="label">Pipeline Value</div><div class="value">' + mhFmt.money(pipelineValue) + '</div><div class="trend">' + pipelineLeads.length + ' open leads</div></div>'
+    +   '<div class="kpi success"><div class="label">Revenue Paid (YTD)</div><div class="value">' + mhFmt.money(revenueYTD) + '</div><div class="trend up">' + db.invoices.filter(i=>i.status==='paid').length + ' invoices paid</div></div>'
+    +   '<div class="kpi warn"><div class="label">Outstanding A/R</div><div class="value">' + mhFmt.money(outstanding) + '</div><div class="trend">' + db.invoices.filter(i=>i.status==='sent').length + ' invoices sent</div></div>'
+    +   '<div class="kpi"><div class="label">Active Projects</div><div class="value">' + activeProjects + '</div><div class="trend">' + db.projects.filter(p=>p.phase==='build').length + ' in build phase</div></div>'
+    +   '<div class="kpi warn"><div class="label">Open Tasks</div><div class="value">' + openTasks + '</div><div class="trend">' + db.tasks.filter(t=>t.priority==='high').length + ' high priority</div></div>'
+    + '</div>'
+
+    + '<div class="grid-2-1">'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Lead volume · last 14 days</h2><div class="actions"><span class="eyebrow-sm">' + newLeads7 + ' this week</span></div></div>'
+    +     '<div class="panel-body padded"><div class="chart">' + mhCharts.bars(barsData) + '</div></div>'
+    +   '</div>'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Lead sources</h2></div>'
+    +     '<div class="panel-body padded" style="text-align:center">'
+    +       mhCharts.donut(sourceSegments)
+    +       '<div class="vstack" style="margin-top:20px;align-items:flex-start;text-align:left">'
+    +       sourceSegments.map(s => '<div style="display:flex;align-items:center;gap:10px;font-size:12.5px;width:100%"><span style="width:12px;height:12px;background:' + s.color + ';border-radius:2px"></span><span style="text-transform:capitalize">' + s.label + '</span><span style="margin-left:auto;font-family:JetBrains Mono,monospace;color:var(--muted)">' + s.value + '</span></div>').join('')
+    +       '</div>'
+    +     '</div>'
+    +   '</div>'
+    + '</div>'
+
+    + '<div class="grid-2-1">'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Recent leads</h2><div class="actions"><a href="/admin/leads/" class="btn btn-outline btn-sm">View all →</a></div></div>'
+    +     '<div class="panel-body">'
+    +       '<table class="data-table">'
+    +         '<thead><tr><th>Client</th><th>Project</th><th>Budget</th><th>Location</th><th>Status</th><th>When</th></tr></thead>'
+    +         '<tbody>' + recentLeads.map(l =>
+    '<tr onclick="location.href=\'/admin/leads/\'"><td><div class="name-cell"><div class="avatar">' + mhFmt.initials(l.name) + '</div><div><div class="primary">' + l.name + '</div><div class="secondary mono">' + l.phone + '</div></div></div></td><td>' + l.project + '</td><td class="mono">' + l.budget + '</td><td>' + l.location + '</td><td><span class="pill ' + l.status.replace('_estimate_sent','estimate').replace('_proposal_sent','proposal').replace('_','-') + '">' + l.status.replace('_',' ') + '</span></td><td class="mono" style="color:var(--muted)">' + mhFmt.relative(l.created_at) + '</td></tr>'
+      ).join('') + '</tbody>'
+    +       '</table>'
+    +     '</div>'
+    +   '</div>'
+    +   '<div class="panel">'
+    +     '<div class="panel-head"><h2>Today’s tasks</h2><div class="actions"><a href="/admin/tasks/" class="btn btn-outline btn-sm">All tasks →</a></div></div>'
+    +     '<div class="panel-body padded">'
+    +       (openTaskList.length ? '<ul class="feed">' + openTaskList.map(t => '<li><div class="when">' + (t.priority === 'high' ? '⚑ HIGH · ' : '') + 'Due ' + mhFmt.dateShort(t.due_date) + '</div><div class="what"><strong>' + t.title + '</strong><br><span style="color:var(--muted);font-size:12.5px">' + t.project_client + ' · ' + t.assignee + '</span></div></li>').join('') + '</ul>' : '<div class="empty"><h3>All caught up.</h3><p>No open tasks.</p></div>')
+    +     '</div>'
+    +   '</div>'
+    + '</div>';
+});
+</script>
+</body>
+</html>

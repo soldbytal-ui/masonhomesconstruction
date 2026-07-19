@@ -7,6 +7,7 @@ Allow: /
 Disallow: /cdn-cgi/
 Disallow: /api/
 Disallow: /_next/
+Disallow: /admin/
 
 # Google Search
 User-agent: Googlebot

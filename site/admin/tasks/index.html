@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Tasks · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('tasks', 'Tasks · Punch list', function(root){
+  const db = mhDB.get();
+  function renderList(){
+    const sortedTasks = [...db.tasks].sort((a,b) => new Date(a.due_date) - new Date(b.due_date));
+    const cols = { todo: [], in_progress: [], done: [] };
+    sortedTasks.forEach(t => { if(cols[t.status]) cols[t.status].push(t); });
+
+    function taskCard(t){
+      const flag = t.priority === 'high' ? '<span style="color:var(--danger);font-weight:600;font-family:JetBrains Mono,monospace;font-size:9.5px;letter-spacing:.16em">⚑ HIGH</span> · ' : '';
+      return ''
+        + '<div class="kanban-card" data-id="' + t.id + '">'
+        +   '<div class="k-title">' + t.title + '</div>'
+        +   '<div class="k-sub">' + t.project_client + '</div>'
+        +   '<div class="k-meta"><span>' + flag + 'Due ' + mhFmt.dateShort(t.due_date) + '</span><span>' + t.assignee + '</span></div>'
+        + '</div>';
+    }
+
+    root.innerHTML = ''
+      + '<div class="kpis">'
+      +   '<div class="kpi"><div class="label">Open Tasks</div><div class="value">' + (cols.todo.length + cols.in_progress.length) + '</div></div>'
+      +   '<div class="kpi warn"><div class="label">High Priority</div><div class="value">' + db.tasks.filter(t=>t.priority==='high' && t.status !== 'done').length + '</div></div>'
+      +   '<div class="kpi info"><div class="label">In Progress</div><div class="value">' + cols.in_progress.length + '</div></div>'
+      +   '<div class="kpi success"><div class="label">Done</div><div class="value">' + cols.done.length + '</div></div>'
+      + '</div>'
+      + '<div class="panel">'
+      +   '<div class="panel-head"><h2>Task board</h2><div class="actions"><span class="eyebrow-sm">Click a card to advance status</span></div></div>'
+      +   '<div class="panel-body padded"><div class="kanban" style="grid-template-columns:repeat(3,1fr)">'
+      +     '<div class="kanban-col"><h4>To Do<span class="count">' + cols.todo.length + '</span></h4>' + cols.todo.map(taskCard).join('') + '</div>'
+      +     '<div class="kanban-col"><h4>In Progress<span class="count">' + cols.in_progress.length + '</span></h4>' + cols.in_progress.map(taskCard).join('') + '</div>'
+      +     '<div class="kanban-col"><h4>Done<span class="count">' + cols.done.length + '</span></h4>' + cols.done.map(taskCard).join('') + '</div>'
+      +   '</div></div>'
+      + '</div>';
+
+    document.querySelectorAll('.kanban-card').forEach(c => c.addEventListener('click', function(){
+      const id = this.dataset.id;
+      const t = db.tasks.find(x => x.id === id);
+      const order = ['todo','in_progress','done'];
+      const next = order[(order.indexOf(t.status)+1) % order.length];
+      t.status = next;
+      mhDB.save(db); renderList();
+    }));
+  }
+  renderList();
+});
+</script>
+</body>
+</html>

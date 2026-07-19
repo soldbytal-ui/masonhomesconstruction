@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<title>Team · Mason Homes Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/assets/admin.css"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="/admin/assets/admin.js"></script>
+</head>
+<body>
+<script>
+mhBoot('team', 'Team · Crew directory', function(root){
+  const db = mhDB.get();
+
+  root.innerHTML = ''
+    + '<div class="kpis">'
+    +   '<div class="kpi"><div class="label">Active Members</div><div class="value">' + db.team.filter(t => t.active).length + '</div></div>'
+    +   '<div class="kpi info"><div class="label">Project Managers</div><div class="value">' + db.team.filter(t => t.role === 'project_manager').length + '</div></div>'
+    +   '<div class="kpi"><div class="label">Field Crew</div><div class="value">' + db.team.filter(t => t.role === 'lead_carpenter' || t.role === 'field').length + '</div></div>'
+    +   '<div class="kpi warn"><div class="label">Office / Admin</div><div class="value">' + db.team.filter(t => ['admin','owner','estimator'].includes(t.role)).length + '</div></div>'
+    + '</div>'
+    + '<div class="panel">'
+    +   '<div class="panel-head"><h2>Team directory</h2><div class="actions"><button class="btn btn-primary">' + mhIcon('plus') + ' Add member</button></div></div>'
+    +   '<div class="panel-body">'
+    +     '<table class="data-table">'
+    +       '<thead><tr><th>Member</th><th>Role</th><th>Email</th><th>Phone</th><th>Status</th></tr></thead>'
+    +       '<tbody>' + db.team.map(t =>
+      '<tr><td><div class="name-cell"><div class="avatar">' + mhFmt.initials(t.name) + '</div><div class="primary">' + t.name + '</div></div></td><td style="text-transform:capitalize">' + t.role.replace('_',' ') + '</td><td>' + (t.email ? '<a href="mailto:' + t.email + '">' + t.email + '</a>' : '<span style="color:var(--muted)">—</span>') + '</td><td class="mono">' + (t.phone ? '<a href="tel:' + t.phone + '">' + t.phone + '</a>' : '—') + '</td><td><span class="pill ' + (t.active ? 'active' : 'on-hold') + '">' + (t.active ? 'Active' : 'Inactive') + '</span></td></tr>'
+    ).join('') + '</tbody>'
+    +     '</table>'
+    +   '</div>'
+    + '</div>';
+});
+</script>
+</body>
+</html>
