@@ -1,0 +1,30 @@
+# Files not needed in the Vercel deployment.
+# These stay in the git repo (developer conveniences), but Vercel skips them
+# so they don't confuse framework detection or waste build/upload bandwidth.
+
+# Python developer tooling (SEO audit, deploy, DataForSEO scripts)
+scripts/
+requirements.txt
+pyproject.toml
+Pipfile
+Pipfile.lock
+
+# SEO research artifacts (docs, YAML, CSVs — reference only, not for prod)
+seo/
+
+# Old Netlify config, retained in the repo as historical reference
+netlify.toml
+netlify/
+
+# Developer docs (not served to visitors)
+MIGRATION.md
+site/DESIGN.md
+site/admin/data-model.md
+
+# CLI/local dev caches
+.venv/
+.netlify/
+.vercel/
+__pycache__/
+.env
+.env.example
