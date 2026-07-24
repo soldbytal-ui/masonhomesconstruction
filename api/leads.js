@@ -1,69 +1,51 @@
 /*
-  Vercel Serverless Function: /api/leads
-  Same behavior as the previous Netlify function of the same name, adapted to
-  Vercel's handler signature.
+  Vercel Serverless Function: GET /api/leads
+  Returns all leads from Supabase, newest first, normalized to the admin CRM
+  shape. Used by /admin/ pages to populate the leads inbox and dashboard KPIs.
 
-  Pulls submissions from Mason Homes forms (contact, estimate, mason-chat)
-  and returns them normalized to the admin CRM lead shape.
+  Reads Supabase config from Vercel env vars:
+    - SUPABASE_URL          e.g. https://xxxxx.supabase.co
+    - SUPABASE_ANON_KEY     the anon/public key (protected by RLS)
 
-  Env vars required (set in Vercel Project → Settings → Environment Variables):
-    - NETLIFY_API_TOKEN  Personal Access Token from app.netlify.com
-                         (User Settings → Applications → Personal access tokens)
-    - NETLIFY_SITE_ID    "API ID" from the old Netlify site
-                         (Site Configuration → General → Site information)
-
-  Rationale: leads submitted while the site was on Netlify still live in
-  Netlify Forms. This function keeps the admin CRM able to read them until
-  the site is on Supabase (see /site/admin/data-model.md for the migration).
-
-  Once the forms are re-pointed at Vercel/Supabase/Formspree, this function
-  becomes read-only history until the client decides to archive it.
+  If either env var is missing, the endpoint returns { configured: false } so
+  the admin can render a setup banner instead of erroring.
 */
 
-const NETLIFY_API = 'https://api.netlify.com/api/v1';
-const FORM_NAMES  = ['contact', 'estimate', 'mason-chat'];
-
 module.exports = async function handler(req, res) {
-  const token  = process.env.NETLIFY_API_TOKEN;
-  const siteId = process.env.NETLIFY_SITE_ID || process.env.SITE_ID;
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Cache-Control', 'no-store');
 
-  if (!token || !siteId) {
+  if (!url || !key) {
     res.status(200).send(JSON.stringify({
       configured: false,
       leads: [],
-      message: 'Set NETLIFY_API_TOKEN and NETLIFY_SITE_ID env vars in Vercel to enable Netlify Forms sync. If forms have moved to a new destination, wire that source into the admin instead.',
+      message: 'Set SUPABASE_URL and SUPABASE_ANON_KEY env vars in Vercel to enable live sync.',
     }));
     return;
   }
 
   try {
-    const formsRes = await fetch(`${NETLIFY_API}/sites/${siteId}/forms`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    if (!formsRes.ok) {
-      const text = await formsRes.text();
-      throw new Error(`Forms list: ${formsRes.status} ${text.slice(0, 200)}`);
-    }
-    const allForms = await formsRes.json();
-    const targets  = allForms.filter((f) => FORM_NAMES.includes(f.name));
+    const supaRes = await fetch(
+      `${url}/rest/v1/leads?select=*&order=created_at.desc`,
+      {
+        headers: {
+          apikey: key,
+          Authorization: `Bearer ${key}`,
+          Accept: 'application/json',
+        },
+      }
+    );
 
-    const collected = [];
-    for (const form of targets) {
-      const subRes = await fetch(
-        `${NETLIFY_API}/forms/${form.id}/submissions?per_page=100`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      if (!subRes.ok) continue;
-      const subs = await subRes.json();
-      subs.forEach((s) => collected.push({ form_name: form.name, ...s }));
+    if (!supaRes.ok) {
+      const text = await supaRes.text();
+      throw new Error(`Supabase ${supaRes.status}: ${text.slice(0, 300)}`);
     }
 
-    const leads = collected
-      .map(normalize)
-      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    const rows = await supaRes.json();
+    const leads = rows.map(normalize);
 
     res.status(200).send(JSON.stringify({
       configured: true,
@@ -80,40 +62,21 @@ module.exports = async function handler(req, res) {
   }
 };
 
-function normalize(sub) {
-  const d = sub.data || {};
-  const formName = sub.form_name;
-
-  const first = d.first_name || '';
-  const last  = d.last_name || '';
-  const composedName = `${first} ${last}`.trim();
-  const name = d.name || d.full_name || composedName || '(no name)';
-
-  const location   = d.location || d.city || d.zip || '';
-  const projectRaw = d.project || d.project_type || d.service || d.subject || '';
-  const budget     = d.budget || '';
-  const timeline   = d.timeline || d.start_time || '';
-  const notes      = d.message || d.notes || d.details || '';
-
-  const sourceMap = {
-    'mason-chat': 'chat_widget',
-    contact:      'form',
-    estimate:     'form',
-  };
-
+function normalize(row) {
   return {
-    id: 'nf_' + sub.id,
-    netlify_id: sub.id,
-    form_name: formName,
-    source: sourceMap[formName] || 'web',
-    project: projectRaw,
-    budget, timeline, location, name,
-    phone: d.phone || d.tel || '',
-    email: d.email || '',
-    status: 'new',
-    page: d.page || d.referrer || '',
-    notes,
-    created_at: sub.created_at,
-    updated_at: sub.created_at,
+    id: row.id,
+    source: row.source,
+    project: row.project || '',
+    budget: row.budget || '',
+    timeline: row.timeline || '',
+    location: row.location || '',
+    name: row.name || '(no name)',
+    phone: row.phone || '',
+    email: row.email || '',
+    status: row.status || 'new',
+    page: row.page || '',
+    notes: row.notes || '',
+    created_at: row.created_at,
+    updated_at: row.updated_at,
   };
 }

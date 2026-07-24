@@ -453,7 +453,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opa
         </div>
       </div>
 
-      <form class="hero-form" name="estimate" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="hero-form">
+      <form class="hero-form" name="estimate" method="POST" data-submit-endpoint="/api/lead-submit" data-success-message="Thanks — we’ll follow up to arrange an on-site consultation." id="hero-form">
         <input type="hidden" name="form-name" value="estimate"/>
         <p class="hp"><label>Don't fill this out: <input name="bot-field"/></label></p>
         <div class="form-eyebrow">Tell us about your project</div>

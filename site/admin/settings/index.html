@@ -46,7 +46,7 @@ mhBoot('settings', 'Settings · Company configuration', function(root){
     +   '<div class="panel">'
     +     '<div class="panel-head"><h2>Data</h2></div>'
     +     '<div class="panel-body padded">'
-    +       '<p class="hint" style="margin-bottom:14px">Leads sync live from Netlify Forms (contact, free estimate, chat widget). Local edits — status changes, notes, estimates, projects — live in this browser only until the Supabase migration.</p>'
+    +       '<p class="hint" style="margin-bottom:14px">Leads sync live from Supabase. Every form submission (contact, free estimate, chat widget) writes directly into the leads table. Projects, estimates, tasks and other edits still live in this browser only — those are next on the Supabase migration.</p>'
     +       '<div class="hstack" style="gap:10px;flex-wrap:wrap">'
     +         '<button class="btn btn-outline" id="export">Export data (JSON)</button>'
     +         '<button class="btn btn-outline" id="import">Import data (JSON)</button>'
@@ -55,11 +55,11 @@ mhBoot('settings', 'Settings · Company configuration', function(root){
     +     '</div>'
     +   '</div>'
     +   '<div class="panel">'
-    +     '<div class="panel-head"><h2>Live sync + Supabase plan</h2></div>'
+    +     '<div class="panel-head"><h2>Data pipeline</h2></div>'
     +     '<div class="panel-body padded">'
-    +       '<p class="hint" style="margin-bottom:10px"><strong>Now:</strong> a Netlify serverless function at <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">/api/leads</code> pulls submissions on every dashboard load. Requires <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">NETLIFY_API_TOKEN</code> + <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">NETLIFY_SITE_ID</code> env vars.</p>'
-    +       '<p class="hint" style="margin-bottom:14px"><strong>Later:</strong> Supabase gives multi-device sync, team logins, and real persistence. Schema is already Supabase-shaped.</p>'
-    +       '<div class="hstack" style="gap:10px"><a href="/admin/data-model.md" class="btn btn-outline">' + mhIcon('external') + ' View migration SQL</a></div>'
+    +       '<p class="hint" style="margin-bottom:10px"><strong>Live:</strong> Vercel serverless functions at <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">/api/leads</code> (read) and <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">/api/lead-submit</code> (write) talk to Supabase using <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">SUPABASE_URL</code> + <code style="font-family:JetBrains Mono,monospace;background:var(--warm-white);padding:2px 6px;border-radius:2px">SUPABASE_ANON_KEY</code> (or SERVICE_ROLE_KEY for writes) set in Vercel env vars.</p>'
+    +       '<p class="hint" style="margin-bottom:14px"><strong>Next:</strong> migrate projects, estimates, invoices, tasks and team tables to Supabase so all admin state is multi-device.</p>'
+    +       '<div class="hstack" style="gap:10px"><a href="/admin/data-model.md" class="btn btn-outline">' + mhIcon('external') + ' View schema</a></div>'
     +     '</div>'
     +   '</div>'
     + '</div>'
@@ -112,7 +112,7 @@ mhBoot('settings', 'Settings · Company configuration', function(root){
   });
 
   document.getElementById('reset').addEventListener('click', function(){
-    if(!confirm('Reset local data? This clears everything stored in this browser. Live form leads will re-sync from Netlify on next load.')) return;
+    if(!confirm('Reset local data? This clears everything stored in this browser. Live form leads will re-sync from Supabase on next load.')) return;
     mhDB.reset();
     location.reload();
   });

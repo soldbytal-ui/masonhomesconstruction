@@ -194,13 +194,17 @@ function askNext(){
 
 function submitChat(){
   addBotMsg("One moment — I'm getting a real person notified for you...", function(){
-    // Submit to Netlify Forms
-    var body = new URLSearchParams();
-    body.append('form-name','mason-chat');
-    Object.keys(chatState.answers).forEach(function(k){ body.append(k, chatState.answers[k]); });
-    body.append('source','chat-widget');
-    body.append('page', window.location.pathname);
-    fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:body.toString() })
+    // Submit to Supabase via the /api/lead-submit Vercel function
+    var payload = Object.assign({}, chatState.answers, {
+      'form-name': 'mason-chat',
+      source: 'chat-widget',
+      page: window.location.pathname
+    });
+    fetch('/api/lead-submit', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    })
       .then(function(){ showChatSuccess(); })
       .catch(function(){ showChatSuccess(); }); // still show success — user has our number
   });
@@ -212,7 +216,7 @@ function showChatSuccess(){
   chatInputRow.style.display = 'none';
   var wrap = document.createElement('div');
   wrap.className = 'chat-success';
-  wrap.innerHTML = '<div class="icon">✓</div><h3>You’re all <em>set</em>.</h3><p>Our team will reach out within one business day. If you can’t wait, call us directly:</p><a href="tel:+18139995910">(813) 999-5910 &rarr;</a>';
+  wrap.innerHTML = '<div class="icon">✓</div><h3>You’re all <em>set</em>.</h3><p>Our team will follow up shortly. If you can’t wait, call us directly:</p><a href="tel:+18139995910">(813) 999-5910 &rarr;</a>';
   chatBody.appendChild(wrap);
   // clear localStorage
   localStorage.removeItem('mh_chat_state');
@@ -325,5 +329,50 @@ document.addEventListener('click', function(e){
   if(t === 'chat'){ openModal(chatModal); startChat(); }
   else if(t === 'estimate'){ openModal(estimateModal); }
 });
+
+// -------- Site-wide form submit handler --------
+// Any <form data-submit-endpoint="/api/lead-submit"> is intercepted here,
+// serialized to JSON and POSTed to Supabase via the Vercel function.
+document.addEventListener('submit', function(e){
+  var form = e.target;
+  if(!form.matches || !form.matches('form[data-submit-endpoint]')) return;
+  e.preventDefault();
+
+  var endpoint = form.dataset.submitEndpoint;
+  var successMsg = form.dataset.successMessage || 'Thank you — we’ll follow up shortly.';
+  var button = form.querySelector('button[type="submit"],input[type="submit"]');
+  var originalLabel = button ? button.innerHTML : null;
+  if(button){ button.disabled = true; button.innerHTML = 'Sending…'; }
+
+  var data = {};
+  new FormData(form).forEach(function(v, k){ data[k] = v; });
+  data.page = data.page || window.location.pathname;
+
+  fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+    .then(function(r){ return r.json().catch(function(){ return { ok:false }; }); })
+    .then(function(res){
+      if(res && res.ok){
+        showFormSuccess(form, successMsg);
+      } else {
+        if(button){ button.disabled = false; button.innerHTML = originalLabel; }
+        alert('Sorry — that didn’t go through. Please call (813) 999-5910 or try again.');
+      }
+    })
+    .catch(function(){
+      if(button){ button.disabled = false; button.innerHTML = originalLabel; }
+      alert('Sorry — network issue. Please call (813) 999-5910 or try again.');
+    });
+});
+
+function showFormSuccess(form, msg){
+  var note = document.createElement('div');
+  note.style.cssText = 'padding:20px 22px;background:rgba(200,98,60,.08);border-left:3px solid var(--bronze,#c8623c);border-radius:2px;font-family:"Inter",sans-serif;font-size:15px;color:var(--charcoal,#1a1814);line-height:1.55;margin:12px 0';
+  note.innerHTML = '<strong style="display:block;margin-bottom:6px;font-family:\'JetBrains Mono\',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze,#c8623c);font-weight:500">Received</strong>' + msg;
+  form.replaceWith(note);
+}
 
 })();

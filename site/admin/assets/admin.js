@@ -75,7 +75,7 @@ function resetDB(){ localStorage.removeItem(DB_KEY); db = null; return seedIfEmp
 
 window.mhDB = { get: getDB, save: saveDB, reset: resetDB, uid, nowISO };
 
-// ---------- LIVE LEAD SYNC (Netlify Forms via /api/leads function) ----------
+// ---------- LIVE LEAD SYNC (Supabase via /api/leads Vercel function) ----------
 async function syncFromNetlify(){
   try {
     const res = await fetch('/api/leads', { cache:'no-store' });
@@ -108,16 +108,16 @@ function syncBannerHTML(state){
   const cls = { syncing:'', ok:'ok', setup:'warn', error:'err' }[state.phase] || '';
   let msg = '';
   if(state.phase === 'syncing'){
-    msg = '<strong>Syncing…</strong> checking Netlify Forms for new submissions.';
+    msg = '<strong>Syncing…</strong> checking Supabase for new leads.';
   } else if(state.phase === 'ok'){
     if(state.added > 0){
       msg = '<strong>' + state.added + ' new lead' + (state.added===1?'':'s') + ' imported.</strong> Live sync active · '
-        + state.total + ' total from forms.';
+        + state.total + ' total in Supabase.';
     } else {
-      msg = '<strong>Up to date.</strong> Live sync active · ' + state.total + ' lead' + (state.total===1?'':'s') + ' pulled from forms.';
+      msg = '<strong>Up to date.</strong> Live sync active · ' + state.total + ' lead' + (state.total===1?'':'s') + ' in Supabase.';
     }
   } else if(state.phase === 'setup'){
-    msg = '<strong>Live sync not configured.</strong> Add <code>NETLIFY_API_TOKEN</code> and <code>NETLIFY_SITE_ID</code> in Netlify → Site settings → Environment variables. Until then, admin only shows locally-added leads.';
+    msg = '<strong>Supabase not configured.</strong> Add <code>SUPABASE_URL</code> and <code>SUPABASE_ANON_KEY</code> in Vercel → Project Settings → Environment Variables. Until then, admin only shows locally-added leads.';
   } else if(state.phase === 'error'){
     msg = '<strong>Sync failed.</strong> ' + (state.error || 'Unknown error') + ' — retry in a moment.';
   }

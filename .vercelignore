@@ -12,9 +12,7 @@ Pipfile.lock
 # SEO research artifacts (docs, YAML, CSVs — reference only, not for prod)
 seo/
 
-# Old Netlify config, retained in the repo as historical reference
-netlify.toml
-netlify/
+# (Netlify config removed once site was on Vercel + Supabase — no longer relevant)
 
 # Developer docs (not served to visitors)
 MIGRATION.md
