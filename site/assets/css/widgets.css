@@ -10,8 +10,17 @@
 .announce-bar strong{color:var(--bronze-lt);font-weight:500;letter-spacing:.24em}
 .announce-bar a{color:var(--ivory);border-bottom:1px solid rgba(247,242,232,.4);transition:border-color .3s var(--ease,cubic-bezier(.16,1,.3,1))}
 .announce-bar a:hover{color:var(--bronze-lt);border-bottom-color:var(--bronze-lt)}
+.announce-bar .ab-phone{color:var(--bronze-lt);font-weight:500;letter-spacing:.2em;border-bottom:0;display:inline-flex;align-items:center;gap:8px;transition:color .3s var(--ease,cubic-bezier(.16,1,.3,1))}
+.announce-bar .ab-phone:hover{color:var(--ivory)}
+.announce-bar .ab-phone .ab-icon{color:var(--bronze);font-size:12px;line-height:1}
+.announce-bar .ab-sep{color:rgba(247,242,232,.35);margin:0 12px;font-weight:300;letter-spacing:0}
 .announce-bar .close{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:0;color:rgba(247,242,232,.5);cursor:pointer;font-family:'Inter',sans-serif;font-size:16px;line-height:1;padding:6px 10px;transition:color .3s var(--ease,cubic-bezier(.16,1,.3,1))}
 .announce-bar .close:hover{color:var(--ivory)}
+@media(max-width:720px){
+  .announce-bar{padding:9px 44px 9px 16px;font-size:10.5px;letter-spacing:.14em}
+  .announce-bar .ab-narrow-hide{display:none}
+  .announce-bar .ab-sep{margin:0 8px}
+}
 body.announce-hidden .announce-bar{display:none}
 /* When the announce bar is showing, push both the fixed header AND the document
    flow down by the bar's height so the two stay locked together on scroll. */

@@ -10,7 +10,7 @@
 if(!sessionStorage.getItem('mh_announce_dismissed')){
   var ab = document.createElement('div');
   ab.className = 'announce-bar';
-  ab.innerHTML = '<strong>Free on-site consultation.</strong> &nbsp;Response within 24 hours. &nbsp;<a href="/free-estimate/">Request Estimate →</a><button class="close" aria-label="Dismiss">×</button>';
+  ab.innerHTML = '<a class="ab-phone" href="tel:+18139995910"><span class="ab-icon" aria-hidden="true">☎</span>(813) 999-5910</a><span class="ab-sep" aria-hidden="true">·</span><strong class="ab-narrow-hide">Free on-site consultation.</strong><span class="ab-sep ab-narrow-hide" aria-hidden="true">·</span><span class="ab-narrow-hide">Response within 24 hours.</span><span class="ab-sep" aria-hidden="true">·</span><a href="/free-estimate/">Request Estimate →</a><button class="close" aria-label="Dismiss">×</button>';
   document.body.insertBefore(ab, document.body.firstChild);
   ab.querySelector('.close').addEventListener('click', function(){
     document.body.classList.add('announce-hidden');
