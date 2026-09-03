@@ -2,6 +2,8 @@
   Vercel Serverless Function: POST /api/lead-submit
   Receives a lead from the site's public forms (chat widget, contact form,
   free-estimate form) and inserts a row into the Supabase `leads` table.
+  After a successful Supabase write, also POSTs to Formspree as a secondary
+  notification channel so the client receives an email per submission.
 
   Accepts either JSON body or form-encoded body. Returns { ok: true, id }
   on success, { ok: false, error } on failure.
@@ -9,6 +11,11 @@
   Reads Supabase config from Vercel env vars:
     - SUPABASE_URL          e.g. https://xxxxx.supabase.co
     - SUPABASE_ANON_KEY     the anon/public key (row-level security applies)
+
+  Formspree endpoint (hard-coded — it's a public form ID, not a secret):
+    - https://formspree.io/f/mljenlqj
+  Failures on the Formspree POST are logged but do NOT fail the request —
+  Supabase is the source of truth; Formspree is a notification convenience.
 
   Security note: with the default RLS policies from /site/admin/data-model.md,
   anon inserts on leads are blocked. Either add a policy that allows anon to
@@ -21,6 +28,8 @@
       to anon
       with check (true);
 */
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mljenlqj';
 
 module.exports = async function handler(req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -106,6 +115,11 @@ module.exports = async function handler(req, res) {
 
     const inserted = await supaRes.json();
     const id = Array.isArray(inserted) && inserted[0] ? inserted[0].id : null;
+
+    // Secondary notification: fire Formspree so the client gets an email.
+    // Any failure here is logged and swallowed — Supabase is authoritative.
+    await notifyFormspree(row, body, id);
+
     res.status(200).send(JSON.stringify({ ok: true, id }));
   } catch (err) {
     res.status(200).send(JSON.stringify({
@@ -114,6 +128,59 @@ module.exports = async function handler(req, res) {
     }));
   }
 };
+
+// Fire Formspree with the same lead data plus notification-friendly fields.
+// Never throws — logs any failure and returns.
+async function notifyFormspree(row, body, supabaseId) {
+  try {
+    const formSource =
+      body._form_source ||
+      body.form_source ||
+      body['form-name'] ||
+      row.source ||
+      'website';
+
+    // Formspree treats leading-underscore fields as special (subject, reply-to,
+    // honeypot, etc). Keep the visible payload human-readable in the email.
+    const payload = {
+      _subject: `New lead — ${formSource} — ${row.name}`,
+      _replyto: row.email || undefined,
+      _form_source: formSource,
+      name:     row.name,
+      email:    row.email || '',
+      phone:    row.phone || '',
+      project:  row.project || '',
+      budget:   row.budget || '',
+      timeline: row.timeline || '',
+      location: row.location || '',
+      notes:    row.notes || '',
+      page:     row.page || '',
+      source:   row.source,
+      supabase_lead_id: supabaseId || '',
+      submitted_at: new Date().toISOString(),
+    };
+
+    const fsRes = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!fsRes.ok) {
+      const text = await fsRes.text().catch(() => '');
+      console.error(
+        `[lead-submit] Formspree ${fsRes.status} — Supabase lead ${supabaseId} still saved. ${text.slice(0, 200)}`
+      );
+    }
+  } catch (err) {
+    console.error(
+      `[lead-submit] Formspree notify failed — Supabase lead ${supabaseId} still saved. ${err.message || err}`
+    );
+  }
+}
 
 async function parseBody(req) {
   // Vercel already parses common bodies but not always urlencoded — handle both

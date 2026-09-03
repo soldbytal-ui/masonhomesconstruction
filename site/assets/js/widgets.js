@@ -197,6 +197,7 @@ function submitChat(){
     // Submit to Supabase via the /api/lead-submit Vercel function
     var payload = Object.assign({}, chatState.answers, {
       'form-name': 'mason-chat',
+      _form_source: 'chat-widget',
       source: 'chat-widget',
       page: window.location.pathname
     });
