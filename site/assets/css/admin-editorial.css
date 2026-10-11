@@ -1,0 +1,17 @@
+/* Admin companion stylesheet — visual refresh only, preserving dashboard logic. */
+:root{--ivory:#f7f6f1;--cream:#eeece5;--paper:#fbfaf7;--charcoal:#222b25;--bronze:#a56c4d;--bronze-dk:#855037;--green:#38483d}
+html,body{background:#f7f6f1!important;color:#27332a}
+aside,.sidebar{background:#25342b!important;color:#f7f6f1}
+.sidebar a:hover,.sidebar a.active,aside a:hover,aside a.active{background:#394d40!important}
+main,.main,.content,.workspace{background:#f7f6f1}
+.panel,.kpi,.card,.data-table{border-radius:3px!important;box-shadow:none!important;border-color:#dedfd8!important}
+.kpi{background:#fff!important}
+.panel,.card{background:#fff}
+.panel-head,.topbar,.page-header{border-color:#dedfd8}
+h1,h2,.page-title{letter-spacing:-.035em}
+.btn-primary{background:#38483d!important;border-color:#38483d!important;color:#fff!important}
+.btn-primary:hover{background:#25362c!important}
+input:focus,select:focus,textarea:focus{outline-color:#819685}
+table th{letter-spacing:.1em}
+table tr:hover td{background:#f7f8f5}
+.pill{border-radius:2px!important}
